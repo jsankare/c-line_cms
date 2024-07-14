@@ -1,0 +1,63 @@
+.dashboard {
+  position: relative;
+  &--main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__charts {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 1000px;
+    }
+  }
+  &--chart {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+.chart {
+  height: 100%;
+  flex: 1;
+  min-height: 250px;
+  flex-shrink: 0;
+  &--attribution {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &--section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    &__current {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    &__color {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    &--currentColor {
+      display: flex;
+      width: 5rem;
+      border-radius: 0.5rem;
+      flex-shrink: 0;
+      border: 1px solid black;
+    }
+  }
+}

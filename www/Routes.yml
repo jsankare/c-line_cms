@@ -1,0 +1,293 @@
+/:
+  Controller: PageController
+  Action: "home"
+  Security: false
+  Role: "Guest"
+
+/login:
+  Controller: SecurityController
+  Action: "login"
+  Security: false
+  Role: "Guest"
+
+/register:
+  Controller: SecurityController
+  Action: "register"
+  Security: false
+  Role: "Guest"
+
+/logout:
+  Controller: SecurityController
+  Action: "logout"
+  Security: true
+  Role: "User"
+
+/sitemap.xml:
+  Controller: SecurityController
+  Action: "xml"
+  Security: false
+  Role: "Guest"
+
+/accountVerification:
+  Controller: SecurityController
+  Action: "accountVerification"
+  Security: false
+  Role: "Guest"
+
+/dashboard:
+  Controller: DashboardController
+  Action: "show"
+  Security: true
+  Role: "Editor"
+
+/dashboard/settings:
+  Controller: DashboardController
+  Action: "settings"
+  Security: true
+  Role: "Admin"
+
+/profile:
+  Controller: SecurityController
+  Action: "profile"
+  Security: true
+  Role: "User"
+
+/profile/predelete:
+  Controller: SecurityController
+  Action: "predelete"
+  Security: true
+  Role: "User"
+
+/profile/delete:
+  Controller: SecurityController
+  Action: "delete"
+  Security: true
+  Role: "User"
+
+/users/home:
+  Controller: UserController
+  Action: "list"
+  Security: true
+  Role: "Moderator"
+
+/users/reset-password:
+  Controller: SecurityController
+  Action: "resetPassword"
+  Security: true
+  Role: "Admin"
+
+/sendResetPassword:
+  Controller: SecurityController
+  Action: "sendResetPassword"
+  Security: true
+  Role: "User"
+
+/resetPassword:
+  Controller: SecurityController
+  Action: "treatResetPassword"
+  Security: false
+  Role: "Guest"
+
+/users/create:
+  Controller: UserController
+  Action: "add"
+  Security: true
+  Role: "Admin"
+
+/users/delete:
+  Controller: UserController
+  Action: "delete"
+  Security: true
+  Role: "Admin"
+
+/users/predelete:
+  Controller: UserController
+  Action: "predelete"
+  Security: true
+  Role: "Admin"
+
+/show-utilisateur:
+  Controller: UserController
+  Action: "show"
+  Security: True
+  Role: "Admin"
+
+/users/edit:
+  Controller: UserController
+  Action: "edit"
+  Security: true
+  Role: "Admin"
+
+/page/home:
+  Controller: PageController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/page/create:
+  Controller: PageController
+  Action: "add"
+  Security: true
+  Role: "Editor"
+
+/page/delete:
+  Controller: PageController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+/page/predelete:
+  Controller: PageController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/page/edit:
+  Controller: PageController
+  Action: "edit"
+  Security: true
+  Role: "Editor"
+
+/page/{slug}:
+  Controller: PageController
+  Action: "show"
+  Security: false
+  Role: "Guest"
+
+/401:
+  Controller: ErrorController
+  Action: "unauthorized"
+  Security: false
+  Role: "Guest"
+
+/404:
+  Controller: ErrorController
+  Action: "misdirection"
+  Security: false
+  Role: "Guest"
+
+/409:
+  Controller: ErrorController
+  Action: "conflict"
+  Security: false
+  Role: "Guest"
+
+/500:
+  Controller: ErrorController
+  Action: "serverError"
+  Security: false
+  Role: "Guest"
+
+/501:
+  Controller: ErrorController
+  Action: "notImplemented"
+  Security: false
+  Role: "Guest"
+
+/article/create:
+  Controller: ArticleController
+  Action: "add"
+  Security: true
+  Role: "Editor"
+
+/article/delete:
+  Controller: ArticleController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+/article/predelete:
+  Controller: ArticleController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/article/home:
+  Controller: ArticleController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/article/edit:
+  Controller: ArticleController
+  Action: "edit"
+  Security: true
+  Role: "Moderator"
+
+/articles:
+  Controller: ArticleController
+  Action: "show"
+  Security: false
+  Role: "Guest"
+
+/comment/create:
+  Controller: CommentController
+  Action: "add"
+  Security: true
+  Role: "Guest"
+
+/comment/delete:
+  Controller: CommentController
+  Action: "delete"
+  Security: true
+  Role: "Moderator"
+
+/comment/delete-own:
+  Controller: CommentController
+  Action: "deleteSelf"
+  Security: true
+  Role: "User"
+
+/comment/moderate:
+  Controller: CommentController
+  Action: "moderate"
+  Security: true
+  Role: "Moderator"
+
+/comments/home:
+  Controller: CommentController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/comment/show:
+  Controller: CommentController
+  Action: "show"
+  Security: True
+  Role: "Editor"
+
+/gallery:
+  Controller: GalleryController
+  Action: "home"
+  Security: false
+  Role: "Guest"
+
+/gallery/create:
+  Controller: GalleryController
+  Action: "create"
+  Security: true
+  Role: "Editor"
+
+/gallery/list:
+  Controller: GalleryController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/image/delete:
+  Controller: GalleryController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+/image/predelete:
+  Controller: GalleryController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/image/edit:
+  Controller: GalleryController
+  Action: "edit"
+  Security: true
+  Role: "Editor"
