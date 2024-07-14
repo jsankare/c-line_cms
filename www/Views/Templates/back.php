@@ -21,6 +21,7 @@
                         <li class="navbar--list__link"><a href="/users/home">Utilisateurs</a></li>
                         <li class="navbar--list__link"><a href="/gallery/list" >Bibliothèque</a></li>
                         <li class="navbar--list__link"><a href="/page/home">Pages</a></li>
+                        <li class="navbar--list__link"><a href="/item/home">Produits</a></li>
                         <li class="navbar--list__link"><a href="/article/home">Articles</a></li>
                         <li class="navbar--list__link"><a href="/comments/home">Commentaires</a></li>
                     </ul>

@@ -16,7 +16,7 @@ CREATE TABLE public.cline_user (
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL,
-    email VARCHAR(320) NOT NULL,
+    email VARCHAR(320) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     status SMALLINT NOT NULL,
     validation_code VARCHAR(32),
@@ -47,7 +47,7 @@ CREATE TABLE public.cline_article (
     id SERIAL PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     description VARCHAR(50),
-    content VARCHAR NOT NULL,
+    content TEXT NOT NULL,
     creator_id SMALLINT NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY (creator_id) REFERENCES public.cline_user(id),
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -68,6 +68,20 @@ CREATE TABLE cline_comment (
     FOREIGN KEY (user_id) REFERENCES public.cline_user(id)
 );
 
+-- Table cline_item
+DROP TABLE IF EXISTS public.cline_item CASCADE;
+CREATE TABLE cline_item (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    category VARCHAR(30) NOT NULL,
+    image VARCHAR(500) NOT NULL,
+    price NUMERIC NOT NULL,
+    available BOOLEAN,
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Table cline_image
 DROP TABLE IF EXISTS public.cline_image CASCADE;
 CREATE TABLE cline_image (
@@ -75,8 +89,45 @@ CREATE TABLE cline_image (
     title VARCHAR(50) NOT NULL,
     description VARCHAR(100) NOT NULL,
     link VARCHAR(500) NOT NULL,
+    item_id INT,
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (item_id) REFERENCES cline_item(id)
+);
+
+-- Table cline_color
+DROP TABLE IF EXISTS public.cline_color CASCADE;
+CREATE TABLE cline_color (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    color_code VARCHAR(7) NOT NULL UNIQUE
+);
+
+-- Table cline_size
+DROP TABLE IF EXISTS public.cline_size CASCADE;
+CREATE TABLE cline_size (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20)
+);
+
+-- Table cline_item_color
+DROP TABLE IF EXISTS public.cline_item_color CASCADE;
+CREATE TABLE cline_item_color (
+    PRIMARY KEY (item_id, color_id),
+    item_id INT,
+    color_id INT,
+    FOREIGN KEY (item_id) REFERENCES cline_item(id) ON DELETE SET NULL,
+    FOREIGN KEY (color_id) REFERENCES cline_color(id) ON DELETE SET NULL
+);
+
+-- Table cline_item_size
+DROP TABLE IF EXISTS public.cline_item_size CASCADE;
+CREATE TABLE cline_item_size (
+    PRIMARY KEY (item_id, size_id),
+    item_id INT,
+    size_id INT,
+    FOREIGN KEY (item_id) REFERENCES cline_item(id) ON DELETE SET NULL,
+    FOREIGN KEY (size_id) REFERENCES cline_size(id) ON DELETE SET NULL
 );
 
 -- Table cline_settings

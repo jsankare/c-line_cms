@@ -118,6 +118,12 @@
   Security: true
   Role: "Admin"
 
+/item/home:
+  Controller: ItemController
+  Action: "home"
+  Security: true
+  Role: "Editor"
+
 /page/home:
   Controller: PageController
   Action: "list"
