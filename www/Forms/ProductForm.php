@@ -1,7 +1,7 @@
 <?php
 namespace App\Forms;
 
-class ItemForm
+class ProductForm
 {
     public static function getConfig(array $data = []): array
     {

@@ -68,9 +68,9 @@ CREATE TABLE cline_comment (
     FOREIGN KEY (user_id) REFERENCES public.cline_user(id)
 );
 
--- Table cline_item
-DROP TABLE IF EXISTS public.cline_item CASCADE;
-CREATE TABLE cline_item (
+-- Table cline_product
+DROP TABLE IF EXISTS public.cline_product CASCADE;
+CREATE TABLE cline_product (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description VARCHAR(100) NOT NULL,
@@ -89,10 +89,10 @@ CREATE TABLE cline_image (
     title VARCHAR(50) NOT NULL,
     description VARCHAR(100) NOT NULL,
     link VARCHAR(500) NOT NULL,
-    item_id INT,
+    product_id INT,
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (item_id) REFERENCES cline_item(id)
+    FOREIGN KEY (product_id) REFERENCES cline_product(id)
 );
 
 -- Table cline_color
@@ -110,23 +110,23 @@ CREATE TABLE cline_size (
     name VARCHAR(20)
 );
 
--- Table cline_item_color
-DROP TABLE IF EXISTS public.cline_item_color CASCADE;
-CREATE TABLE cline_item_color (
-    PRIMARY KEY (item_id, color_id),
-    item_id INT,
+-- Table cline_product_color
+DROP TABLE IF EXISTS public.cline_product_color CASCADE;
+CREATE TABLE cline_product_color (
+    PRIMARY KEY (product_id, color_id),
+    product_id INT,
     color_id INT,
-    FOREIGN KEY (item_id) REFERENCES cline_item(id) ON DELETE SET NULL,
+    FOREIGN KEY (product_id) REFERENCES cline_product(id) ON DELETE SET NULL,
     FOREIGN KEY (color_id) REFERENCES cline_color(id) ON DELETE SET NULL
 );
 
--- Table cline_item_size
-DROP TABLE IF EXISTS public.cline_item_size CASCADE;
-CREATE TABLE cline_item_size (
-    PRIMARY KEY (item_id, size_id),
-    item_id INT,
+-- Table cline_product_size
+DROP TABLE IF EXISTS public.cline_product_size CASCADE;
+CREATE TABLE cline_product_size (
+    PRIMARY KEY (product_id, size_id),
+    product_id INT,
     size_id INT,
-    FOREIGN KEY (item_id) REFERENCES cline_item(id) ON DELETE SET NULL,
+    FOREIGN KEY (product_id) REFERENCES cline_product(id) ON DELETE SET NULL,
     FOREIGN KEY (size_id) REFERENCES cline_size(id) ON DELETE SET NULL
 );
 

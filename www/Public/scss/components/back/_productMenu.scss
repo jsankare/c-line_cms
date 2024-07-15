@@ -1,6 +1,6 @@
 @use "sass:color";
 
-.item {
+.product {
   &--value {
     -webkit-box-orient: vertical;
     display: -webkit-box;
@@ -85,7 +85,7 @@
         padding-bottom: 1rem;
         margin-bottom: 1rem;
       }
-      img.item--icon {
+      img.product--icon {
         justify-self: center;
         align-self: center;
       }

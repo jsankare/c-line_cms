@@ -626,52 +626,52 @@ input[type=color] {
   align-self: center;
 }
 
-.item--value {
+.product--value {
   -webkit-box-orient: vertical;
   display: -webkit-box;
   -webkit-line-clamp: 8;
   overflow: hidden;
   width: 90%;
 }
-.item--infos {
+.product--infos {
   width: 100%;
   display: grid;
   grid-template-columns: 4fr 4fr 2fr;
   justify-content: center;
   align-items: center;
 }
-.item--navigation {
+.product--navigation {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.item--icon {
+.product--icon {
   width: 100%;
   max-width: 2rem;
   min-width: 1.5rem;
 }
-.item--icon__trash {
+.product--icon__trash {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-.item--icon__update {
+.product--icon__update {
   position: absolute;
   bottom: 1rem;
   right: 0.8rem;
 }
-.item--content {
+.product--content {
   width: 100%;
 }
-.item--content__value {
+.product--content__value {
   -webkit-box-orient: vertical;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   overflow: hidden;
   width: 90%;
 }
-.item--wrapper {
+.product--wrapper {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -679,15 +679,15 @@ input[type=color] {
   align-items: center;
   gap: 2.5rem;
 }
-.item--wrapper ul {
+.product--wrapper ul {
   width: 100%;
 }
-.item--wrapper__separator {
+.product--wrapper__separator {
   width: 80%;
   height: 1px;
   background-color: var(--black);
 }
-.item--wrapper__close {
+.product--wrapper__close {
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
   width: 100%;
@@ -698,7 +698,7 @@ input[type=color] {
   align-items: center;
   margin: 0 auto;
 }
-.item--wrapper__unit {
+.product--wrapper__unit {
   width: 100%;
   max-width: 80%;
   gap: 1rem;
@@ -707,12 +707,12 @@ input[type=color] {
   flex-direction: column;
   align-items: flex-start;
 }
-.item--wrapper__unit:not(:last-child) {
+.product--wrapper__unit:not(:last-child) {
   border-bottom: 1px solid var(--black);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
-.item--wrapper__unit img.item--icon {
+.product--wrapper__unit img.product--icon {
   justify-self: center;
   align-self: center;
 }

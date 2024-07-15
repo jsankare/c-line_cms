@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Core\SQL;
 
-class Item extends SQL
+class Product extends SQL
 {
     private ?int $id=null;
     protected string $name;
@@ -137,7 +137,7 @@ class Item extends SQL
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute([":name" => $name]);
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Item');
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Product');
         return $queryPrepared->fetch();
     }
 
@@ -146,7 +146,7 @@ class Item extends SQL
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute([":id" => $id]);
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Item');
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Product');
         return $queryPrepared->fetch();
     }
 
@@ -155,7 +155,7 @@ class Item extends SQL
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute();
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Item');
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Product');
         return $queryPrepared->fetchAll();
     }
 
