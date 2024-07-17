@@ -39,14 +39,10 @@ class ProductForm
                     ],
                     "value" => $data['status'] ?? 0
                 ],
-                "image"=>[
-                    "type"=> "select",
-                    "options"=>[
-                        "X" => "image X",
-                        "Y" => "image Y",
-                        "Z" => "image Z",
-                    ],
-                    "value" => $data['status'] ?? 0
+                "image" => [
+                    "type" => "file",
+                    "label" => "Image*",
+                    "required" => true
                 ],
                 "price" => [
                     "type" => "number",

@@ -126,7 +126,7 @@
 
 /products/create:
   Controller: ProductController
-  Action: "add"
+  Action: "create"
   Security: true
   Role: "Admin"
 
