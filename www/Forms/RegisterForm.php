@@ -8,6 +8,7 @@ class RegisterForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "register",
                 "submit"=>"S'inscrire"
                 ],
             "inputs"=>[

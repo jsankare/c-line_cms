@@ -42,7 +42,8 @@ class Form
         }
 
         $enctype = isset($this->config["config"]["enctype"]) ? "enctype='{$this->config["config"]["enctype"]}'" : '';
-        $html .= "<form action='{$this->config["config"]["action"]}' method='{$this->config["config"]["method"]}' {$enctype}>";
+        $class = isset($this->config["config"]["class"]) ? $this->config["config"]["class"] : 'form';
+        $html .= "<form class='form--{$class}' action='{$this->config["config"]["action"]}' method='{$this->config["config"]["method"]}' {$enctype}>";
 
         foreach ($this->config["inputs"] as $name => $input) {
             $html .= "<div class='input--wrapper'>";

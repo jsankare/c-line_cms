@@ -1,14 +1,32 @@
 <?php
 namespace App\Forms;
 
+use App\Models\Category;
+use App\Models\Image;
+
 class ProductForm
 {
     public static function getConfig(array $data = []): array
     {
+        $categories = (new Category())->findAll();
+        $images = (new Image())->findAll();
+
+        $categoryOptions[''] = 'Sélectionner une catégorie';
+        $imagesOptions[''] = 'Sélectionner une image';
+
+        foreach ($categories as $category) {
+            $categoryOptions[$category->getId()] = $category->getType();
+        }
+
+        foreach ($images as $image) {
+            $imagesOptions[$image->getId()] = $image->getTitle();
+        }
+
         return [
             "config" => [
                 "action" => "",
                 "method" => "POST",
+                "class" => "product",
                 "submit" => "Enregistrer mon produit"
             ],
             "inputs" => [
@@ -17,7 +35,7 @@ class ProductForm
                     "min" => 2,
                     "max" => 50,
                     "placeholder" => "Nom du produit*",
-                    "label" => "Titre",
+                    "label" => "Nom",
                     "required" => true,
                     "error" => "Le nom du produit doit faire entre 2 et 50 caractères",
                     "value" => $data['name'] ?? ''
@@ -30,32 +48,36 @@ class ProductForm
                     "error" => "La description ne peut pas faire plus de 50 caractères",
                     "value" => $data['description'] ?? ''
                 ],
-                "category"=>[
-                    "type"=> "select",
-                    "options"=>[
-                        "X" => "Catégorie X",
-                        "Y" => "Catégorie Y",
-                        "Z" => "Catégorie Z",
-                    ],
-                    "value" => $data['status'] ?? 0
+                "category" => [
+                    "type" => "select",
+                    "selected" => "placeholder",
+                    "options" => $categoryOptions,
+                    "label" => "Catégorie",
+                    "required" => true,
+                    "error" => "La catégorie est requise",
+                    "value" => $data['category'] ?? ''
                 ],
                 "image" => [
-                    "type" => "file",
-                    "label" => "Image*",
-                    "required" => true
+                    "type" => "select",
+                    "options" => $imagesOptions,
+                    "label" => "Image",
+                    "required" => true,
+                    "error" => "L'image est requise",
+                    "value" => $data['image'] ?? ''
                 ],
                 "price" => [
                     "type" => "number",
                     "label" => "Prix du produit",
                     "value" => $data['price'] ?? ''
                 ],
-                "available"=>[
-                    "type"=> "select",
-                    "options"=>[
+                "available" => [
+                    "type" => "select",
+                    "options" => [
                         "true" => "Disponible",
                         "false" => "Non disponible",
                     ],
-                    "value" => $data['status'] ?? 0
+                    "label" => "Disponibilité",
+                    "value" => $data['available'] ?? 'true'
                 ],
             ]
         ];

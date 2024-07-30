@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Form;
+use App\Models\Category;
 use App\Models\Product;
 use App\Core\View;
 
@@ -18,6 +19,7 @@ class ProductController
 
     public function create(): void
     {
+        $categories = (new Category())->findAll();
         $productForm = new Form('Product');
 
         if ($productForm->isSubmitted() && $productForm->isValid()) {
@@ -25,7 +27,7 @@ class ProductController
             $ext = (new \SplFileInfo($_FILES["product"]["name"]))->getExtension();
 
             // might be error with creating folder rights, fixed using "chmod -R 777 www/Public"
-            $uploadDir = '/var/www/html/www/Public/products/';
+            $uploadDir = '/var/www/html/Public/products/';
             if(is_dir($uploadDir)) {
             } else {
                 if (!mkdir($uploadDir, 0777, true)) {
@@ -72,6 +74,7 @@ class ProductController
         }
 
         $view = new View('Product/create', 'back');
+        $view->assign('categories', $categories);
         $view->assign('productForm', $productForm->build());
         $view->render();
     }

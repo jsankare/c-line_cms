@@ -9,6 +9,7 @@ class GalleryForm
             "config" => [
                 "action" => "",
                 "method" => "POST",
+                "class" => "gallery",
                 "enctype" => "multipart/form-data",
                 "submit" => "Valider"
             ],
@@ -33,6 +34,13 @@ class GalleryForm
                     "type" => "file",
                     "label" => "Image*",
                     "required" => true
+                ],
+                "is_gallery" => [
+                    "type" => "checkbox",
+                    "label" => "Doit apparaitre sur la gallerie",
+                    "value" => 0,
+                    "checked" => isset($data['is_gallery']) && $data['is_gallery']
+
                 ]
             ]
         ];

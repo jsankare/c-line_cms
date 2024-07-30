@@ -960,6 +960,12 @@ input[type=color] {
   gap: 2rem;
 }
 
+.form--gallery__filter {
+  border-radius: 0.5rem;
+  min-height: 0;
+  max-width: 0;
+}
+
 .separator {
   position: absolute;
   background-color: black;

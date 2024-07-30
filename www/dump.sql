@@ -68,6 +68,16 @@ CREATE TABLE cline_comment (
     FOREIGN KEY (user_id) REFERENCES public.cline_user(id)
 );
 
+-- Table cline_category
+DROP TABLE IF EXISTS public.cline_category CASCADE;
+CREATE TABLE cline_category (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Table cline_product
 DROP TABLE IF EXISTS public.cline_product CASCADE;
 CREATE TABLE cline_product (
@@ -90,6 +100,7 @@ CREATE TABLE cline_image (
     description VARCHAR(100) NOT NULL,
     link VARCHAR(500) NOT NULL,
     product_id INT,
+    is_gallery SMALLINT default 0,
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES cline_product(id)

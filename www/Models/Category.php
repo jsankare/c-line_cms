@@ -4,13 +4,11 @@ namespace App\Models;
 
 use App\Core\SQL;
 
-class Image extends SQL
+class Category extends SQL
 {
     private ?int $id=null;
-    protected string $title;
-    protected string $description;
-    protected ?int $is_gallery = 0;
-    protected string $link;
+    protected string $name;
+    protected string $type;
 
     /**
      * @return int
@@ -29,78 +27,42 @@ class Image extends SQL
     }
 
     /**
-     * @return int
-     */
-    public function isGallery(): ?int
-    {
-        return $this->is_gallery;
-    }
-
-    /**
-     * @param int $is_gallery
-     */
-    public function setIsGallery(int $is_gallery): void
-    {
-        $this->is_gallery = $is_gallery;
-    }
-
-
-    /**
      * @return string
      */
-    public function getTitle(): string
+    public function getName(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**
-     * @param string $title
+     * @param string $name
      */
-    public function setTitle(string $title): void
+    public function setName(string $name): void
     {
         $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><b><i><u><strike><s><del><blockquote><center><code><ul><ol><li><a><img><div><span><br><strong><em>';
-        $this->title = ucwords(strtolower(strip_tags($title, $allowed_tags)));
+        $this->name = ucwords(strtolower(strip_tags($name, $allowed_tags)));
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription(): string
+    public function getType(): string
     {
-        return $this->description;
+        return $this->type;
     }
 
     /**
-     * @param string $description
+     * @param string $type
      */
-    public function setDescription(string $description): void
+    public function setType(string $type): void
     {
         $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><b><i><u><strike><s><del><blockquote><center><code><ul><ol><li><a><img><div><span><br><strong><em>';
-        $this->description = strip_tags($description, $allowed_tags);
+        $this->type = ucwords(strtolower(strip_tags($type, $allowed_tags)));
     }
 
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->link;
-    }
-
-    /**
-     * @param string $link
-     */
-    public function setLink(string $link): void
-    {
-        $this->link = $link;
-    }
-
-    public function findOneByTitle(string $title) {
-        $sql = "SELECT * FROM {$this->table} WHERE title = :title";
+    public function findOneByName(string $name) {
+        $sql = "SELECT * FROM {$this->table} WHERE name = :name";
 
         $queryPrepared = $this->pdo->prepare($sql);
-        $queryPrepared->execute([":title" => $title]);
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Image');
+        $queryPrepared->execute([":name" => $name]);
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Category');
         return $queryPrepared->fetch();
     }
 
@@ -109,7 +71,7 @@ class Image extends SQL
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute([":id" => $id]);
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Image');
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Category');
         return $queryPrepared->fetch();
     }
 
@@ -118,7 +80,7 @@ class Image extends SQL
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute();
-        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Image');
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Category');
         return $queryPrepared->fetchAll();
     }
 

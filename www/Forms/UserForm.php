@@ -8,6 +8,7 @@ class UserForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "user",
                 "submit"=>"Valider"
                 ],
             "inputs"=>[

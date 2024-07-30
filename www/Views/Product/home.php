@@ -33,7 +33,7 @@
             <?php endforeach; ?>
             </section>
         <?php else: ?>
-            <li>Il n'y a pas d'product pour le moment !</li>
+            <li>Il n'y a pas de produit pour le moment !</li>
         <?php endif; ?>
     </ul>
 </section>

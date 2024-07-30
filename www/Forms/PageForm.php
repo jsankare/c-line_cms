@@ -9,6 +9,7 @@ class PageForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "page",
                 "submit"=>"Enregister ma page"
             ],
             "inputs"=>[

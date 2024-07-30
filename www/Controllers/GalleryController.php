@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Core\Form;
 use App\Core\View;
+use App\Models\Category;
 use App\Models\Page;
 use App\Models\Image;
 
@@ -18,7 +19,7 @@ class GalleryController
             $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
 
             // might be error with creating folder rights, fixed using "chmod -R 777 www/Public"
-            $uploadDir = '/var/www/html/www/Public/uploads/';
+            $uploadDir = '/var/www/html/Public/uploads/';
             if(is_dir($uploadDir)) {
             } else {
                 if (!mkdir($uploadDir, 0777, true)) {
@@ -52,6 +53,13 @@ class GalleryController
             }
 
             $image = new Image();
+
+            if (isset($_POST['is_gallery']) && $_POST['is_gallery'] == '1') {
+                $image->setIsGallery(1);
+            } else {
+                $image->setIsGallery(0);
+            }
+
             $image->setTitle($_POST['title']);
             $image->setDescription($_POST['description']);
             $image->setLink($uploadFile);
@@ -81,7 +89,7 @@ class GalleryController
 
     public function list(): void {
         $pages = (new Page())->findAll();
-        
+
         $imageModel = new Image();
         $images = $imageModel->findAll();
 
@@ -164,7 +172,7 @@ class GalleryController
                     $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
 
                     // might be error with creating folder rights, fixed using "chmod -R 777 www/Public"
-                    $uploadDir = '/var/www/html/www/Public/uploads/';
+                    $uploadDir = '/var/www/html/Public/uploads/';
                     if(is_dir($uploadDir)) {
                     } else {
                         if (!mkdir($uploadDir, 0777, true)) {
