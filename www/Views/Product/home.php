@@ -15,20 +15,22 @@
             <div class="product--wrapper__unit" >
                 <div class="product--infos" >
                     <li class="product--value">
-                        <h3>Nom</h3><p><?php echo htmlspecialchars($product->getTitle()); ?></p>
+                        <h3>Nom</h3><p><?php echo htmlspecialchars($product->getName()); ?></p>
                     </li>
                     <li class="product--value" >
-                        <h3>Description</h3><p><?php echo htmlspecialchars($product->getDescription()); ?></p>
+                        <h3>Catégorie</h3><p><?php echo htmlspecialchars($product->getCategory()); ?></p>
+                    </li>
+                    <li class="product--value" >
+                        <h3>Prix</h3><p><?php echo htmlspecialchars($product->getPrice()); ?>€</p>
                     </li>
                 </div>
                 <div class="product--content">
                     <li class="product--value" >
-                        <h3>Contenu (aperçu)</h3><p class="product--content__value" ><?= $product->getContent() ?></p>
+                        <h3>Description</h3><p class="product--content__value" ><?= $product->getDescription() ?></p>
                     </li>
                 </div>
                 <a class="product--icon__link" href="/product/predelete?id=<?php echo $product->getId(); ?>"><img class="product--icon product--icon__trash" src="/assets/trash.svg" ></a>
                 <a class="product--icon__link" href="/product/edit?id=<?php echo $product->getId(); ?>"><img class="product--icon product--icon__update" src="/assets/update.svg" ></a>
-                <a class="product--icon__link" href="/comment/show?product_id=<?php echo $product->getId(); ?>"><img class="product--icon product--icon__comment" src="/assets/comment.svg" alt="Voir les commentaires liés à cet products"></a>
             </div>
             <?php endforeach; ?>
             </section>

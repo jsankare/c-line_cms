@@ -15,11 +15,13 @@ class ProductForm
         $imagesOptions[''] = 'Sélectionner une image';
 
         foreach ($categories as $category) {
-            $categoryOptions[$category->getId()] = $category->getType();
+            if (!in_array($category->getType(), $categoryOptions)) {
+                $categoryOptions[$category->getName()] = $category->getName();
+            }
         }
 
         foreach ($images as $image) {
-            $imagesOptions[$image->getId()] = $image->getTitle();
+            $imagesOptions[$image->getLink()] = $image->getTitle();
         }
 
         return [
@@ -42,10 +44,10 @@ class ProductForm
                 ],
                 "description" => [
                     "type" => "textarea",
-                    "max" => 50,
+                    "max" => 500,
                     "placeholder" => "Description de l'article",
                     "label" => "Description",
-                    "error" => "La description ne peut pas faire plus de 50 caractères",
+                    "error" => "La description ne peut pas faire plus de 500 caractères",
                     "value" => $data['description'] ?? ''
                 ],
                 "category" => [

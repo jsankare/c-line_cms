@@ -2,7 +2,7 @@
     <div class="navbar--divLeft">
         <a href="/">Accueil</a>
         <a href="/articles">Articles</a>
-        <a href="/products">Produits</a>
+        <a href="/products/show">Produits</a>
         <a href="/gallery">Galerie</a>
 
         <?php if (isset($pages) && !empty($pages)): ?>

@@ -130,6 +130,24 @@
   Security: true
   Role: "Admin"
 
+/products/delete:
+  Controller: ProductController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+/products/show:
+  Controller: ProductController
+  Action: "show"
+  Security: false
+  Role: "Guest"
+
+/products/predelete:
+  Controller: ProductController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
 /page/home:
   Controller: PageController
   Action: "list"
