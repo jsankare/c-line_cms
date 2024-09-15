@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS public.cline_article CASCADE;
 CREATE TABLE public.cline_article (
     id SERIAL PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
-    description VARCHAR(50),
+    description VARCHAR(200),
     content TEXT NOT NULL,
     creator_id SMALLINT NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY (creator_id) REFERENCES public.cline_user(id),
