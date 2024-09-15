@@ -32,7 +32,7 @@ class ProductController
 
             $product->save();
 
-            header('Location: /product/list');
+            header('Location: /products/home');
             exit();
         }
 

@@ -7,7 +7,6 @@
         <meta name="description" content=<?= SITE_DESCRIPTION ?>>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/front.css">
-
     </head>
     <?php
     $setting = new \App\Models\Settings();
