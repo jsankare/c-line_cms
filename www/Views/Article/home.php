@@ -1,7 +1,7 @@
 <section class="article--wrapper">
     <h2>Menu articles</h2>
     <section class="article--navigation">
-        <a href="/article/create"><img class="article--icon" src="/assets/add.svg" alt="Créer une article" ></a>
+        <a href="/article/create"><img class="article--icon" src="/assets/add.svg" alt="Créer un article" ></a>
     </section>
     <ul>
         <?php if (!empty($articles)): ?>

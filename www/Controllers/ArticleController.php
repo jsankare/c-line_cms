@@ -30,6 +30,12 @@ class ArticleController
         $view->render();
     }
 
+    public function showOne(): void
+    {
+        echo "hi";
+    }
+
+
     public function add(): void
     {
         $user = (new User())->findOneById($_SESSION['user_id']);

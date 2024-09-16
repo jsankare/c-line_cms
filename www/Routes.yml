@@ -250,6 +250,12 @@
   Security: false
   Role: "Guest"
 
+/article/show:
+Controller: ArticleController
+Action: "showOne"
+Security: false
+Role: "Guest"
+
 /comment/create:
   Controller: CommentController
   Action: "add"
