@@ -250,7 +250,7 @@
   Security: false
   Role: "Guest"
 
-/article/show:
+/article:
 Controller: ArticleController
 Action: "showOne"
 Security: false

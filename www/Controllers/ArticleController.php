@@ -24,7 +24,7 @@ class ArticleController
             $article->comments = $comments;
         }
 
-        $view = new View("article/show", "front");
+        $view = new View("Article/show", "front");
         $view->assign('pages', $pages);
         $view->assign('articles', $articles);
         $view->render();
@@ -32,7 +32,19 @@ class ArticleController
 
     public function showOne(): void
     {
-        echo "hi";
+        if (isset($_GET['id'])) {
+            $articleId = intval($_GET['id']);
+            $article = (new Article())->findOneById($articleId);
+        } else {
+            header("Impossible de récupérer l'article", true, 500);
+            header('Location: /500');
+            exit();
+        }
+
+        $view = new View('Article/show-article', 'front');
+        $view->assign('article', $article);
+        $view->render();
+
     }
 
 
@@ -93,7 +105,7 @@ class ArticleController
         $articleModel = new Article();
 
         $articles = $articleModel->findAll();
-        $view = new View("article/home", "back");
+        $view = new View("Article/home", "back");
         $view->assign('articles', $articles);
         $view->render();
     }
