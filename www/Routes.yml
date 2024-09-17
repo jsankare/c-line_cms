@@ -251,10 +251,10 @@
   Role: "Guest"
 
 /article:
-Controller: ArticleController
-Action: "showOne"
-Security: false
-Role: "Guest"
+  Controller: ArticleController
+  Action: "showOne"
+  Security: false
+  Role: "Guest"
 
 /comment/create:
   Controller: CommentController

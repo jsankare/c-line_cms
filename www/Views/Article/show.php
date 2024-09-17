@@ -4,12 +4,12 @@
         <?php foreach ($articles as $article): ?>
             <article class="article-list--item">
                 <h3 class="article-list--item__title">
-                    <a href="/article/?id=<?= $article->getId(); ?>">
+                    <a href="/article?id=<?= $article->getId(); ?>">
                         <?= $article->getTitle(); ?>
                     </a>
                 </h3>
                 <p class="article-list--item__excerpt"><?= substr($article->getContent(), 0, 500); ?>...</p>
-                <a href="/article/?id=<?= $article->getId(); ?>" class="article-list--item__read-more">Lire la suite de l'article</a>
+                <a href="/article?id=<?= $article->getId(); ?>" class="article-list--item__read-more">Lire la suite de l'article</a>
             </article>
         <?php endforeach; ?>
     </section>
