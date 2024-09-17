@@ -11,19 +11,11 @@ class PageController
 
     public function home(): void
     {
-        $mainPage = (new Page())->findMainPage();
         $pages = (new Page())->findAll();
 
-        if ($mainPage) {
-            $view = new View("Main/home", "front");
-            $view->assign('mainPage', $mainPage);
-            $view->assign('pages', $pages);
-            $view->render();
-        } else {
-            header("Aucune page principale définie.", true, 404);
-            header('Location: /404');
-            exit();
-        }
+        $view = new View("Main/home", "front");
+        $view->assign('pages', $pages);
+        $view->render();
     }
 
 
