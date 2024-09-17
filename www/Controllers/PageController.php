@@ -13,8 +13,12 @@ class PageController
     {
         $pages = (new Page())->findAll();
 
+        $featuresData = file_get_contents(__DIR__ . '/../datas/features.json');
+        $features = json_decode($featuresData, true);
+
         $view = new View("Main/home", "front");
         $view->assign('pages', $pages);
+        $view->assign('features', $features);
         $view->render();
     }
 
