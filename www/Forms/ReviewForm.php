@@ -25,7 +25,6 @@ class ReviewForm
                     "type" => "text",
                     "placeholder" => "Dupuis",
                     "label" => "Nom*",
-                    "required" => false,
                     "value" => $data['content'] ?? ''
                 ],
                 "position" => [
@@ -47,7 +46,9 @@ class ReviewForm
                 "rating" => [
                     "type" => "number",
                     "label" => "Note / 5",
-                    // Ajouter un max de 5
+                    "min" => 1,
+                    "max" => 5,
+                    "required" => true,
                     "value" => $data['rating'] ?? ''
                 ],
             ]
