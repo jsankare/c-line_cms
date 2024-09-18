@@ -156,6 +156,44 @@ VALUES
     '$2y$10$eK1ZEmE9Ce9jbX1x4y1PzeXZxZgZZ7qISyyQFnIXKm6K79rPzFSIS',
     3);
 
+-- Seed pages
+INSERT INTO public.cline_page (title, description, content, creator_id, slug, is_main)
+VALUES
+    ('Le Caméléon', 'Les secrets fascinants du camouflage du caméléon',
+    '<h2>Le Caméléon, Maître du Camouflage</h2>
+    <p>Le caméléon est un <strong>reptile fascinant</strong> connu pour sa capacité unique à changer de couleur. Contrairement à ce que l''on croit, cette faculté n''est pas utilisée uniquement pour se camoufler. En réalité, le changement de couleur permet aussi au caméléon de <em>réguler sa température corporelle</em> et de <em>communiquer</em> avec ses congénères.</p>
+    <p>Les cellules cutanées du caméléon, appelées <strong>chromatophores</strong>, contiennent des pigments qui réagissent à l''environnement et aux stimuli externes. Les mâles utilisent ce changement de couleur pour <strong>impressionner</strong> leurs rivaux lors de combats ou pour attirer l''attention des femelles.</p>
+    <p><em>Apprenez-en plus sur cet animal incroyable et ses stratégies d''adaptation !</em></p>', 
+    1, 'le-cameleon', false),
+
+    ('Le Dauphin', 'L''intelligence fascinante des dauphins',
+    '<h2>Le Dauphin, l''Animal le Plus Intelligent des Océans</h2>
+    <p>Les dauphins ne sont pas seulement de magnifiques créatures marines, mais ils sont aussi parmi les <strong>animaux les plus intelligents</strong> de la planète. Grâce à un cerveau relativement grand, ils sont capables de résoudre des problèmes complexes, de montrer des signes de <em>conscience de soi</em> et d''utiliser un langage sophistiqué pour <em>communiquer</em> avec leurs semblables.</p>
+    <p>Le dauphin utilise des <strong>sons et des clics</strong> pour naviguer et communiquer, un phénomène connu sous le nom d''<em>écholocation</em>. Ils vivent en groupes sociaux soudés et sont capables de créer des liens profonds avec leurs pairs, démontrant ainsi une <strong>intelligence émotionnelle</strong> exceptionnelle.</p>
+    <p>Explorez le monde fascinant des dauphins et découvrez leurs talents incroyables.</p>', 
+    2, 'le-dauphin', false),
+
+    ('Le Gecko', 'Les capacités d''adhérence du gecko',
+    '<h2>Le Gecko, Maître de l''Adhérence</h2>
+    <p>Le gecko est une petite créature agile qui possède un pouvoir étonnant : il peut grimper sur pratiquement toutes les surfaces, même les murs et les plafonds ! Cela est rendu possible grâce à des milliards de minuscules <strong>poils</strong> appelés <em>setae</em> sur ses orteils. Ces structures microscopiques créent une force d''adhérence grâce à des interactions à l''échelle atomique.</p>
+    <p>Cette capacité fait du gecko un prédateur redoutable, capable de se déplacer rapidement pour capturer ses proies ou échapper à ses ennemis. De plus, la structure de ses pattes inspire de nombreuses recherches en <strong>robotique</strong> et en <em>nanotechnologie</em>.</p>
+    <p>Découvrez comment le gecko utilise son talent d''adhésion pour survivre et prospérer dans des environnements variés.</p>',
+1, 'le-gecko', false),
+
+    ('L''Abeille', 'La danse fascinante des abeilles', 
+    '<h2>Les Abeilles et leur Communication Sophistiquée</h2>
+    <p>Les abeilles sont des insectes <strong>hautement organisés</strong> qui jouent un rôle crucial dans la pollinisation de nombreuses plantes. Mais saviez-vous qu''elles communiquent entre elles à travers une <em>danse en forme de huit</em> ? Cette danse leur permet d''indiquer à leurs camarades l''emplacement exact des sources de nectar les plus riches.</p>
+    <p>En fonction de l''angle et de l''intensité de la danse, les abeilles peuvent transmettre des informations très précises sur la <strong>distance</strong> et la <strong>direction</strong> des fleurs. Ce système de communication est un exemple parfait de l''évolution et de l''ingéniosité du règne animal.</p>
+    <p>Plongez dans le monde incroyable des abeilles et découvrez leur rôle vital dans notre écosystème.</p>',
+    2, 'l-abeille', false),
+
+    ('La Pieuvre', 'L''incroyable intelligence des pieuvres', 
+    '<h2>La Pieuvre, une Créature d''une Intelligence Rare</h2>
+    <p>La pieuvre est une créature marine qui défie nos conceptions de l''intelligence animale. Avec ses <strong>huit tentacules</strong> et son cerveau complexe, elle est capable de <em>résoudre des énigmes</em>, de <em>se camoufler</em> et même d''apprendre de nouvelles techniques pour échapper aux prédateurs.</p>
+    <p>Contrairement à de nombreux autres animaux, la pieuvre possède un système nerveux décentralisé, ce qui signifie que ses tentacules peuvent agir indépendamment de son cerveau principal. Elles sont également capables de modifier leur couleur et leur texture pour se fondre dans leur environnement, un talent essentiel pour éviter les dangers.</p>
+    <p>Explorez l''univers mystérieux des pieuvres et découvrez leurs incroyables capacités d''adaptation et d''apprentissage.</p>', 
+    3, 'la-pieuvre', false);
+
 -- Seed articles
 INSERT INTO public.cline_article (title, description, content, creator_id)
 VALUES

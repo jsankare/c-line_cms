@@ -1,7 +1,7 @@
 <?php
 namespace App\Forms;
 
-class FAQForm
+class FaqForm
 {
     public static function getConfig(array $data = []): array
     {

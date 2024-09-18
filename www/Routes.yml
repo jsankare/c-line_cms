@@ -166,15 +166,15 @@
   Security: true
   Role: "Editor"
 
-/page/delete:
-  Controller: PageController
-  Action: "delete"
-  Security: true
-  Role: "Editor"
-
 /page/predelete:
   Controller: PageController
   Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/page/delete:
+  Controller: PageController
+  Action: "delete"
   Security: true
   Role: "Editor"
 
@@ -315,6 +315,12 @@
 /faqs/home:
   Controller: FAQController
   Action: "list"
+  Security: true
+  Role: "Editor"
+
+/faqs/create:
+  Controller: FAQController
+  Action: "create"
   Security: true
   Role: "Editor"
 

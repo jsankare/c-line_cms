@@ -1,7 +1,7 @@
 <section class="faq--wrapper">
     <h2>Menu FAQs</h2>
     <section class="faq--navigation">
-        <a href="/faq/create"><img class="faq--icon" src="/assets/add.svg" alt="Créer une faq" ></a>
+        <a href="/faqs/create"><img class="faq--icon" src="/assets/add.svg" alt="Créer une faq" ></a>
     </section>
     <ul>
         <?php if (!empty($faqs)): ?>
@@ -15,10 +15,10 @@
 
                     <div class="faq--wrapper__unit" >
                         <li>
-                            <h3>Titre</h3><p><?php echo htmlspecialchars($faq->getQuestion()); ?></p>
+                            <h3>Question</h3><p><?php echo htmlspecialchars($faq->getQuestion()); ?></p>
                         </li>
                         <li>
-                            <h3>Description</h3><p><?php echo htmlspecialchars($faq->getAnswer()); ?></p>
+                            <h3>Réponse</h3><p><?php echo htmlspecialchars($faq->getAnswer()); ?></p>
                         </li>
                         <a class="faq--icon__link" href="/faq/edit?id=<?php echo $faq->getId(); ?>"><img class="faq--icon faq--icon__update" src="/assets/update.svg" ></a>
                         <a class="faq--icon__link" href="/faq/predelete?id=<?php echo $faq->getId(); ?>"><img class="faq--icon faq--icon__trash" src="/assets/trash.svg" ></a>

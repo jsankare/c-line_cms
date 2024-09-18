@@ -64,6 +64,16 @@ class FAQ extends SQL
         return $queryPrepared->fetchAll();
     }
 
+    public function findOneById(string $id)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = :id";
+
+        $queryPrepared = $this->pdo->prepare($sql);
+        $queryPrepared->execute([":id" => $id]);
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\FAQ');
+        return $queryPrepared->fetch();
+    }
+
     public function delete(): void
     {
         if (!empty($this->getId())) {

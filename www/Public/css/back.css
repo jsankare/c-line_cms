@@ -310,28 +310,64 @@ ul li a {
 }
 
 form {
-  border-radius: 2.5rem;
+  border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
   max-width: 50rem;
-  min-width: 25rem;
-  height: 100%;
-  min-height: 25rem;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: white; /* Optional for better visibility */
+}
+
+form input, form select, form textarea, form button {
+  width: 100%; /* Ensures inputs span full width of the form */
+  max-width: 45rem; /* Prevents overly wide inputs */
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical; /* Allow textarea to adjust vertically based on content */
+  min-height: 8rem;
+}
+
+form button {
+  background-color: #5cb85c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #4cae4c;
 }
 
 .logout--form {
-  height: fit-content;
-  width: max-content;
-  min-height: min-content;
+  height: auto;
+  width: auto;
+  min-height: auto;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout--form button {
+  width: auto;
+  padding: 0.5rem 1rem;
+  background-color: #d9534f;
+  border: none;
+}
+
+.logout--form button:hover {
+  background-color: #c9302c;
 }
 
 .input {
@@ -463,6 +499,68 @@ input[type=color] {
   margin-bottom: 1rem;
 }
 .page--wrapper__unit img.page--icon {
+  justify-self: center;
+  align-self: center;
+}
+
+.faq--navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.faq--icon {
+  width: 100%;
+  max-width: 2rem;
+  min-width: 1.5rem;
+}
+.faq--icon__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.faq--wrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+.faq--wrapper ul {
+  width: 100%;
+}
+.faq--wrapper__separator {
+  width: 80%;
+  height: 1px;
+  background-color: black;
+}
+.faq--wrapper__close {
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  width: 100%;
+  min-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.faq--wrapper__unit {
+  width: 100%;
+  max-width: 80%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 8fr 8fr 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+}
+.faq--wrapper__unit:not(:last-child) {
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.faq--wrapper__unit img.faq--icon {
   justify-self: center;
   align-self: center;
 }

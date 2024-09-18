@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Core\Form;
 use App\Models\FAQ;
 use App\Core\View;
-use App\Core\User;
 
 class FAQController
 {
@@ -19,8 +18,6 @@ class FAQController
 
     public function create(): void
     {
-        $user = (new User())->findOneById($_SESSION['user_id']);
-        if (!$user) return;
         $faqForm = new Form("Faq");
 
         $question = "";
@@ -41,7 +38,7 @@ class FAQController
                 $faq->setAnswer($sanitized_answer);
                 $faq->save();
 
-                header('Location: /Faq/home');
+                header('Location: /faqs/home');
                 exit();
             }
         }
@@ -52,8 +49,85 @@ class FAQController
         ]);
 
         $view = new View("Faq/create", "Back");
-        $view->assign('articleForm', $faqForm->build());
+        $view->assign('faqForm', $faqForm->build());
         $view->render();
+    }
+
+    public function predelete(): void {
+
+        if (isset($_GET['id'])) {
+            $faqId = intval($_GET['id']);
+            $faq = (new FAQ())->findOneById($faqId);
+        } else {
+            header("impossible de récupérer la FAQ", true, 404);
+            header('Location: /404');
+            exit();
+        }
+
+        $view = new View('Faq/delete', 'back');
+        $view->assign('faq', $faq);
+        $view->render();
+    }
+
+    public function delete(): void
+    {
+        if (isset($_GET['id'])) {
+            $faqId = intval($_GET['id']);
+            $faq = (new FAQ())->findOneById($faqId);
+
+            if ($faq) {
+                $faq->delete();
+                header('Location: /faqs/home');
+                exit();
+            } else {
+                header("Faq non trouvée", true, 404);
+                header('Location: /404');
+                exit();
+            }
+        } else {
+            header("ID FAQ non spécifié", true, 500);
+            header('Location: /500');
+            exit();
+        }
+    }
+
+    public function edit(): void
+    {
+        if (isset($_GET['id'])) {
+            $faqId = intval($_GET['id']);
+            $faq = (new Faq())->findOneById($faqId);
+
+            if ($faq) {
+                $faqForm = new Form("Faq");
+                $faqForm->setValues([
+                    'question' => $faq->getQuestion(),
+                    'answer' => $faq->getAnswer(),
+                ]);
+
+                if ($faqForm->isSubmitted() && $faqForm->isValid()) {
+
+                    $faq->setQuestion($_POST['question']);
+                    $faq->setAnswer($_POST['answer']);
+
+                    $faq->save();
+
+                    header('Location: /faqs/home');
+                    exit();
+                }
+
+                $view = new View("Faq/edit", "back");
+                $view->assign('faqForm', $faqForm->build());
+                $view->render();
+            } else {
+                header("Faq non trouvée", true, 404);
+                header('Location: /404');
+                exit();
+            }
+        } else {
+            header("ID faq non spécifié", true, 500);
+            header('Location: /500');
+            exit();
+        }
     }
 
 }

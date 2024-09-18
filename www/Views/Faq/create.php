@@ -1,1 +1,3 @@
-<p>hi create faq</p>
+<h1>FAQ Creation</h1>
+
+<?= $faqForm ?>
