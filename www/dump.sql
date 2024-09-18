@@ -118,8 +118,8 @@ CREATE TABLE cline_settings(
 );
 
 -- Table cline_reviews
-DROP TABLE IF EXISTS public.cline_reviews CASCADE;
-CREATE TABLE cline_reviews(
+DROP TABLE IF EXISTS public.cline_review CASCADE;
+CREATE TABLE cline_review(
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL,
@@ -131,8 +131,8 @@ CREATE TABLE cline_reviews(
 );
 
 -- Table cline_faqs
-DROP TABLE IF EXISTS public.cline_faqs CASCADE;
-CREATE TABLE cline_faqs(
+DROP TABLE IF EXISTS public.cline_faq CASCADE;
+CREATE TABLE cline_faq(
     id SERIAL PRIMARY KEY,
     question VARCHAR(255) NOT NULL,
     answer TEXT NOT NULL,
@@ -215,7 +215,7 @@ VALUES
     ('Peluche Abeille', 'Peluche en forme d''abeille.', 'Produits', '/images/peluche_abeille.jpg', 10.00, true);
 
 -- Seed reviews
-INSERT INTO public.cline_reviews (firstname, lastname, position, comment, grade)
+INSERT INTO public.cline_review (firstname, lastname, position, comment, grade)
 VALUES
     ('Jarod', 'Boldur', 'Explorateur Animalier', 'Produit de qualité supérieure. Le t-shirt Caméléon est unique et confortable.', 5),
     ('Mei', 'Bathee', 'Biologiste', 'Le mug Gecko est parfait pour mon café du matin, j''adore le design !', 4),
@@ -223,7 +223,7 @@ VALUES
     ('Riswynn', 'Poigndefer', 'Aventurière', 'La peluche abeille est adorable, mais je la trouve un peu petite.', 3);
 
 -- Seed FAQs
-INSERT INTO public.cline_faqs (question, answer)
+INSERT INTO public.cline_faq (question, answer)
 VALUES
     ('Comment entretenir un T-shirt Caméléon ?', 'Laver à froid, ne pas utiliser de sèche-linge pour conserver les propriétés thermochromiques.'),
     ('Le mug Gecko passe-t-il au lave-vaisselle ?', 'Oui, il est compatible avec le lave-vaisselle et le micro-ondes.'),

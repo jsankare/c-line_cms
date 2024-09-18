@@ -64,6 +64,8 @@
   Security: true
   Role: "User"
 
+  ###################################### USERS ####################################
+
 /users/home:
   Controller: UserController
   Action: "list"
@@ -118,6 +120,8 @@
   Security: true
   Role: "Admin"
 
+  ###################################### PRODUCTS ####################################
+
 /products/home:
   Controller: ProductController
   Action: "home"
@@ -147,6 +151,8 @@
   Action: "predelete"
   Security: true
   Role: "Editor"
+
+  ###################################### PAGES ####################################
 
 /page/home:
   Controller: PageController
@@ -184,35 +190,7 @@
   Security: false
   Role: "Guest"
 
-/401:
-  Controller: ErrorController
-  Action: "unauthorized"
-  Security: false
-  Role: "Guest"
-
-/404:
-  Controller: ErrorController
-  Action: "misdirection"
-  Security: false
-  Role: "Guest"
-
-/409:
-  Controller: ErrorController
-  Action: "conflict"
-  Security: false
-  Role: "Guest"
-
-/500:
-  Controller: ErrorController
-  Action: "serverError"
-  Security: false
-  Role: "Guest"
-
-/501:
-  Controller: ErrorController
-  Action: "notImplemented"
-  Security: false
-  Role: "Guest"
+  ###################################### ARTICLES ####################################
 
 /article/create:
   Controller: ArticleController
@@ -256,6 +234,8 @@
   Security: false
   Role: "Guest"
 
+  ###################################### COMMENTS ####################################
+
 /comment/create:
   Controller: CommentController
   Action: "add"
@@ -292,6 +272,8 @@
   Security: True
   Role: "Editor"
 
+  ###################################### GALLERY ####################################
+
 /gallery:
   Controller: GalleryController
   Action: "home"
@@ -310,15 +292,15 @@
   Security: true
   Role: "Editor"
 
-/image/delete:
-  Controller: GalleryController
-  Action: "delete"
-  Security: true
-  Role: "Editor"
-
 /image/predelete:
   Controller: GalleryController
   Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/image/delete:
+  Controller: GalleryController
+  Action: "delete"
   Security: true
   Role: "Editor"
 
@@ -327,3 +309,61 @@
   Action: "edit"
   Security: true
   Role: "Editor"
+
+  ###################################### FAQs ####################################
+
+/faqs/home:
+  Controller: FAQController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/faq/edit:
+  Controller: FAQController
+  Action: "edit"
+  Security: true
+  Role: "Editor"
+
+/faq/predelete:
+  Controller: FAQController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/faq/delete:
+  Controller: FAQController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+  ###################################### ERRORS ####################################
+
+/401:
+  Controller: ErrorController
+  Action: "unauthorized"
+  Security: false
+  Role: "Guest"
+
+/404:
+  Controller: ErrorController
+  Action: "misdirection"
+  Security: false
+  Role: "Guest"
+
+/409:
+  Controller: ErrorController
+  Action: "conflict"
+  Security: false
+  Role: "Guest"
+
+/500:
+  Controller: ErrorController
+  Action: "serverError"
+  Security: false
+  Role: "Guest"
+
+/501:
+  Controller: ErrorController
+  Action: "notImplemented"
+  Security: false
+  Role: "Guest"
