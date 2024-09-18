@@ -9,6 +9,7 @@ class LoginForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "login",
                 "submit"=>"Se connecter"
             ],
             "inputs"=>[

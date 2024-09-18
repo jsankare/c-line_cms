@@ -9,6 +9,7 @@ class ArticleForm
             "config" => [
                 "action" => "",
                 "method" => "POST",
+                "class" => "article",
                 "submit" => "Enregistrer mon article"
             ],
             "inputs" => [
@@ -24,10 +25,10 @@ class ArticleForm
                 ],
                 "description" => [
                     "type" => "textarea",
-                    "max" => 50,
+                    "max" => 200,
                     "placeholder" => "Description de l'article",
                     "label" => "Description",
-                    "error" => "La description ne peut pas faire plus de 50 caractères",
+                    "error" => "La description ne peut pas faire plus de 200 caractères",
                     "value" => $data['description'] ?? ''
                 ],
                 "content" => [

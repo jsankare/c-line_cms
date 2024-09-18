@@ -8,6 +8,7 @@ class UpdateUserForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "updateUser",
                 "submit"=>"Valider"
             ],
             "inputs"=>[

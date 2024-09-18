@@ -9,6 +9,7 @@ class SettingsForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "settings",
                 "submit"=>"Valider mes préférences"
             ],
             "inputs"=>[

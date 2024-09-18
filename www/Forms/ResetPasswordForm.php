@@ -8,6 +8,7 @@ class ResetPasswordForm
             "config"=>[
                 "action"=>"",
                 "method"=>"POST",
+                "class" => "resetPassword",
                 "submit"=>"Valider"
             ],
             "inputs"=>[

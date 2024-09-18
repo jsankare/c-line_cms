@@ -118,6 +118,36 @@
   Security: true
   Role: "Admin"
 
+/products/home:
+  Controller: ProductController
+  Action: "home"
+  Security: true
+  Role: "Editor"
+
+/products/create:
+  Controller: ProductController
+  Action: "create"
+  Security: true
+  Role: "Admin"
+
+/products/delete:
+  Controller: ProductController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+/products/show:
+  Controller: ProductController
+  Action: "show"
+  Security: false
+  Role: "Guest"
+
+/products/predelete:
+  Controller: ProductController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
 /page/home:
   Controller: PageController
   Action: "list"
@@ -217,6 +247,12 @@
 /articles:
   Controller: ArticleController
   Action: "show"
+  Security: false
+  Role: "Guest"
+
+/article:
+  Controller: ArticleController
+  Action: "showOne"
   Security: false
   Role: "Guest"
 

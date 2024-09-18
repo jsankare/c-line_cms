@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Lames de l'Ombre",
+        "description": "Une collection d'armes utilisées par les plus grands voleurs à travers les royaumes. Chaque lame a une histoire sinistre et un pouvoir caché.",
+        "link": "https://example.com/ombre-lames",
+        "ctaContent": "toto",
+        "features": [
+            "Tranchant magique imprégné d'ombre",
+            "Invisible dans la nuit",
+            "Peut pénétrer les sorts protecteurs"
+        ],
+        "imageSrc": "https://example.com/images/lames-ombre.jpg",
+        "imageAlt": "Un ensemble de lames noires enveloppées d'ombres mystérieuses"
+    },
+    {
+        "title": "Bouclier de Fer Sacré",
+        "description": "Forgé par Riswynn Poigndefer elle-même, ce bouclier offre une défense inébranlable contre les forces du mal, bénie par les divinités des nains.",
+        "link": "https://example.com/bouclier-fer-sacre",
+        "ctaContent": "toto",
+        "features": [
+            "Protection renforcée contre la magie",
+            "Léger mais indestructible",
+            "Symbole gravé de bénédiction naine"
+        ],
+        "imageSrc": "https://example.com/images/bouclier-fer-sacre.jpg",
+        "imageAlt": "Un bouclier de fer gravé de runes scintillantes"
+    },
+    {
+        "title": "Les Chroniques de Soveliss",
+        "description": "Une série d'écrits mystiques relatant les aventures de Soveliss Siamodel, magicienne elfique de renommée, dans les mondes oubliés.",
+        "link": "https://example.com/chroniques-soveliss",
+        "ctaContent": "toto",
+        "features": [
+            "Contes de magie ancienne",
+            "Aventures épiques dans les terres mystiques",
+            "Illustrations d'enchantements perdus"
+        ],
+        "imageSrc": "https://example.com/images/chroniques-soveliss.jpg",
+        "imageAlt": "Un vieux livre couvert de glyphes elfes lumineux"
+    }
+]

@@ -9,6 +9,7 @@ class Image extends SQL
     private ?int $id=null;
     protected string $title;
     protected string $description;
+    protected ?int $is_gallery = 0;
     protected string $link;
 
     /**
@@ -26,6 +27,23 @@ class Image extends SQL
     {
         $this->id = $id;
     }
+
+    /**
+     * @return int
+     */
+    public function isGallery(): ?int
+    {
+        return $this->is_gallery;
+    }
+
+    /**
+     * @param int $is_gallery
+     */
+    public function setIsGallery(int $is_gallery): void
+    {
+        $this->is_gallery = $is_gallery;
+    }
+
 
     /**
      * @return string

@@ -9,6 +9,7 @@ class CommentForm
             "config" => [
                 "action" => "",
                 "method" => "POST",
+                "class" => "comment",
                 "submit" => "Ajouter un commentaire"
             ],
             "inputs" => [
