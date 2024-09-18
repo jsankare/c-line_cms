@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Core\Form;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\Page;
 use App\Models\FAQ;
@@ -19,8 +20,7 @@ class PageController
 
         $faqs = (new FAQ())->findAll();
 
-        $reviewsData = file_get_contents(__DIR__ . '/../datas/reviews.json');
-        $reviews = json_decode($reviewsData, true);
+        $reviews = (new Review())->findAll();
 
         $view = new View("Main/home", "front");
         $view->assign('pages', $pages);

@@ -122,10 +122,10 @@ DROP TABLE IF EXISTS public.cline_review CASCADE;
 CREATE TABLE cline_review(
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50),
     position VARCHAR(255) NOT NULL,
     comment TEXT NOT NULL,
-    grade SMALLINT NOT NULL,
+    rating SMALLINT NOT NULL,
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -253,7 +253,7 @@ VALUES
     ('Peluche Abeille', 'Peluche en forme d''abeille.', 'Produits', '/images/peluche_abeille.jpg', 10.00, true);
 
 -- Seed reviews
-INSERT INTO public.cline_review (firstname, lastname, position, comment, grade)
+INSERT INTO public.cline_review (firstname, lastname, position, comment, rating)
 VALUES
     ('Jarod', 'Boldur', 'Explorateur Animalier', 'Produit de qualité supérieure. Le t-shirt Caméléon est unique et confortable.', 5),
     ('Mei', 'Bathee', 'Biologiste', 'Le mug Gecko est parfait pour mon café du matin, j''adore le design !', 4),

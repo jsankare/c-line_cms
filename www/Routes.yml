@@ -342,6 +342,38 @@
   Security: true
   Role: "Editor"
 
+  ###################################### REVIEWS ####################################
+
+/reviews/home:
+  Controller: ReviewController
+  Action: "list"
+  Security: true
+  Role: "Editor"
+
+/reviews/create:
+  Controller: ReviewController
+  Action: "create"
+  Security: true
+  Role: "Editor"
+
+/review/edit:
+  Controller: ReviewController
+  Action: "edit"
+  Security: true
+  Role: "Editor"
+
+/review/predelete:
+  Controller: ReviewController
+  Action: "predelete"
+  Security: true
+  Role: "Editor"
+
+/review/delete:
+  Controller: ReviewController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
   ###################################### ERRORS ####################################
 
 /401:
