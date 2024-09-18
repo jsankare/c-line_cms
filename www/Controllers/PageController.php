@@ -16,9 +16,17 @@ class PageController
         $featuresData = file_get_contents(__DIR__ . '/../datas/features.json');
         $features = json_decode($featuresData, true);
 
+        $faqsData = file_get_contents(__DIR__ . '/../datas/faqs.json');
+        $faqs = json_decode($faqsData, true);
+
+        $reviewsData = file_get_contents(__DIR__ . '/../datas/reviews.json');
+        $reviews = json_decode($reviewsData, true);
+
         $view = new View("Main/home", "front");
         $view->assign('pages', $pages);
         $view->assign('features', $features);
+        $view->assign('faqs', $faqs);
+        $view->assign('reviews', $reviews);
         $view->render();
     }
 

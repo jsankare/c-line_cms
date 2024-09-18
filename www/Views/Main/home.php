@@ -29,7 +29,7 @@
                          <a href=<?= htmlspecialchars($feature['link']); ?>><?= htmlspecialchars($feature['ctaContent']); ?></a>
                     </div>
                </article>
-          <?php endforeach; ?>
+        <?php endforeach; ?>
      </section>
 
 
@@ -37,7 +37,22 @@
           <h3 class="reviews--title">Reviews</h3>
           <p class="reviews--text">text</p>
           <div class="reviews--container">
-               faire un foreach, aussi besoin d'ajouter au BO
+              <?php foreach ($reviews as $review): ?>
+                <article class="review--wrapper" >
+                    <header class="review--grade">
+                        <?php
+                        for ($i = 0; $i < $review["grade"]; $i++) echo "★";
+                        for ($j = $i; $j < 5; $j++) echo "☆";
+                        ?>
+                    </header>
+                    <p class="review--message"><?= $review["comment"] ?></p>
+                    <footer class="review--footer" >
+                        <?php $identity = $review["firstname"] . " " . $review["lastname"] ?>
+                        <p class="review--identity"><?= $identity ?></p>
+                        <p class="review--position"><?= $review["position"] ?></p>
+                    </footer>
+                </article>
+              <?php endforeach; ?>
           </div>
      </section>
 
@@ -55,10 +70,12 @@
      <section class="faq">
           <h1 class="faq--title">titre FAQ</h1>
           <p class="faq--text">exemple de texte pour la FAQ</p>
-          <article class="faq--dropdown">
-               <h4 class="faq--dropdown__question">ma question</h4>
-               <p class="faq--dropdown__answer">ma reponse</p>
-          </article>
+         <?php foreach ($faqs as $faq): ?>
+             <article class="faq--dropdown">
+                 <h4 class="faq--dropdown__question"><?= $faq["question"] ?></h4>
+                 <p class="faq--dropdown__answer"><?= $faq["answer"] ?></p>
+             </article>
+         <?php endforeach; ?>
      </section>
 
      <footer>
