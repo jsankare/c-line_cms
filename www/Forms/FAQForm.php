@@ -9,8 +9,8 @@ class FAQForm
             "config" => [
                 "action" => "",
                 "method" => "POST",
-                "class" => "FAQ",
-                "submit" => "Ajouter une FAQ"
+                "class" => "Faq",
+                "submit" => "Ajouter une Faq"
             ],
             "inputs" => [
                 "question" => [

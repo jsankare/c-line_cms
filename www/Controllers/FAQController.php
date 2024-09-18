@@ -12,7 +12,7 @@ class FAQController
     public function list(): void
     {
         $faqs = (new FAQ())->findAll();
-        $view = new View("FAQ/home", "back");
+        $view = new View("Faq/home", "back");
         $view->assign('faqs', $faqs);
         $view->render();
     }
@@ -21,7 +21,7 @@ class FAQController
     {
         $user = (new User())->findOneById($_SESSION['user_id']);
         if (!$user) return;
-        $faqForm = new Form("FAQ");
+        $faqForm = new Form("Faq");
 
         $question = "";
         $answer = "";
@@ -41,7 +41,7 @@ class FAQController
                 $faq->setAnswer($sanitized_answer);
                 $faq->save();
 
-                header('Location: /FAQ/home');
+                header('Location: /Faq/home');
                 exit();
             }
         }
@@ -51,7 +51,7 @@ class FAQController
             "answer" => $answer,
         ]);
 
-        $view = new View("FAQ/create", "Back");
+        $view = new View("Faq/create", "Back");
         $view->assign('articleForm', $faqForm->build());
         $view->render();
     }
