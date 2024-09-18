@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Core\Form;
 use App\Models\User;
 use App\Models\Page;
+use App\Models\FAQ;
 use App\Core\View;
 
 class PageController
@@ -16,8 +17,7 @@ class PageController
         $featuresData = file_get_contents(__DIR__ . '/../datas/features.json');
         $features = json_decode($featuresData, true);
 
-        $faqsData = file_get_contents(__DIR__ . '/../datas/faqs.json');
-        $faqs = json_decode($faqsData, true);
+        $faqs = (new FAQ())->findAll();
 
         $reviewsData = file_get_contents(__DIR__ . '/../datas/reviews.json');
         $reviews = json_decode($reviewsData, true);

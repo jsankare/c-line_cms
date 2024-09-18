@@ -72,8 +72,8 @@
           <p class="faq--text">exemple de texte pour la FAQ</p>
          <?php foreach ($faqs as $faq): ?>
              <article class="faq--dropdown">
-                 <h4 class="faq--dropdown__question"><?= $faq["question"] ?></h4>
-                 <p class="faq--dropdown__answer"><?= $faq["answer"] ?></p>
+                 <h4 class="faq--dropdown__question"><?= $faq->getQuestion(); ?></h4>
+                 <p class="faq--dropdown__answer"><?= $faq->getAnswer(); ?></p>
              </article>
          <?php endforeach; ?>
      </section>

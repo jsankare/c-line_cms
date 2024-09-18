@@ -24,6 +24,7 @@
                         <li class="navbar--list__link"><a href="/products/home">Produits</a></li>
                         <li class="navbar--list__link"><a href="/article/home">Articles</a></li>
                         <li class="navbar--list__link"><a href="/comments/home">Commentaires</a></li>
+                        <li class="navbar--list__link"><a href="/faqs/home">FAQs</a></li>
                     </ul>
                     <ul class="navbar--list__links">
                         <li class="navbar--list__link"><a href="/dashboard/settings">Paramètres</a></li>
