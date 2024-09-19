@@ -1,5 +1,19 @@
 @use "sass:color";
 
+$bgColor: #1f1b2e;
+$hoverColor: #3c2a4d;
+$highlightColor: #ffffff;
+$textColor: #c4c4c4;
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .navbar {
   color: $textColor;
   background-color: $navColor;
@@ -7,46 +21,93 @@
   flex-direction: column;
   height: 100%;
   position: fixed;
-  padding: 1rem;
+  padding: 1rem 1rem 0 0;
   width: 100%;
   max-width: 15rem;
-  gap: 1.5rem;
-
+  border-right: 1px solid $hoverColor;
+  overflow-y: auto;
+  &--separator {
+    width: 100%;
+    min-height: 2px;
+    background-color: $hoverColor;
+    margin: 1rem 0;
+  }
   &--logo {
     &__link {
       text-align: center;
+      margin-bottom: 2rem;
     }
     &__picture {
       width: 100%;
-      max-width: 5rem;
-      transform: rotatey(180deg);
-      border: 0 solid black;
-      border-radius: 1000rem;
-      transition: padding 0.3s ease-in-out, border 0.1s ease-in-out 0.2s;
-      &:hover {
-        border: 1px solid black;
-        border-radius: 1000rem;
-        padding: 0.5rem;
-      }
+      max-width: 4rem;
+      transition: transform 0.3s ease-in-out, border 0.2s ease-in-out;
+      border-radius: 50%;
     }
   }
+
   &--list {
-    height: 100%;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 20% 0;
     justify-content: space-between;
-    font-size: 1.20rem;
+    height: 100%;
+    font-size: 1.1rem;
+
     &__links {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      margin-left: 1.5rem;
+      gap: 1.5rem;
+      padding: 0;
+      list-style: none;
     }
-    &__link::before {
-      position: absolute;
-      left: 0.5rem;
-      content: url("/assets/arrow-right.svg");
+
+    &__link {
+      position: relative;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      color: $textColor;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $hoverColor;
+        color: $highlightColor;
+      }
+    }
+
+    &__link--active {
+      background-color: $hoverColor;
+      color: $highlightColor;
+    }
+  }
+}
+
+.navbar--footer {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid $hoverColor;
+  color: $textColor;
+  background-color: $bgColor;
+
+  .footer--user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    .footer--user__image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .footer--user__info {
+      flex-grow: 1;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      text-align: left;
     }
   }
 }

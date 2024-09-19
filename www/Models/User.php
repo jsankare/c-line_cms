@@ -166,6 +166,24 @@ class User extends SQL
         $this->status = $status;
     }
 
+    /**
+     * Retourne le statut sous forme de chaîne de caractères.
+     *
+     * @return string
+     */
+    public function getStringifiedStatus(): string
+    {
+        $statuses = [
+            0 => "Invité",
+            1 => "Utilisateur",
+            2 => "Éditeur",
+            3 => "Modérateur",
+            4 => "Administrateur"
+        ];
+
+        return $statuses[$this->status] ?? "Inconnu";
+    }
+
     public function findOneByEmail(string $email) {
         $sql = "SELECT * FROM {$this->table} WHERE email = :email";
 

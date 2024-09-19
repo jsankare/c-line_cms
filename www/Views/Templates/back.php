@@ -13,8 +13,8 @@
                 <a class="navbar--logo__link" href="/">
                     <img class="navbar--logo__picture" src="/assets/logo.svg">
                 </a>
-<!--                <h3>Bonjour --><?php //echo $user->getFirstName(); ?><!--</h3>-->
                 <section class="navbar--list" >
+                    <div class="navbar--separator" ></div>
                     <ul class="navbar--list__links">
                         <li class="navbar--list__link"><a href="/">Aller sur le site</a></li>
                         <li class="navbar--list__link"><a href="/dashboard">Tableau de bord</a></li>
@@ -27,10 +27,44 @@
                         <li class="navbar--list__link"><a href="/faqs/home">FAQs</a></li>
                         <li class="navbar--list__link"><a href="/reviews/home">Avis</a></li>
                     </ul>
+                    <div class="navbar--separator" >
+                    </div>
                     <ul class="navbar--list__links">
                         <li class="navbar--list__link"><a href="/dashboard/settings">Paramètres</a></li>
                         <li class="navbar--list__link"><a href="/logout">Se déconnecter</a></li>
                     </ul>
+                    <div class="navbar--footer">
+                        <?php
+                        $currentUserId = $_SESSION['user_id'];
+                        $currentUser = (new \App\Models\User())->findOneById($currentUserId);
+
+                        $status = $currentUser->getStatus();
+                        $roleImage = "";
+
+                        switch ($status) {
+                            case 4:
+                                $roleImage = "/assets/nav-admin.svg";
+                                break;
+                            case 3:
+                                $roleImage = "/assets/nav-moderator.svg";
+                                break;
+                            case 2:
+                                $roleImage = "/assets/nav-editor.svg";
+                                break;
+                            default:
+                                header('Location: /logout');
+                                exit;
+                        }
+                        ?>
+                        <div class="footer--user">
+                            <img class="footer--user__image" src="<?= $roleImage; ?>" alt="Avatar utilisateur">
+                            <div class="footer--user__info">
+                                <p><?= $currentUser->getFirstName() . " " . $currentUser->getLastName() ?></p>
+                                <small><?= $currentUser->getStringifiedStatus(); ?></small>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
             </aside>
             <section class="content" >
