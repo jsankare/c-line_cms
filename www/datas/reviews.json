@@ -4,20 +4,20 @@
         "lastname": "Boldur",
         "position": "Rogue Halflin",
         "comment": "L'expérience avec cet artefact magique a été incroyable ! Les pouvoirs cachés sont impressionnants et m'ont beaucoup aidé dans mes missions.",
-        "grade": 5
+        "rating": 5
     },
     {
         "firstname": "Mei",
         "lastname": "Bathee",
         "position": "Warrior Human",
         "comment": "Les armes fournies sont de très bonne qualité, mais j'aurais aimé plus de variété pour les combats en équipe.",
-        "grade": 4
+        "rating": 4
     },
     {
         "firstname": "Festifeuilles",
         "lastname": "Ukulele",
         "position": "Druid Semi-Orc",
         "comment": "Le sort que j'ai acquis est puissant, mais la complexité de son utilisation nécessite plus d'entraînement. Heureusement, le manuel est très complet.",
-        "grade": 3
+        "rating": 6
     }
 ]

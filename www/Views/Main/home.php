@@ -39,17 +39,18 @@
           <div class="reviews--container">
               <?php foreach ($reviews as $review): ?>
                 <article class="review--wrapper" >
-                    <header class="review--grade">
+                    <header class="review--rating">
                         <?php
-                        for ($i = 0; $i < $review["grade"]; $i++) echo "★";
+                        $max = $review->getRating();
+                        for ($i = 0; $i < $max; $i++) echo "★";
                         for ($j = $i; $j < 5; $j++) echo "☆";
                         ?>
                     </header>
-                    <p class="review--message"><?= $review["comment"] ?></p>
+                    <p class="review--message"><?= $review->getComment(); ?></p>
                     <footer class="review--footer" >
-                        <?php $identity = $review["firstname"] . " " . $review["lastname"] ?>
+                        <?php $identity = $review->getFirstname() . " " . $review->getLastname(); ?>
                         <p class="review--identity"><?= $identity ?></p>
-                        <p class="review--position"><?= $review["position"] ?></p>
+                        <p class="review--position"><?= $review->getPosition(); ?></p>
                     </footer>
                 </article>
               <?php endforeach; ?>
