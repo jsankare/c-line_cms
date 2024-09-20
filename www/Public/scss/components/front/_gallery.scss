@@ -3,12 +3,22 @@
   margin: 1.5rem auto;
   text-align: center;
 
+  &--image {
+    &__container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+  }
+
   &--classic {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // Utilise autant de colonnes que possible
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 1rem;
 
     &__item {
+      position: relative;
+
       &__picture {
         width: 100%;
         max-width: 400px;
@@ -16,15 +26,34 @@
         object-fit: cover;
         cursor: pointer;
         border-radius: 0.5rem;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, filter 0.3s ease;
 
         &:hover {
           transform: scale(1.05);
+          filter: brightness(0.5);
+        }
+      }
+
+      &__description {
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        width: 90%;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+        opacity: 0;
+
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        .gallery--image__container:hover & {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     }
   }
-
 
   .modal {
     display: none;
@@ -34,71 +63,87 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
 
-    &-content {
-      margin: 5% auto;
-      display: block;
-      width: 80%;
-      max-width: 50rem;
-    }
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      position: relative;
 
-    #caption {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 50rem;
-      text-align: center;
-      color: white;
-      padding: 0.5rem;
-      font-size: 1.5rem;
-    }
+      &--item {
+        max-width: 80%;
+        max-height: 80%;
+        display: block;
+        margin: auto;
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+      }
 
-    .close, .prev, .next {
-      position: absolute;
-      top: 50%;
-      color: white;
-      font-size: 3rem;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 0.5rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      transform: translateY(-50%);
-      user-select: none;
-      transition: background-color 0.3s ease;
+      .carousel--item.active {
+        opacity: 1;
+        visibility: visible;
+      }
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.7);
+      .prev, .next {
+        cursor: pointer;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        transition: 0.3s ease;
+        user-select: none;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
+
+      .prev {
+        left: 0;
+        margin-left: 1vh;
+        border-radius: 0.8rem 0 0 0.8rem;
+      }
+
+      .next {
+        right: 0;
+        margin-right: 1vh;
+        border-radius: 0 0.8rem 0.8rem 0;
+      }
+
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
       }
     }
 
     .close {
-      top: 10px;
+      position: absolute;
+      top: 20px;
       right: 25px;
-      font-size: 2rem;
+      font-size: 3.5rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      z-index: 1001; /* Ajout d'un z-index plus élevé */
     }
 
-    .prev {
-      left: 10px;
+    .close:hover {
+      color: #bbb;
     }
 
-    .next {
-      right: 10px;
-    }
-
-    .carousel--inner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .carousel--item {
-      max-width: 100%;
-      height: auto;
-      display: block;
+    #caption {
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 20px;
     }
   }
-}
 
+  /* Désactiver le scroll sur la page lorsque la modale est ouverte */
+  body.modal-open {
+    overflow: hidden;
+  }
+}

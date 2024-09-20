@@ -21,7 +21,7 @@ $textColor: #c4c4c4;
   flex-direction: column;
   height: 100%;
   position: fixed;
-  padding: 1rem 1rem 0 0;
+  padding: 1rem 0 0 0;
   width: 100%;
   max-width: 15rem;
   border-right: 1px solid $hoverColor;
@@ -64,7 +64,6 @@ $textColor: #c4c4c4;
     &__link {
       position: relative;
       padding: 0.8rem 1.5rem;
-      border-radius: 8px;
       color: $textColor;
       text-decoration: none;
       transition: background-color 0.3s ease-in-out;
