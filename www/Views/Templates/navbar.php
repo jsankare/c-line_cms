@@ -1,36 +1,46 @@
-<header class="navbar" style="background-color: <?= $backgroundColor ?? ''; ?>; font-family: <?= $fontStyle ?? ''; ?>">
+<header>
     <nav class="navbar" style="background-color: <?= $backgroundColor ?? ''; ?>; font-family: <?= $fontStyle ?? ''; ?>">
         <div class="navbar--divLeft">
-            <a href="/">Accueil</a>
-            <a href="/articles">Articles</a>
-            <a href="/products/show">Produits</a>
-            <a href="/gallery">Galerie</a>
+            <ul>
+                <li class="navbar--li"><a class="navbar--link" href="/">Accueil</a></li>
+                <li class="navbar--li"><a class="navbar--link" href="/articles">Articles</a></li>
+                <li class="navbar--li"><a class="navbar--link" href="/products/show">Produits</a></li>
+                <li class="navbar--li"><a class="navbar--link" href="/gallery">Galerie</a></li>
 
-            <?php if (isset($pages) && !empty($pages)): ?>
-                <div class="dropdown">
-                    <button class="dropbtn">Pages</button>
-                    <div class="dropdown-content">
-                        <?php foreach ($pages as $page): ?>
-                            <?php if (!$page->getIsMain()): ?>
-                                    <a href="/page/<?= htmlspecialchars($page->getSlug()) ?>"><?= htmlspecialchars($page->getTitle()) ?></a>
+                <?php if (isset($pages) && !empty($pages)): ?>
+                    <li class="navbar--li dropdown">
+                        <a class="dropbtn">Pages</a>
+                        <ul class="dropdown-content">
+                            <?php foreach ($pages as $page): ?>
+                                <?php if (!$page->getIsMain()): ?>
+                                    <li class="navbar--li">
+                                        <a class="navbar--link" href="/page/<?= htmlspecialchars($page->getSlug()) ?>">
+                                            <?= htmlspecialchars($page->getTitle()) ?>
+                                        </a>
+                                    </li>
                                 <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+            </ul>
         </div>
         <div class="navbar--divRight">
-            <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] > 1): ?>
-                <a href="/logout">Déconnexion</a>
-                <a href="/profile">Profil</a>
-                <a href="/dashboard">Dashboard</a>
+            <ul>
+                <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] > 1): ?>
+                    <li class="navbar--li"><a class="navbar--link" href="/logout">Déconnexion</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/profile">Profil</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/dashboard">Dashboard</a></li>
                 <?php elseif (isset($_SESSION['user_status']) && $_SESSION['user_status'] <= 1): ?>
-                <a href="/logout">Déconnexion</a>
-                <a href="/profile">Profil</a>
-            <?php else: ?>
-                <a href="/register">Inscription</a>
-                <a href="/login">Connexion</a>
-            <?php endif; ?>
+                    <li class="navbar--li"><a class="navbar--link" href="/logout">Déconnexion</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/profile">Profil</a></li>
+                <?php else: ?>
+                    <li class="navbar--li"><a class="navbar--link" href="/register">Inscription</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/login">Connexion</a></li>
+                <?php endif; ?>
+            </ul>
         </div>
     </nav>
 </header>
