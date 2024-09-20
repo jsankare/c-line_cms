@@ -565,6 +565,13 @@ main {
   text-align: center;
 }
 
+.reset--button {
+  background-color: #3c2a4d;
+}
+.reset--button:hover {
+  background-color: #583b72;
+}
+
 .product--section {
   margin: 2rem auto;
   max-width: 1200px;
@@ -601,18 +608,18 @@ main {
   border-color: #5cb85c;
 }
 .product--section__list {
-  display: flex;
-  gap: 5rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
 }
 .product--article {
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
-  position: relative;
   padding: 0 0 1rem 0;
-  max-width: fit-content;
+  max-width: 250px;
   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
 }
@@ -620,10 +627,10 @@ main {
   transform: translateY(-0.5rem);
 }
 .product--article__image {
-  max-width: 100%;
-  height: 350px;
+  width: 100%;
+  height: 300px;
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 .product--article__text {
   margin-top: 0.5rem;
@@ -635,24 +642,29 @@ main {
   color: #333;
 }
 .product--article__text--price {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
 }
+.product--article__text--variant {
+  font-size: 0.9rem;
+  color: #777;
+}
 .product--article .product--button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  background-color: #5cb85c;
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #3c2a4d;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 90%;
   transition: background-color 0.2s ease;
 }
 .product--article .product--button:hover {
-  background-color: #4cae4c;
+  background-color: #583b72;
 }
 
 .profile {
@@ -727,7 +739,6 @@ main {
   }
 }
 
-/* src/Styles/articles-list.scss */
 .article-list {
   display: flex;
   flex-direction: column;
@@ -774,6 +785,39 @@ main {
 }
 .article-list--item__read-more:hover {
   text-decoration: underline;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  min-height: 75vh;
+  display: grid;
+  padding: 0 15vh;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.item--main {
+  width: 100%;
+}
+.item--main__image {
+  width: 100%;
+  max-width: 50vh;
+}
+.item--aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.item--aside__intel {
+  width: 100%;
+}
+.item--aside__interactions {
+  width: 100%;
+}
+.item--aside__content {
+  width: 100%;
 }
 
 .gallery {

@@ -28,10 +28,10 @@
         <div class="navbar--divRight">
             <ul>
                 <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] > 1): ?>
-                    <li class="navbar--li"><a class="navbar--link" href="/logout">Déconnexion</a></li>
-                    <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
-                    <li class="navbar--li"><a class="navbar--link" href="/profile">Profil</a></li>
                     <li class="navbar--li"><a class="navbar--link" href="/dashboard">Dashboard</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/profile">Profil</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
+                    <li class="navbar--li"><a class="navbar--link" href="/logout">Déconnexion</a></li>
                 <?php elseif (isset($_SESSION['user_status']) && $_SESSION['user_status'] <= 1): ?>
                     <li class="navbar--li"><a class="navbar--link" href="/logout">Déconnexion</a></li>
                     <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
