@@ -1,181 +1,149 @@
-@use "sass:color";
-
 .gallery {
   width: 80%;
   margin: 1.5rem auto;
   text-align: center;
-  &--image{
-    &__container{
-      max-height: 10rem;
+
+  &--image {
+    &__container {
+      position: relative;
       overflow: hidden;
-    }
-  }
-  &--classic {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 2rem;
-    @media screen and (max-width: 1500px) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    &__item {
-      &__picture {
-        width: 100%;
-        max-width: 20rem;
-      }
-    }
-  }
-
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-
-    .carousel--inner {
-      display: flex;
-      width: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel--item {
-      min-width: 100%;
-      padding: 1.5rem;
-      box-sizing: border-box;
-      &.active {
-        display: block;
-      }
-    }
-
-    .gallery--item__title {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-
-    .gallery--item__picture {
-      max-width: 50%;
       border-radius: 0.5rem;
     }
+  }
 
-    .gallery--item__description {
-      margin-top: 0.5rem;
-    }
+  &--classic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
 
-    .separator {
-      height: 2px;
-      background: var(--grey-light);
-      margin: 5rem 0 0 0;
-    }
+    &__item {
+      position: relative;
 
-    .carousel--control {
-      position: absolute;
-      transform: translateY(-50%);
-      background-color: var(--grey-transparent);
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      cursor: pointer;
-      border-radius: 0.25rem;
-      transition: 0.2s ease-in-out;
-      &:hover {
-        background-color: var(--grey);
-      }
-      &.prev {
-        left: 20rem;
-        z-index: 1;
-        @media screen and (max-width: 1500px) {
-          left: 20%;
+      &__picture {
+        width: 100%;
+        max-width: 400px;
+        max-height: 400px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        transition: transform 0.3s ease, filter 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          filter: brightness(0.5);
         }
       }
-      &.next {
-        right: 20rem;
-        z-index: 1;
-        @media screen and (max-width: 1500px) {
-          right: 20%;
+
+      &__description {
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        width: 90%;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+        opacity: 0;
+
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        .gallery--image__container:hover & {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     }
   }
-}
 
-.carousel--item__picture__container{
-  max-height: 25rem;
-  overflow: hidden;
-  width: 100%;
-}
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
 
-.carousel--counter {
-  position: absolute;
-  top: 8rem;
-  right: 50%;
-  transform: translateX(50%);
-  background: var(--grey-transparent);
-  color: var(--white);
-  padding: 0.25rem 0.5rem;
-  border-radius: 5px;
-  z-index: 1;
-}
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      position: relative;
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 6.25rem;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--black-transparent);
-}
+      &--item {
+        max-width: 80%;
+        max-height: 80%;
+        display: block;
+        margin: auto;
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+      }
 
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 50rem;
-}
+      .carousel--item.active {
+        opacity: 1;
+        visibility: visible;
+      }
 
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 50rem;
-  text-align: center;
-  font-size: 1.5rem;
-  color: var(--white-hover);
-  padding: 0.75rem 0;
-  height: 10rem;
-}
+      .prev, .next {
+        cursor: pointer;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        transition: 0.3s ease;
+        user-select: none;
+        transform: translateY(-50%);
+        z-index: 5;
+      }
 
-.modal-content, #caption {
-  animation-name: zoom;
-  animation-duration: 0.8s;
-}
+      .prev {
+        left: 0;
+        margin-left: 1vh;
+        border-radius: 0.8rem 0 0 0.8rem;
+      }
 
-@keyframes zoom {
-  from {transform: scale(0)}
-  to {transform: scale(1)}
-}
+      .next {
+        right: 0;
+        margin-right: 1vh;
+        border-radius: 0 0.8rem 0.8rem 0;
+      }
 
-.close {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  color: var(--white);
-  font-size: 3rem;
-  font-weight: bold;
-  transition: 0.3s;
-}
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    }
 
-.close:hover, .close:focus {
-  color: var(--white-hover);
-  text-decoration: none;
-  cursor: pointer;
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 3.5rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+      z-index: 1001; /* Ajout d'un z-index plus élevé */
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    #caption {
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+  }
+
+  /* Désactiver le scroll sur la page lorsque la modale est ouverte */
+  body.modal-open {
+    overflow: hidden;
+  }
 }
