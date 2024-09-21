@@ -44,10 +44,8 @@ class ProductForm
                 ],
                 "description" => [
                     "type" => "textarea",
-                    "max" => 500,
                     "placeholder" => "Description de l'article",
                     "label" => "Description",
-                    "error" => "La description ne peut pas faire plus de 500 caractères",
                     "value" => $data['description'] ?? ''
                 ],
                 "category" => [

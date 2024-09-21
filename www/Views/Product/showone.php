@@ -1,7 +1,11 @@
 <main class="item">
     <section class="item--main">
         <article class="item--main__wrapper">
-            <img src="/images/landing-hero.jpg" alt="" class="item--main__image">
+            <?php
+                $link = $product->getImage();
+                $relativeLink = str_replace('/var/www/html/Public', '', $link);
+            ?>
+            <img src="<?= htmlspecialchars($relativeLink); ?>" alt="" class="item--main__image">
         </article>
     </section>
     <aside class="item--aside">

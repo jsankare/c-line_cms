@@ -798,10 +798,18 @@ main {
 }
 .item--main {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item--main__wrapper {
+  width: 100%;
+  max-width: 50vh;
 }
 .item--main__image {
   width: 100%;
-  max-width: 50vh;
+  border-radius: 1.5rem;
 }
 .item--aside {
   width: 100%;
