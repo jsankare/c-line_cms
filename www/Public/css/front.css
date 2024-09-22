@@ -442,6 +442,12 @@ input[type=color] {
   width: 15rem;
 }
 
+.cart--logo {
+  width: 100%;
+  max-width: 2rem;
+  color: white;
+}
+
 .navbar {
   align-items: center;
   background-color: #171D2A;

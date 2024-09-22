@@ -73,6 +73,27 @@ class ProductController
         }
     }
 
+    public function add() {
+        $productId = intval($_GET['id']);
+        $product = (new Product())->findOneById($productId);
+
+        if (!isset($_SESSION["user-cart"]) || !is_array($_SESSION["user-cart"])) {
+            $_SESSION["user-cart"] = [];
+        }
+
+        if (isset($_SESSION["user-cart"][$product->getId()])) {
+            $_SESSION["user-cart"][$product->getId()]['quantity']++;
+        } else {
+            $_SESSION["user-cart"][$product->getId()] = [
+                'product' => $product->getId(),
+                'name' => $product->getName(),
+                'quantity' => 1
+            ];
+        }
+        header('Location: /products/show');
+        exit();
+    }
+
     public function edit(): void
     {
         if (isset($_GET['id'])) {

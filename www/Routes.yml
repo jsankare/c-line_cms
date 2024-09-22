@@ -146,6 +146,12 @@
   Security: false
   Role: "Guest"
 
+/product/add:
+  Controller: ProductController
+  Action: "add"
+  Security: false
+  Role: "Guest"
+
 /product/edit:
   Controller: ProductController
   Action: "edit"
@@ -163,6 +169,14 @@
   Action: "delete"
   Security: true
   Role: "Editor"
+
+  ###################################### CART ####################################
+
+/cart:
+  Controller: CartController
+  Action: "home"
+  Security: false
+  Role: "Guest"
 
   ###################################### PAGES ####################################
 

@@ -926,13 +926,12 @@ input[type=color] {
 .navbar--list__links {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   padding: 0;
   list-style: none;
 }
 .navbar--list__link {
   position: relative;
-  padding: 0.8rem 1.5rem;
+  padding: 1.5rem;
   color: #c4c4c4;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;

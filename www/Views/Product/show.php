@@ -39,8 +39,8 @@
                             <p class="product--article__text--price"><?= $product->getPrice(); ?> €</p>
                         </div>
                         <div>
-                            <a href="/product/showone?id=<?php echo $product->getId(); ?>" class="product--button">Voir plus</a>
-                            <a href="" class="product--button">Ajouter au panier</a>
+                            <a href="/product/showone?id=<?= $product->getId(); ?>" class="product--button">Voir plus</a>
+                            <a href="/product/add?id=<?= $product->getId(); ?>" class="product--button">Ajouter au panier</a>
                         </div>
                     </article>
                 <?php endif; ?>
