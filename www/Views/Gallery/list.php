@@ -7,9 +7,9 @@
     <form method="GET" class="form--gallery__filter">
         <label for="filter">Filtrer par :</label>
         <select name="filter" id="filter" onchange="this.form.submit()">
-            <option value="all" <?php echo (!isset($_GET['filter']) || $_GET['filter'] == 'all') ? 'selected' : ''; ?>>Toutes les images</option>
-            <option value="gallery" <?php echo (isset($_GET['filter']) && $_GET['filter'] == 'gallery') ? 'selected' : ''; ?>>Images de la galerie</option>
-            <option value="non-gallery" <?php echo (isset($_GET['filter']) && $_GET['filter'] == 'non-gallery') ? 'selected' : ''; ?>>Images hors galerie</option>
+            <option value="all" <?= (!isset($_GET['filter']) || $_GET['filter'] == 'all') ? 'selected' : ''; ?>>Toutes les images</option>
+            <option value="gallery" <?= (isset($_GET['filter']) && $_GET['filter'] == 'gallery') ? 'selected' : ''; ?>>Images de la galerie</option>
+            <option value="non-gallery" <?= (isset($_GET['filter']) && $_GET['filter'] == 'non-gallery') ? 'selected' : ''; ?>>Images hors galerie</option>
         </select>
     </form>
 
@@ -33,16 +33,16 @@
                     $link = $image->getLink();
                     $relativeLink = str_replace('/var/www/html/Public', '', $link);
                     ?>
-                    <img class="gallery--item__picture" src="<?php echo htmlspecialchars($relativeLink); ?>" alt="<?php echo htmlspecialchars($image->getDescription()); ?>">
+                    <img class="gallery--item__picture" src="<?= htmlspecialchars($relativeLink); ?>" alt="<?= htmlspecialchars($image->getDescription()); ?>">
 
                     <div class="gallery--item__info">
-                        <h3 class="gallery--item__title"><?php echo htmlspecialchars($image->getTitle()); ?></h3>
-                        <p class="gallery--item__description"><?php echo htmlspecialchars($image->getDescription()); ?></p>
+                        <h3 class="gallery--item__title"><?= htmlspecialchars($image->getTitle()); ?></h3>
+                        <p class="gallery--item__description"><?= htmlspecialchars($image->getDescription()); ?></p>
                     </div>
 
                     <div class="gallery--item__icons">
-                        <a class="gallery--icon__link" href="/image/edit?id=<?php echo $image->getId(); ?>"><img class="gallery--icon gallery--icon__update" src="/assets/update.svg"></a>
-                        <a class="gallery--icon__link" href="/image/predelete?id=<?php echo $image->getId(); ?>"><img class="gallery--icon gallery--icon__trash" src="/assets/trash.svg"></a>
+                        <a class="gallery--icon__link" href="/image/edit?id=<?= $image->getId(); ?>"><img class="gallery--icon gallery--icon__update" src="/assets/update.svg"></a>
+                        <a class="gallery--icon__link" href="/image/predelete?id=<?= $image->getId(); ?>"><img class="gallery--icon gallery--icon__trash" src="/assets/trash.svg"></a>
                     </div>
                 </div>
             <?php endforeach; ?>

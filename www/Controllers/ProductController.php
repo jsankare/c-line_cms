@@ -85,9 +85,13 @@ class ProductController
             $_SESSION["user-cart"][$product->getId()]['quantity']++;
         } else {
             $_SESSION["user-cart"][$product->getId()] = [
-                'product' => $product->getId(),
+                'productId' => $product->getId(),
                 'name' => $product->getName(),
-                'quantity' => 1
+                'description' => $product->getDescription(),
+                'category' => $product->getCategory(),
+                'image' => $product->getImage(),
+                'price' => $product->getPrice(),
+                'quantity' => 1,
             ];
         }
         header('Location: /products/show');

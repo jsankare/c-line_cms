@@ -37,4 +37,10 @@ class CartController
         }
     }
 
+    public function reset() {
+        unset($_SESSION["user-cart"]);
+        $view = new View("Cart/home", "front");
+        $view->render();
+    }
+
 }

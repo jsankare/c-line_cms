@@ -178,6 +178,12 @@
   Security: false
   Role: "Guest"
 
+/cart/reset:
+  Controller: CartController
+  Action: "reset"
+  Security: false
+  Role: "Guest"
+
   ###################################### PAGES ####################################
 
 /page/home:
