@@ -152,15 +152,27 @@
   Security: false
   Role: "Guest"
 
-/product/addition:
+/product/cartAddition:
   Controller: ProductController
-  Action: "addone"
+  Action: "addFromCart"
   Security: false
   Role: "Guest"
 
-/product/substract:
+/product/cartSubstraction:
   Controller: ProductController
-  Action: "substractone"
+  Action: "substractFromCart"
+  Security: false
+  Role: "Guest"
+
+/product/displayAddition:
+  Controller: ProductController
+  Action: "addFromDisplay"
+  Security: false
+  Role: "Guest"
+
+/product/displaySubstraction:
+  Controller: ProductController
+  Action: "substractFromDisplay"
   Security: false
   Role: "Guest"
 
@@ -187,6 +199,12 @@
 /cart:
   Controller: CartController
   Action: "home"
+  Security: false
+  Role: "Guest"
+
+/cart/remove:
+  Controller: CartController
+  Action: "remove"
   Security: false
   Role: "Guest"
 

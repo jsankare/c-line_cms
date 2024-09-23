@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Core\Form;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use App\Core\View;
 
@@ -11,7 +12,9 @@ class CartController
 {
     public function home(): void
     {
+        $pages = (new Page())->findAll();
         $view = new View("Cart/home", "front");
+        $view->assign('pages', $pages);
         $view->render();
     }
 
@@ -37,10 +40,19 @@ class CartController
         }
     }
 
+    public function remove() {
+        if (isset($_GET['id'])) {
+            $productId = intval($_GET['id']);
+            unset($_SESSION["user-cart"][$productId]);
+        }
+        header('Location: /cart');
+        exit();
+    }
+
     public function reset() {
         unset($_SESSION["user-cart"]);
-        $view = new View("Cart/home", "front");
-        $view->render();
+        header('Location: /cart');
+        exit();
     }
 
 }

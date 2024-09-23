@@ -40,7 +40,19 @@
                         </div>
                         <div>
                             <a href="/product/showone?id=<?= $product->getId(); ?>" class="product--button">Voir plus</a>
-                            <a href="/product/add?id=<?= $product->getId(); ?>" class="product--button">Ajouter au panier</a>
+                            <?php
+                            $productId = $product->getId();
+                            $userCart = $_SESSION["user-cart"];
+                            ?>
+
+                            <?php if (isset($userCart[$productId])): ?>
+                                <?php $quantity = $userCart[$productId]['quantity']; ?>
+                                <a class="product--quantities__substract" href="/product/displaySubstraction?id=<?= $productId; ?>">-</a>
+                                <input type="number" class="product--quantities__amount" value="<?= $quantity ?>"/>
+                                <a class="product--quantities__add" href="/product/displayAddition?id=<?= $productId; ?>">+</a>
+                            <?php else: ?>
+                                <a href="/product/add?id=<?= $productId; ?>" class="product--button">Ajouter au panier</a>
+                            <?php endif; ?>
                         </div>
                     </article>
                 <?php endif; ?>

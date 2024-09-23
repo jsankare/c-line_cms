@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Core\Form;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use App\Core\View;
 
@@ -45,6 +46,7 @@ class ProductController
 
     public function show(): void
     {
+        $pages = (new Page())->findAll();
         $productModel = new Product();
         $categoriesModel = new Category();
 
@@ -52,6 +54,7 @@ class ProductController
         $categories = $categoriesModel->findAll();
 
         $view = new View("Product/show", "front");
+        $view->assign('pages', $pages);
         $view->assign('products', $products);
         $view->assign('categories', $categories);
         $view->render();
@@ -184,13 +187,64 @@ class ProductController
         }
     }
 
-    public function addone() {
+    public function addFromCart() {
         if (isset($_GET['id'])) {
             $productId = intval($_GET['id']);
-            $product = (new Product())->findOneById($productId);
-            $productQuantity = $_SESSION["user-cart"][$product->getName()]["quantity"];
 
-            var_dump($productQuantity);
+            if (isset($_SESSION['user-cart'][$productId])) {
+                $_SESSION['user-cart'][$productId]['quantity'] += 1;
+            }
         }
+
+        header('Location: /cart');
+        exit();
     }
+
+    public function substractFromCart() {
+        if (isset($_GET['id'])) {
+            $productId = intval($_GET['id']);
+
+            if (isset($_SESSION['user-cart'][$productId])) {
+                if ($_SESSION['user-cart'][$productId]['quantity'] == 1) {
+                    unset($_SESSION['user-cart'][$productId]);
+                } else {
+                    $_SESSION['user-cart'][$productId]['quantity'] -= 1;
+                }
+            }
+        }
+
+        header('Location: /cart');
+        exit();
+    }
+
+    public function addFromDisplay() {
+        if (isset($_GET['id'])) {
+            $productId = intval($_GET['id']);
+
+            if (isset($_SESSION['user-cart'][$productId])) {
+                $_SESSION['user-cart'][$productId]['quantity'] += 1;
+            }
+        }
+
+        header('Location: /products/show');
+        exit();
+    }
+
+    public function substractFromDisplay() {
+        if (isset($_GET['id'])) {
+            $productId = intval($_GET['id']);
+
+            if (isset($_SESSION['user-cart'][$productId])) {
+                if ($_SESSION['user-cart'][$productId]['quantity'] == 1) {
+                    unset($_SESSION['user-cart'][$productId]);
+                } else {
+                    $_SESSION['user-cart'][$productId]['quantity'] -= 1;
+                }
+            }
+        }
+
+        header('Location: /products/show');
+        exit();
+    }
+
 }

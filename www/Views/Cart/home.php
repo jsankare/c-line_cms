@@ -3,7 +3,7 @@
         <h1 class="cart--main__title">Votre panier</h1>
         <div class="cart--main__products">
             <?php
-            if (isset($_SESSION['user-cart']) && is_array($_SESSION['user-cart'])):
+            if (isset($_SESSION['user-cart']) && is_array($_SESSION['user-cart']) && !empty($_SESSION["user-cart"])):
                 $totalItemAmount = 0;
                 $totalPriceAmount = 0;
                 foreach ($_SESSION['user-cart'] as $article): ?>
@@ -22,15 +22,15 @@
                         <div class="product--name__wrapper">
                             <p class="product--name__content"><?= $article['name']; ?></p>
                         </div>
-                        <div class="product--quantities__wrapper" >
-                            <a class="product--quantities__add" href="/product/addition?id=<?php echo $article["id"] ?>">-</a>
-                            <input type="number" class="product--quantities__amount" value="<?= $article['quantity'] ?>" />
-                            <a class="product--quantities__substract" href="#">+</a>
+                        <div class="product--quantities__wrapper">
+                            <a class="product--quantities__substract" href="/product/cartSubstraction?id=<?= $article['productId'] ?>">-</a>
+                            <input type="number" class="product--quantities__amount" value="<?= $article['quantity'] ?>" readonly />
+                            <a class="product--quantities__add" href="/product/cartAddition?id=<?= $article['productId'] ?>">+</a>
                         </div>
                         <div>
                             <p><?= $article['price'] * $article["quantity"] ?> €</p>
                         </div>
-                        <img class="product--delete" src="/assets/trash.svg" alt="delete">
+                        <a href="/cart/remove?id=<?= $article['productId'] ?>"><img class="product--delete" src="/assets/trash.svg" alt="delete"></a>
                     </article>
                 <?php endforeach; ?>
                 <?php else: ?>
@@ -39,7 +39,7 @@
         </div>
     </section>
     <aside class="cart--aside">
-        <?php if (isset($_SESSION['user-cart']) && is_array($_SESSION['user-cart'])): ?>
+        <?php if (isset($_SESSION['user-cart']) && is_array($_SESSION['user-cart']) && !empty($_SESSION["user-cart"])): ?>
         <h2>Résumé de votre panier</h2>
         <section class="specs">
             <div class="specs--top">

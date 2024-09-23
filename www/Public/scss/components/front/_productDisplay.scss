@@ -116,6 +116,7 @@ main {
             cursor: pointer;
             width: 90%;
             transition: background-color 0.2s ease;
+            text-decoration: none;
 
             &:hover {
                 background-color: #583b72;
