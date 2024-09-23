@@ -152,6 +152,18 @@
   Security: false
   Role: "Guest"
 
+/product/addition:
+  Controller: ProductController
+  Action: "addone"
+  Security: false
+  Role: "Guest"
+
+/product/substract:
+  Controller: ProductController
+  Action: "substractone"
+  Security: false
+  Role: "Guest"
+
 /product/edit:
   Controller: ProductController
   Action: "edit"

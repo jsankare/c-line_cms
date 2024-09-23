@@ -107,6 +107,7 @@ class ProductController
             if ($product) {
                 $productForm = new Form("Product");
                 $productForm->setValues([
+                    'id' => $productId,
                     'name' => $product->getName(),
                     'description' => $product->getDescription(),
                     'category' => $product->getCategory(),
@@ -183,4 +184,13 @@ class ProductController
         }
     }
 
+    public function addone() {
+        if (isset($_GET['id'])) {
+            $productId = intval($_GET['id']);
+            $product = (new Product())->findOneById($productId);
+            $productQuantity = $_SESSION["user-cart"][$product->getName()]["quantity"];
+
+            var_dump($productQuantity);
+        }
+    }
 }

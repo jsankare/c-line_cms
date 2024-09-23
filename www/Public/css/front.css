@@ -573,9 +573,11 @@ input[type=color] {
 }
 .cart--main {
   width: 100%;
+  margin-right: 25%;
 }
 .cart--main__product {
   display: grid;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 2.5rem;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   align-items: center;
@@ -583,25 +585,66 @@ input[type=color] {
   width: 100%;
 }
 .cart--aside {
-  width: 50%;
-  background-color: #6c757d;
+  position: fixed;
+  right: 0;
   height: 100%;
-  min-height: 90vh;
+  width: 25%;
+  background-color: #6c757d;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
 }
 
+.product--delete {
+  width: 100%;
+  max-width: 2rem;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.product--delete:hover {
+  transform: scale(1.05);
+}
 .product--quantities__wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.product--picture {
+.product--quantities__amount {
+  /* Remove arrows in Chrome, Safari, and Edge */
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+  /* Remove the up/down arrows in Firefox */
+  /* Optional: Style for better appearance */
+  width: 100%;
+  max-width: 2rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.product--quantities__amount::-webkit-inner-spin-button, .product--quantities__amount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.product--picture__wrapper {
+  width: 12.5rem;
+  height: 12.5rem;
   overflow: hidden;
+  justify-self: center;
+  border-radius: 1rem;
 }
 .product--picture__image {
   width: 100%;
-  max-width: 20rem;
-  max-height: 20rem;
+  height: 100%;
+  object-fit: cover;
+}
+
+.specs--top {
+  display: flex;
+  justify-content: space-between;
 }
 
 main {
