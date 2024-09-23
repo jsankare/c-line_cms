@@ -49,7 +49,8 @@ class ReviewForm
                     "min" => 1,
                     "max" => 5,
                     "required" => true,
-                    "value" => $data['rating'] ?? ''
+                    "value" => $data['rating'] ?? '',
+                    "step" => 1
                 ],
             ]
         ];

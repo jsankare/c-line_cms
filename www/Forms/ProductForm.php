@@ -68,7 +68,8 @@ class ProductForm
                 "price" => [
                     "type" => "number",
                     "label" => "Prix du produit",
-                    "value" => $data['price'] ?? ''
+                    "value" => $data['price'] ?? '',
+                    "step" => 0.01
                 ],
                 "available" => [
                     "type" => "select",

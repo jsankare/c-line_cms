@@ -3,11 +3,11 @@
     <section class="product--section">
         <div class="product--section__tags">
             <form method="GET" class="form--products__filter">
-                <label for="filter">Filtrer par :</label>
-                <select name="filter" id="filter" onchange="this.form.submit()">
-                    <option value="all" <?php if (!isset($_GET['filter']) || $_GET['filter'] == 'all') echo 'selected'; ?>>Toutes les catégories</option>
+                <label class="filter--label" for="filter">Filtrer par :</label>
+                <select class="filter--select" name="filter" id="filter" onchange="this.form.submit()">
+                    <option class="filter--option" value="all" <?php if (!isset($_GET['filter']) || $_GET['filter'] == 'all') echo 'selected'; ?>>Toutes les catégories</option>
                     <?php foreach ($categories as $category): ?>
-                        <option value="<?= $category->getName(); ?>"
+                        <option class="filter--option" value="<?= $category->getName(); ?>"
                             <?php if (isset($_GET['filter']) && $_GET['filter'] == $category->getId()) echo 'selected'; ?>>
                             <?= $category->getName(); ?>
                         </option>
@@ -42,16 +42,20 @@
                             <a href="/product/showone?id=<?= $product->getId(); ?>" class="product--button">Voir plus</a>
                             <?php
                             $productId = $product->getId();
-                            $userCart = $_SESSION["user-cart"];
+                            if(isset($_SESSION["user-cart"])) $userCart = $_SESSION["user-cart"];
                             ?>
 
                             <?php if (isset($userCart[$productId])): ?>
                                 <?php $quantity = $userCart[$productId]['quantity']; ?>
-                                <a class="product--quantities__substract" href="/product/displaySubstraction?id=<?= $productId; ?>">-</a>
-                                <input type="number" class="product--quantities__amount" value="<?= $quantity ?>"/>
-                                <a class="product--quantities__add" href="/product/displayAddition?id=<?= $productId; ?>">+</a>
+                            <div class="product--quantities__wrapper">
+                                <a class=" product--quantitiesproduct--quantities__substract" href="/product/displaySubstraction?id=<?= $productId; ?>"><img class="product--quantities" src="/assets/minus.svg"></a>
+                                <input readonly type="number" class="product--quantities__amount" value="<?= $quantity ?>"/>
+                                <a class="product--quantities product--quantities__add" href="/product/displayAddition?id=<?= $productId; ?>"><img class="product--quantities" src="/assets/plus.svg"></a>
+                            </div>
                             <?php else: ?>
+                            <div>
                                 <a href="/product/add?id=<?= $productId; ?>" class="product--button">Ajouter au panier</a>
+                            </div>
                             <?php endif; ?>
                         </div>
                     </article>

@@ -61,6 +61,12 @@
                     <li class="navbar--li"><a class="navbar--link" href="/contact">Contact</a></li>
                     <li class="navbar--li"><a class="navbar--link" href="/profile">Profil</a></li>
                 <?php else: ?>
+                    <li class="navbar--li">
+                        <a class="navbar--link" href="/cart">
+                            <p class="cart--count"><?= getCartItemCount() ?></p>
+                            <img class="cart--logo" src="/assets/shopping-bag.svg">
+                        </a>
+                    </li>
                     <li class="navbar--li"><a class="navbar--link" href="/register">Inscription</a></li>
                     <li class="navbar--li"><a class="navbar--link" href="/login">Connexion</a></li>
                 <?php endif; ?>

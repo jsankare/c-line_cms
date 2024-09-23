@@ -23,9 +23,9 @@
                             <p class="product--name__content"><?= $article['name']; ?></p>
                         </div>
                         <div class="product--quantities__wrapper">
-                            <a class="product--quantities__substract" href="/product/cartSubstraction?id=<?= $article['productId'] ?>">-</a>
+                            <a class="product--quantities product--quantities__substract" href="/product/cartSubstraction?id=<?= $article['productId'] ?>"><img class="product--quantities" src="/assets/minus.svg"></a>
                             <input type="number" class="product--quantities__amount" value="<?= $article['quantity'] ?>" readonly />
-                            <a class="product--quantities__add" href="/product/cartAddition?id=<?= $article['productId'] ?>">+</a>
+                            <a class="product--quantities product--quantities__add" href="/product/cartAddition?id=<?= $article['productId'] ?>"><img class="product--quantities" src="/assets/plus.svg"></a>
                         </div>
                         <div>
                             <p><?= $article['price'] * $article["quantity"] ?> €</p>
@@ -40,7 +40,8 @@
     </section>
     <aside class="cart--aside">
         <?php if (isset($_SESSION['user-cart']) && is_array($_SESSION['user-cart']) && !empty($_SESSION["user-cart"])): ?>
-        <h2>Résumé de votre panier</h2>
+        <h2 class="cart--aside__title">Résumé de votre panier</h2>
+        <hr class="cart--separator" />
         <section class="specs">
             <div class="specs--top">
                 <p class="specs--top__objects">Objets : <?= $totalItemAmount ?></p>
@@ -54,11 +55,15 @@
                 <p class="specs--bottom__ttext" >Prix total</p>
                 <p class="specs--bottom__tprice"><?= round($totalPriceAmount + ($totalPriceAmount / 100 ) * $taxes, 2) ?> €</p>
             </div>
-            <button>Envoyer</button>
+            <button class="specs--button">Envoyer</button>
         </section>
-        <a href="/cart/reset" >Reset cart</a>
+        <a class="specs--emptycart" href="/cart/reset" >Vider mon panier</a>
         <?php else: ?>
-        <p>Panier vide !</p>
+        <section class="empty--wrapper">
+            <h3 class="empty--header">Il n'y a rien à voir ici</h3>
+            <img class="empty--picture" alt="a rabbit saying nothing here" src="/assets/rabbit.svg">
+            <a class="empty--link" href="/products/show">Retourner aux produits</a>
+        </section>
         <?php endif; ?>
     </aside>
 </main>
