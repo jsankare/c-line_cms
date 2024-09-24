@@ -134,23 +134,85 @@
   Security: true
   Role: "Admin"
 
-/products/delete:
-  Controller: ProductController
-  Action: "delete"
-  Security: true
-  Role: "Editor"
-
 /products/show:
   Controller: ProductController
   Action: "show"
   Security: false
   Role: "Guest"
 
-/products/predelete:
+/product/showone:
+  Controller: ProductController
+  Action: "showone"
+  Security: false
+  Role: "Guest"
+
+/product/add:
+  Controller: ProductController
+  Action: "add"
+  Security: false
+  Role: "Guest"
+
+/product/cartAddition:
+  Controller: ProductController
+  Action: "addFromCart"
+  Security: false
+  Role: "Guest"
+
+/product/cartSubstraction:
+  Controller: ProductController
+  Action: "substractFromCart"
+  Security: false
+  Role: "Guest"
+
+/product/displayAddition:
+  Controller: ProductController
+  Action: "addFromDisplay"
+  Security: false
+  Role: "Guest"
+
+/product/displaySubstraction:
+  Controller: ProductController
+  Action: "substractFromDisplay"
+  Security: false
+  Role: "Guest"
+
+/product/edit:
+  Controller: ProductController
+  Action: "edit"
+  Security: true
+  Role: "Editor"
+
+/product/predelete:
   Controller: ProductController
   Action: "predelete"
   Security: true
   Role: "Editor"
+
+/product/delete:
+  Controller: ProductController
+  Action: "delete"
+  Security: true
+  Role: "Editor"
+
+  ###################################### CART ####################################
+
+/cart:
+  Controller: CartController
+  Action: "home"
+  Security: false
+  Role: "Guest"
+
+/cart/remove:
+  Controller: CartController
+  Action: "remove"
+  Security: false
+  Role: "Guest"
+
+/cart/reset:
+  Controller: CartController
+  Action: "reset"
+  Security: false
+  Role: "Guest"
 
   ###################################### PAGES ####################################
 

@@ -1,5 +1,3 @@
-/* src/Styles/articles-list.scss */
-
 .article-list {
   display: flex;
   flex-direction: column;
@@ -55,3 +53,16 @@
     }
   }
 }
+
+.filter--select {
+  appearance: none;
+  -webkit-appearance: none; /* Pour Chrome, Safari, etc. */
+  -moz-appearance: none; /* Pour Firefox */
+
+  padding: 1rem !important;
+  background: url('data:image/svg+xml;base64,<base64_flèche>') no-repeat right 1rem center;
+  background-size: 1.5rem;
+  border: 1px solid #ccc; /* Optionnel pour styliser le select */
+  border-radius: 4px; /* Optionnel */
+}
+

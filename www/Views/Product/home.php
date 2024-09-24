@@ -23,6 +23,9 @@
                     <li class="product--value" >
                         <h3>Prix</h3><p><?php echo htmlspecialchars($product->getPrice()); ?>€</p>
                     </li>
+                    <li class="product--value" >
+                        <h3>Disponibilité</h3><p><?php if ($product->getAvailable()) echo "Oui"; else echo "Non"; ?></p>
+                    </li>
                 </div>
                 <div class="product--content">
                     <li class="product--value" >

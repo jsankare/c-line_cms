@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS public.cline_product CASCADE;
 CREATE TABLE cline_product (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    description VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
     category VARCHAR(30) NULL,
     image VARCHAR(500) NULL,
     price NUMERIC NOT NULL,

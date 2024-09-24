@@ -79,6 +79,8 @@ class Form
             } else if ($input["type"] == "checkbox") {
                 $checked = isset($input["value"]) && $input["value"] ? " checked" : "";
                 $html .= "<input type='checkbox' class='input input--{$name}' id='{$name}' name='{$name}' value='1'{$checked}>";
+            } else if ($input["type"] == "number") {
+                $html .= "<input class='input input--{$name}' type='{$input["type"]}' name='{$name}' step='{$input["step"]}'";
             } else {
                 $html .= "<input class='input input--{$name}' type='{$input["type"]}' name='{$name}'";
                 if (isset($input["placeholder"])) {
