@@ -135,6 +135,7 @@ class ProductController
                 }
 
                 $view = new View("Product/edit", "back");
+                $view->assign('product', $product);
                 $view->assign('productForm', $productForm->build());
                 $view->render();
             } else {

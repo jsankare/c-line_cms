@@ -52,6 +52,7 @@
             </div>
             <div class="specs--bottom">
                 <?php $taxes = 7 ?>
+                <span>Coût supplémentaire : + <?= $taxes ?>%</span>
                 <p class="specs--bottom__ttext" >Prix total</p>
                 <p class="specs--bottom__tprice"><?= round($totalPriceAmount + ($totalPriceAmount / 100 ) * $taxes, 2) ?> €</p>
             </div>
