@@ -31,6 +31,10 @@ body {
   margin: 0; /* Remove the margin in all browsers. */
 }
 
+#main {
+  min-height: 100vh;
+}
+
 /*
 Grouping content
 ================
@@ -563,9 +567,25 @@ input[type=color] {
 }
 
 .footer {
-  height: 10vh;
+  height: 100%;
+  padding: 2rem;
+  width: 100%;
   color: var(--white);
   background-color: #171D2A;
+  align-self: flex-end;
+}
+.footer--logo__link {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.footer--logo__picture {
+  width: 100%;
+  max-width: 4rem;
+}
+
+.scaled-logo {
+  width: 150px;
+  height: 150px;
 }
 
 .page--wrapper {

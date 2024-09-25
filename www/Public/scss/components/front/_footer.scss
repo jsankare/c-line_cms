@@ -1,5 +1,23 @@
 .footer {
-  height: 10vh;
+  height: 100%;
+  padding: 2rem;
+  width: 100%;
   color: var(--white);
   background-color: $navColor;
+  align-self: flex-end;
+  &--logo {
+    &__link {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    &__picture {
+      width: 100%;
+      max-width: 4rem;
+    }
+  }
+}
+
+.scaled-logo {
+  width: 150px;
+  height: 150px;
 }
