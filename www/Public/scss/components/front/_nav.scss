@@ -15,6 +15,7 @@
   position: fixed;
   top: 0;
   z-index: 10;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 8px 8px -4px;
   &--li {
     position: relative;
     background-color: $navColor;

@@ -3,8 +3,8 @@
           <h1 class="hero--title" >Headline that highlights the Value Proposition</h1>
           <p class="hero--text">Describe exactly what your product or service does and how it makes your customer’s lives better. Avoid using verbose words or phrases.</p>
           <div class="hero-buttons">
-               <a class="hero-buttons__button" href="#">Get started</a>
-               <a class="hero-buttons__button" href="#">Learn more</a>
+               <a class="hero-button__primary hero-button" href="#">Get started</a>
+               <a class="hero-button__secondary hero-button" href="#">Learn more</a>
           </div>
      </section>
 
@@ -61,8 +61,6 @@
             </div>
             <button class="reviews--nav next"> > </button>
         </div>
-
-        <div class="reviews--pagination"></div>
     </section>
 
 
