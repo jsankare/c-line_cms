@@ -22,10 +22,11 @@
     }
     ?>
     <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'front-nav.php'; ?>
     <main style="font-family: <?= $fontStyle ?>; margin-top: 10vh">
         <!-- intégration de la vue -->
         <?php include "../Views/".$this->view.".php";?>
     </main>
+    <?php include 'front-footer.php'; ?>
     </body>
 </html>

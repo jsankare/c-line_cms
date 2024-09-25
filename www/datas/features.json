@@ -9,7 +9,7 @@
             "Invisible dans la nuit",
             "Peut pénétrer les sorts protecteurs"
         ],
-        "imageSrc": "https://example.com/images/lames-ombre.jpg",
+        "imageSrc": "/uploads/66f0787323ee6.png",
         "imageAlt": "Un ensemble de lames noires enveloppées d'ombres mystérieuses"
     },
     {
@@ -22,7 +22,7 @@
             "Léger mais indestructible",
             "Symbole gravé de bénédiction naine"
         ],
-        "imageSrc": "https://example.com/images/bouclier-fer-sacre.jpg",
+        "imageSrc": "/uploads/66b5e9e815ffd.jpg",
         "imageAlt": "Un bouclier de fer gravé de runes scintillantes"
     },
     {
@@ -35,7 +35,7 @@
             "Aventures épiques dans les terres mystiques",
             "Illustrations d'enchantements perdus"
         ],
-        "imageSrc": "https://example.com/images/chroniques-soveliss.jpg",
+        "imageSrc": "/uploads/66f17be935002.png",
         "imageAlt": "Un vieux livre couvert de glyphes elfes lumineux"
     }
 ]
