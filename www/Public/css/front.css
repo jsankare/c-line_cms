@@ -582,6 +582,15 @@ input[type=color] {
   width: 100%;
   max-width: 4rem;
 }
+.footer--header {
+  display: flex;
+}
+.footer--right {
+  width: 50%;
+}
+.footer--left {
+  width: 50%;
+}
 
 .scaled-logo {
   width: 150px;
@@ -629,6 +638,7 @@ input[type=color] {
   right: 0;
   height: 100%;
   width: 25%;
+  z-index: 9;
   background-color: #171D2A;
   text-align: left;
   display: flex;

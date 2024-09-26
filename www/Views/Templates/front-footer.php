@@ -1,5 +1,8 @@
 <footer class="footer">
-    <header>
+    <?php
+    $pages = (new \App\Models\Page())->findAll();
+    ?>
+    <header class="footer--header">
         <section class="footer--left">
             <div class="footer--logo">
                 <a class="footer--logo__link" href="/"><img class="footer--logo__picture" src="/assets/logo.svg"></a>
@@ -17,10 +20,21 @@
             </div>
         </section>
         <section class="footer--right">
-
+            <div>
+                <?php if (!empty($pages)): ?>
+                <h3>Piste des pages :</h3>
+                    <ul>
+                        <?php foreach ($pages as $page): ?>
+                            <li>
+                                <a href="/page/<?= $page->getSlug(); ?>"><?= $page->getTitle(); ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </div>
         </section>
     </header>
-    <footer>
+    <footer class="footer--footer">
 
     </footer>
 

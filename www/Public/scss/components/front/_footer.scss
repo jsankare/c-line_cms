@@ -15,6 +15,16 @@
       max-width: 4rem;
     }
   }
+  &--header {
+    display: flex;
+
+  }
+  &--right {
+    width: 50%;
+     }
+  &--left {
+    width: 50%;
+  }
 }
 
 .scaled-logo {
