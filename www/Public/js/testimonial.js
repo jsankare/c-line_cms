@@ -32,3 +32,23 @@ nextButton.addEventListener('click', () => {
     }
     updateSlider();
 });
+
+// Add scroll detection for left and right scroll
+document.addEventListener('wheel', (event) => {
+    if (event.deltaX > 0) {
+        // Scroll to the right, go to next review
+        if (currentIndex < totalPages - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to the first review
+        }
+    } else if (event.deltaX < 0) {
+        // Scroll to the left, go to previous review
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalPages - 1; // Loop back to the last review
+        }
+    }
+    updateSlider();
+});
