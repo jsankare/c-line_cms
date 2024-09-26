@@ -30,6 +30,10 @@ body {
   margin: 0; /* Remove the margin in all browsers. */
 }
 
+#main {
+  min-height: 100vh;
+}
+
 /*
 Grouping content
 ================

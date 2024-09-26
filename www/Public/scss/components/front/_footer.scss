@@ -1,5 +1,77 @@
 .footer {
-  height: 10vh;
+  height: 100%;
+  padding: 2rem;
+  width: 100%;
   color: var(--white);
   background-color: $navColor;
+  align-self: flex-end;
+  z-index: -1;
+  &--logo {
+    &__link {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    &__picture {
+      background-color: white;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 4rem;
+    }
+  }
+  &--header {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    justify-content: space-between;
+    gap: 20vh;
+    align-items: center;
+  }
+  &--right {
+    width: 50%;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    &__listItemLink {
+      &:hover {
+        text-decoration: underline;
+        color: white;
+      }
+    }
+  }
+  &--left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    &__top {
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+          color: white;
+        }
+      }
+    }
+    width: 50%;
+    &__list {
+      display: flex;
+      gap: 1rem;
+    }
+    &__logo {
+      width: 100%;
+      max-width: 2rem;
+      fill: white;
+    }
+  }
+}
+
+
+
+.scaled-logo {
+  width: 150px;
+  height: 150px;
 }
