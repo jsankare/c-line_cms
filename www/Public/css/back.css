@@ -30,6 +30,10 @@ body {
   margin: 0; /* Remove the margin in all browsers. */
 }
 
+#main {
+  min-height: 100vh;
+}
+
 /*
 Grouping content
 ================
@@ -318,8 +322,8 @@ form {
   width: 100%;
   max-width: 50rem;
   padding: 1.5rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-color: white; /* Optional for better visibility */
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: white;
 }
 
 form input, form select, form textarea, form button {

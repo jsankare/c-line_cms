@@ -52,6 +52,12 @@
   Security: true
   Role: "User"
 
+/profile/edit:
+  Controller: SecurityController
+  Action: "edit"
+  Security: true
+  Role: "User"
+
 /profile/predelete:
   Controller: SecurityController
   Action: "predelete"

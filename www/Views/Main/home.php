@@ -3,8 +3,8 @@
           <h1 class="hero--title" >Headline that highlights the Value Proposition</h1>
           <p class="hero--text">Describe exactly what your product or service does and how it makes your customer’s lives better. Avoid using verbose words or phrases.</p>
           <div class="hero-buttons">
-               <a class="hero-button__primary hero-button" href="#">Get started</a>
-               <a class="hero-button__secondary hero-button" href="#">Learn more</a>
+               <a class="hero-button__primary hero-button" href="<?= $_ENV["BASE_URL"] ?>#features">En apprendre plus</a>
+               <a class="hero-button__secondary hero-button" href="<?= $_ENV["BASE_URL"] ?>/products/show">Voir les produits</a>
           </div>
      </section>
 
@@ -12,7 +12,8 @@
           <img class="image--section__image" src="/images/landing-hero.jpg" alt="Placeholder image">
      </section>
 
-     <section class="features">
+     <section id="features" class="features">
+         <h2>Ce que je propose</h2>
           <?php foreach($features as $feature): ?>
                <article class="features--feature">
                     <aside class="features--feature__aside">
