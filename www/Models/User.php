@@ -18,6 +18,13 @@ class User extends SQL
 
     protected ?string $token_expiration = null;
 
+    protected ?string $date_inserted;
+
+
+    public function getCreationDate(): ?string
+    {
+        return $this->date_inserted;
+    }
 
     /**
      * @return int

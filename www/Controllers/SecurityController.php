@@ -127,33 +127,15 @@ class SecurityController
             exit();
         }
 
-        $updateProfileForm = new Form("UpdateProfile");
-        $updateProfileForm->setValues([
-            'firstname' => $user->getFirstname(),
-            'lastname' => $user->getLastname(),
-            'email' => $user->getEmail(),
-        ]);
-
-        if ($updateProfileForm->isSubmitted() && $updateProfileForm->isValid()) {
-            $user->setFirstname($_POST["firstname"]);
-            $user->setLastname($_POST["lastname"]);
-            $user->setEmail($_POST["email"]);
-            $user->save();
-            header("Formulaire soumis", true, 200);
-            header('Location: /profile');
-            exit();
-        }
-
         $pageModel = new Page();
         $commentModel = new Comment();
 
-        $pages = $pageModel->findAll();
+
         $userComments = $commentModel->findCommentsByUserId($user->getId());
 
         $view = new View("Security/profile", "front");
         $view->assign("authenticatedUser", $user);
         $view->assign('pages', $pages);
-        $view->assign('updateProfileForm', $updateProfileForm->build());
         $view->assign("userComments", $userComments);
         $view->render();
     }
@@ -334,6 +316,43 @@ class SecurityController
             header('Location: /500');
             exit();
         }
+    }
+
+    public function edit() {
+
+        $user = (new User())->findOneById($_SESSION['user_id']);
+        $pageModel = new Page();
+
+        $pages = $pageModel->findAll();
+
+        if (!$user) {
+            header("Error user not found", true, 404);
+            header('Location: /404');
+            exit();
+        }
+
+        $updateProfileForm = new Form("UpdateProfile");
+        $updateProfileForm->setValues([
+            'firstname' => $user->getFirstname(),
+            'lastname' => $user->getLastname(),
+            'email' => $user->getEmail(),
+        ]);
+
+        if ($updateProfileForm->isSubmitted() && $updateProfileForm->isValid()) {
+            $user->setFirstname($_POST["firstname"]);
+            $user->setLastname($_POST["lastname"]);
+            $user->setEmail($_POST["email"]);
+            $user->save();
+            header("Formulaire soumis", true, 200);
+            header('Location: /profile');
+            exit();
+        }
+
+        $view = new View('security/edit', 'front');
+        $view->assign("authenticatedUser", $user);
+        $view->assign('pages', $pages);
+        $view->assign('updateProfileForm', $updateProfileForm->build());
+        $view->render();
     }
 
     public function predelete(): void {
