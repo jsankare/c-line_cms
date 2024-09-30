@@ -24,7 +24,7 @@
         <section class="footer--right">
             <div class="footer--right__wrapper">
                 <?php if (!empty($pages)): ?>
-                <h3 class="footer--right__title">Piste des pages :</h3>
+                <h3 class="footer--right__title">Liste des pages :</h3>
                     <ul class="footer--right__list">
                         <?php foreach ($pages as $page): ?>
                             <li class="footer--right__listItem">

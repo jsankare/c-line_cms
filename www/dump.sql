@@ -87,7 +87,7 @@ CREATE TABLE cline_product (
     category VARCHAR(30) NULL,
     image VARCHAR(500) NULL,
     price NUMERIC NOT NULL,
-    available BOOLEAN,
+    available SMALLINT default 0,
     date_inserted TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     date_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -247,10 +247,10 @@ VALUES
 -- Seed products
 INSERT INTO public.cline_product (name, description, category, image, price, available)
 VALUES
-    ('T-shirt Caméléon', 'Un T-shirt qui change de couleur avec la température.', 'Accessoires', '/images/tshirt_cameleon.jpg', 29.99, true),
-    ('Poster Dauphin', 'Poster représentant un groupe de dauphins en pleine mer.', 'Produits', '/images/poster_dauphin.jpg', 15.00, true),
-    ('Mug Gecko', 'Mug avec un motif de gecko adhérent.', 'Accessoires', '/images/mug_gecko.jpg', 12.50, true),
-    ('Peluche Abeille', 'Peluche en forme d''abeille.', 'Produits', '/images/peluche_abeille.jpg', 10.00, true);
+    ('T-shirt Caméléon', 'Un T-shirt qui change de couleur avec la température.', 'Accessoires', '/images/tshirt_cameleon.jpg', 29.99, 1),
+    ('Poster Dauphin', 'Poster représentant un groupe de dauphins en pleine mer.', 'Produits', '/images/poster_dauphin.jpg', 15.00, 1),
+    ('Mug Gecko', 'Mug avec un motif de gecko adhérent.', 'Accessoires', '/images/mug_gecko.jpg', 12.50, 1),
+    ('Peluche Abeille', 'Peluche en forme d''abeille.', 'Produits', '/images/peluche_abeille.jpg', 10.00, 0);
 
 -- Seed reviews
 INSERT INTO public.cline_review (firstname, lastname, position, comment, rating)

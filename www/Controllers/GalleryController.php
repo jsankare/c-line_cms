@@ -36,7 +36,7 @@ class GalleryController
             $finfo = new \finfo(FILEINFO_MIME_TYPE);
             $mimeType = $finfo->file($_FILES['image']['tmp_name']);
 
-            $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'images/wepb'];
+            $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'images/webp'];
             if (!in_array($mimeType, $allowedMimeTypes)) {
                 header("Erreur, seulement les PNG, WEBP, JPEG & JPG sont acceptés", true, 500);
                 header('Location: /500');

@@ -1,6 +1,10 @@
 @use "sass:color";
 
 .product {
+  &--background {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
   &--value {
     -webkit-box-orient: vertical;
     display: -webkit-box;
