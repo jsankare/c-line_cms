@@ -1211,29 +1211,40 @@ main {
   justify-content: center;
 }
 .article-list--section {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille adaptative */
   gap: 2rem;
   padding: 2rem;
-  max-width: 50%;
+  max-width: 90%; /* Plus large que les 50% pour plus d'articles sur la page */
 }
 .article-list--item {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  transition: box-shadow 0.2s ease-in-out;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 15px; /* Bordure plus arrondie pour un look plus moderne */
+  background-color: #ffffff; /* Fond blanc pour ressembler à une carte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden; /* Pour éviter le dépassement des éléments */
+  /* Effet ombré doux et zoom à l'hover pour un effet "Bento" */
 }
 .article-list--item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Légère remontée de la carte à l'hover */
+}
+.article-list--item__date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
 }
 .article-list--item__title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 .article-list--item__title a {
   text-decoration: none;
   color: #333;
+  transition: color 0.3s;
 }
 .article-list--item__title a:hover {
   color: #007bff;
@@ -1241,26 +1252,32 @@ main {
 .article-list--item__excerpt {
   font-size: 1rem;
   color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 .article-list--item__read-more {
   display: inline-block;
   margin-top: 1rem;
   color: #007bff;
+  font-weight: bold;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #f0f4ff;
+  border-radius: 50px; /* Bouton arrondi */
+  transition: background-color 0.3s ease;
 }
 .article-list--item__read-more:hover {
-  text-decoration: underline;
+  background-color: #d6e4ff;
 }
 
+/* Style du filtre si besoin */
 .filter--select {
   appearance: none;
-  -webkit-appearance: none; /* Pour Chrome, Safari, etc. */
-  -moz-appearance: none; /* Pour Firefox */
   padding: 1rem !important;
   background: url("data:image/svg+xml;base64,<base64_flèche>") no-repeat right 1rem center;
   background-size: 1.5rem;
-  border: 1px solid #ccc; /* Optionnel pour styliser le select */
-  border-radius: 4px; /* Optionnel */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .item {

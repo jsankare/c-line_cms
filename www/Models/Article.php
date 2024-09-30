@@ -11,6 +11,12 @@ class Article extends SQL
     protected string $description;
     protected string $content;
     protected int $creator_id;
+    protected string $date_inserted;
+
+    public function getCreationDate(): ?string
+    {
+        return $this->date_inserted;
+    }
 
     /**
      * @return int
