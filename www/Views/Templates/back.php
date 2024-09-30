@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Ceci est mon back</title>
+        <title>C-Line * Back Office</title>
         <meta name="description" content="Super site avec une magnifique intégration">
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/back.css">

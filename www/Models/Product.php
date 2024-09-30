@@ -15,7 +15,7 @@ class Product extends SQL
 
     protected float $price;
 
-    protected bool $available = false;
+    protected int $available = 0;
 
     /**
      * @return int
@@ -117,17 +117,17 @@ class Product extends SQL
     }
 
                 /**
-     * @return bool
+     * @return int
      */
-    public function getAvailable(): bool
+    public function getAvailable(): int
     {
         return $this->available;
     }
 
     /**
-     * @param bool $available
+     * @param int $available
      */
-    public function setAvailable(bool $available): void
+    public function setAvailable(int $available): void
     {
         $this->available = $available;
     }
@@ -152,6 +152,15 @@ class Product extends SQL
 
     public function findAll() {
         $sql = "SELECT * FROM {$this->table}";
+
+        $queryPrepared = $this->pdo->prepare($sql);
+        $queryPrepared->execute();
+        $queryPrepared->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\Product');
+        return $queryPrepared->fetchAll();
+    }
+
+    public function findAllAvailable() {
+        $sql = "SELECT * FROM {$this->table} WHERE available = 1";
 
         $queryPrepared = $this->pdo->prepare($sql);
         $queryPrepared->execute();

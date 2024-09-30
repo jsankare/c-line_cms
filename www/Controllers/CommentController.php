@@ -79,7 +79,6 @@ class CommentController
             $commentModel = new Comment();
             $comment = $commentModel->findOneById($_GET['id']);
             $commentAuthorId = $comment->getUserId();
-            echo $commentAuthorId;
             if($commentAuthorId === $_SESSION['user_id']) {
                 $comment->delete();
             } else {

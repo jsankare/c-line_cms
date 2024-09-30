@@ -23,14 +23,53 @@ class ProductController
         $productForm = new Form('Product');
 
         if ($productForm->isSubmitted() && $productForm->isValid()) {
+
+            $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
+            $uploadDir = '/var/www/html/Public/products/';
+
+            if(is_dir($uploadDir)) {
+            } else {
+                if (!mkdir($uploadDir, 0777, true)) {
+                    header("Dossier non créé ", true, 500);
+                    header('Location: /500');
+                    exit();
+                } else {
+                    header("Dossier créé", true, 200);
+                }
+            }
+            $uploadFile = $uploadDir . uniqid() . '.' . $ext;
+
+            // Check MIME type
+            $finfo = new \finfo(FILEINFO_MIME_TYPE);
+            $mimeType = $finfo->file($_FILES['image']['tmp_name']);
+
+            $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'images/webp'];
+            if (!in_array($mimeType, $allowedMimeTypes)) {
+                header("Erreur, seulement les PNG, WEBP, JPEG & JPG sont acceptés", true, 500);
+                header('Location: /500');
+                exit();
+            }
+
+            // Move file du tmp au dossier uploads
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                header("Fichier uploadé avec succes", true, 200);
+            } else {
+                header("Fichier non créé", true, 500);
+                header('Location: /500');
+                exit();
+            }
+
             $product = new Product();
             $product->setName($_POST['name']);
             $product->setDescription($_POST['description']);
             $product->setCategory($_POST['category']);
             $product->setPrice($_POST['price']);
-            $product->setAvailable($_POST['available']);
-            $product->setImage($_POST['image']);
 
+            (isset($_POST['available']) && $_POST['available'] == '1') ? $product->setAvailable(1) : $product->setAvailable(0);
+
+            $product->setImage($uploadFile);
+
+            var_dump($_POST['available']);
             $product->save();
 
             header('Location: /products/home');
@@ -80,25 +119,31 @@ class ProductController
         $productId = intval($_GET['id']);
         $product = (new Product())->findOneById($productId);
 
-        if (!isset($_SESSION["user-cart"]) || !is_array($_SESSION["user-cart"])) {
-            $_SESSION["user-cart"] = [];
+        if ($product->getAvailable() === 1) {
+            if (!isset($_SESSION["user-cart"]) || !is_array($_SESSION["user-cart"])) {
+                $_SESSION["user-cart"] = [];
+            }
+
+            if (isset($_SESSION["user-cart"][$product->getId()])) {
+                $_SESSION["user-cart"][$product->getId()]['quantity']++;
+            } else {
+                $_SESSION["user-cart"][$product->getId()] = [
+                    'productId' => $product->getId(),
+                    'name' => $product->getName(),
+                    'description' => $product->getDescription(),
+                    'category' => $product->getCategory(),
+                    'image' => $product->getImage(),
+                    'price' => $product->getPrice(),
+                    'quantity' => 1,
+                ];
+            }
+            header('Location: /products/show');
+            exit();
+        } else {
+            header('Location: /products/show');
+            exit();
         }
 
-        if (isset($_SESSION["user-cart"][$product->getId()])) {
-            $_SESSION["user-cart"][$product->getId()]['quantity']++;
-        } else {
-            $_SESSION["user-cart"][$product->getId()] = [
-                'productId' => $product->getId(),
-                'name' => $product->getName(),
-                'description' => $product->getDescription(),
-                'category' => $product->getCategory(),
-                'image' => $product->getImage(),
-                'price' => $product->getPrice(),
-                'quantity' => 1,
-            ];
-        }
-        header('Location: /products/show');
-        exit();
     }
 
     public function edit(): void
@@ -108,13 +153,14 @@ class ProductController
             $product = (new Product())->findOneById($productId);
 
             if ($product) {
-                $productForm = new Form("Product");
+                $productForm = new Form("UpdateProduct");
+                $price = number_format((float)$product->getPrice(), 2, '.', '');
                 $productForm->setValues([
                     'id' => $productId,
                     'name' => $product->getName(),
                     'description' => $product->getDescription(),
                     'category' => $product->getCategory(),
-                    'price' => $product->getPrice(),
+                    'price' => $price,
                     'available' => $product->getAvailable(),
                     'image' => $product->getImage(),
                 ]);
@@ -126,7 +172,36 @@ class ProductController
                     $product->setCategory($_POST['category']);
                     $product->setPrice($_POST['price']);
                     $product->setAvailable($_POST['available']);
-                    $product->setImage($_POST['image']);
+
+                    if (!empty($_FILES['image']['name'])) {
+                        $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
+                        $uploadDir = '/var/www/html/Public/products/';
+                        $uploadFile = $uploadDir . uniqid() . '.' . $ext;
+
+                        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+                        $mimeType = $finfo->file($_FILES['image']['tmp_name']);
+                        $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+
+                        if (!in_array($mimeType, $allowedMimeTypes)) {
+                            header("Erreur, seulement les PNG, WEBP, JPEG & JPG sont acceptés", true, 500);
+                            header('Location: /500');
+                            exit();
+                        }
+
+                        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                            if (file_exists($product->getImage())) {
+                                unlink($product->getImage());
+                            }
+
+                            $product->setImage($uploadFile);
+                        } else {
+                            header("Erreur lors de l'upload du fichier", true, 500);
+                            header('Location: /500');
+                            exit();
+                        }
+                    } else {
+                        $product->setImage($product->getImage());
+                    }
 
                     $product->save();
 

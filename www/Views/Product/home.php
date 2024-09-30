@@ -12,6 +12,10 @@
             ?>
             <section class="product--wrapper__close" >
             <?php foreach ($products as $product): ?>
+                <?php
+                $link = $product->getImage();
+                $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                ?>
             <div class="product--wrapper__unit" >
                 <div class="product--infos" >
                     <li class="product--value">
@@ -25,6 +29,9 @@
                     </li>
                     <li class="product--value" >
                         <h3>Disponibilité</h3><p><?php if ($product->getAvailable()) echo "Oui"; else echo "Non"; ?></p>
+                    </li>
+                    <li class="product--value" >
+                        <h3>Image</h3><img class="product--background" src="<?= $relativeLink ?>">
                     </li>
                 </div>
                 <div class="product--content">

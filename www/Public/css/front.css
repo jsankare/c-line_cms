@@ -14,7 +14,6 @@ Use a better box model (opinionated).
 }
 
 html {
-  scroll-behavior: smooth;
   /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
   font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.15; /* 1. Correct the line height in all browsers. */
@@ -29,10 +28,6 @@ Sections
 */
 body {
   margin: 0; /* Remove the margin in all browsers. */
-}
-
-#main {
-  min-height: 100vh;
 }
 
 /*
@@ -822,6 +817,9 @@ main {
   background-color: #583b72;
 }
 
+.product--image {
+  position: relative;
+}
 .product--quantities__wrapper {
   display: flex;
   justify-content: center;
@@ -887,6 +885,20 @@ main {
   object-fit: cover;
   margin-bottom: 1rem;
 }
+.product--article__headband {
+  position: absolute;
+  top: 10%;
+  transform: translateX(25%) rotate(45deg);
+  width: 100%;
+  background-color: #ff4c4c;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  z-index: 1;
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 .product--article__text {
   margin-top: 0.5rem;
 }
@@ -921,6 +933,13 @@ main {
 }
 .product--article .product--button:hover {
   background-color: #583b72;
+}
+.product--article .product--button__disabled {
+  background-color: #882121;
+  cursor: default;
+}
+.product--article .product--button__disabled:hover {
+  background-color: #5b1919;
 }
 
 .profile {

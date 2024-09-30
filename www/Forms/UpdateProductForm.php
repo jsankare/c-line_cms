@@ -4,7 +4,7 @@ namespace App\Forms;
 use App\Models\Category;
 use App\Models\Image;
 
-class ProductForm
+class UpdateProductForm
 {
     public static function getConfig(array $data = []): array
     {
@@ -61,7 +61,6 @@ class ProductForm
                 "image" => [
                     "type" => "file",
                     "label" => "Image*",
-                    "required" => true
                 ],
                 "price" => [
                     "type" => "number",
