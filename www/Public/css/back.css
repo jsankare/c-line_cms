@@ -634,7 +634,8 @@ input[type=color] {
 }
 .article--tags__list {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 .article--value {
   -webkit-box-orient: vertical;

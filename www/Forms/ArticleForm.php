@@ -35,7 +35,7 @@ class ArticleForm
                 "tag" => [
                     "type" => "text",
                     "max" => 50,
-                    "placeholder" => "tag de l'article",
+                    "placeholder" => "tag de l&apos;article",
                     "label" => "Tag",
                     "required" => true,
                     "error" => "Le tag ne peut pas faire plus de 50 caractères",

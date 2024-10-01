@@ -56,12 +56,14 @@ class ArticleController
         $title = "";
         $description = "";
         $content = "";
+        $tag = "";
 
         if ($articleForm->isSubmitted()) {
 
             $title = $_POST["title"] ?? "";
             $description = $_POST["description"] ?? "";
             $content = $_POST["content"] ?? "";
+            $tag = $_POST["tag"] ?? "";
 
             if ($articleForm->isValid()) {
                 $dbArticle = (new Article())->findOneByTitle($title);
@@ -116,6 +118,7 @@ class ArticleController
                     $article->setTitle($sanitized_title);
                     $article->setDescription($sanitized_description);
                     $article->setContent($sanitized_content);
+                    $article->setTag($tag);
                     $article->setCreatorId($user->getId());
                     $article->save();
 

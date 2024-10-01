@@ -39,10 +39,12 @@ $tag-border-radius: 1.5rem;
 
   ul {
     list-style: none;
+    max-width: 90%;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   li a {

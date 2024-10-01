@@ -2,11 +2,11 @@
     <h1>Les articles</h1>
 
     <nav class="article-list--tags">
-        <ul>
+        <ul class="article-list--tags__wrapper">
             <?php
             $selectedTag = isset($_GET['tag']) ? $_GET['tag'] : 'all';
             ?>
-            <li><a href="?tag=all" class="<?= ($selectedTag === 'all') ? 'article-list__active' : '' ?>">Tous</a></li>
+            <li class="article-list--tags__tag"><a href="?tag=all" class="<?= ($selectedTag === 'all') ? 'article-list__active' : '' ?>">Tous</a></li>
             <?php
             $tags = [];
             foreach ($articles as $article) {
