@@ -56,12 +56,14 @@ class ArticleController
         $title = "";
         $description = "";
         $content = "";
+        $tag = "";
 
         if ($articleForm->isSubmitted()) {
 
             $title = $_POST["title"] ?? "";
             $description = $_POST["description"] ?? "";
             $content = $_POST["content"] ?? "";
+            $tag = $_POST["tag"] ?? "";
 
             if ($articleForm->isValid()) {
                 $dbArticle = (new Article())->findOneByTitle($title);
@@ -70,15 +72,53 @@ class ArticleController
                     header('Location: /409');
                     exit();
                 } else {
+
+                    $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
+                    $uploadDir = '/var/www/html/Public/uploads/';
+
+                    if(is_dir($uploadDir)) {
+                    } else {
+                        if (!mkdir($uploadDir, 0777, true)) {
+                            header("Dossier non créé ", true, 500);
+                            header('Location: /500');
+                            exit();
+                        } else {
+                            header("Dossier créé", true, 200);
+                        }
+                    }
+                    $uploadFile = $uploadDir . uniqid() . '.' . $ext;
+
+                    // Check MIME type
+                    $finfo = new \finfo(FILEINFO_MIME_TYPE);
+                    $mimeType = $finfo->file($_FILES['image']['tmp_name']);
+
+                    $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'images/webp'];
+                    if (!in_array($mimeType, $allowedMimeTypes)) {
+                        header("Erreur, seulement les PNG, WEBP, JPEG & JPG sont acceptés", true, 500);
+                        header('Location: /500');
+                        exit();
+                    }
+
+                    // Move file du tmp au dossier uploads
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                        header("Fichier uploadé avec succes", true, 200);
+                    } else {
+                        header("Fichier non créé", true, 500);
+                        header('Location: /500');
+                        exit();
+                    }
+
                     $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><b><i><u><strike><s><del><blockquote><center><code><ul><ol><li><a><img><div><span><br><strong><em>';
                     $sanitized_content = strip_tags($content, $allowed_tags);
                     $sanitized_title = strip_tags($title, $allowed_tags);
                     $sanitized_description = strip_tags($description, $allowed_tags);
 
                     $article = new Article();
+                    $article->setImage($uploadFile);
                     $article->setTitle($sanitized_title);
                     $article->setDescription($sanitized_description);
                     $article->setContent($sanitized_content);
+                    $article->setTag($tag);
                     $article->setCreatorId($user->getId());
                     $article->save();
 
@@ -160,11 +200,13 @@ class ArticleController
             $article = (new Article())->findOneById($articleId);
 
             if ($article) {
-                $articleForm = new Form("Article");
+                $articleForm = new Form("UpdateArticle");
                 $articleForm->setValues([
                     'title' => $article->getTitle(),
                     'description' => $article->getDescription(),
-                    'content' => $article->getContent()
+                    'content' => $article->getContent(),
+                    'tag' => $article->getTag(),
+                    'image' => $article->getImage(),
                 ]);
 
                 if ($articleForm->isSubmitted() && $articleForm->isValid()) {
@@ -173,6 +215,35 @@ class ArticleController
                     $article->setTitle(strip_tags($_POST['title'], $allowed_tags));
                     $article->setDescription(strip_tags($_POST['description'], $allowed_tags));
                     $article->setContent(strip_tags($_POST['content'], $allowed_tags));
+                    if (!empty($_FILES['image']['name'])) {
+                        $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
+                        $uploadDir = '/var/www/html/Public/uploads/';
+                        $uploadFile = $uploadDir . uniqid() . '.' . $ext;
+
+                        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+                        $mimeType = $finfo->file($_FILES['image']['tmp_name']);
+                        $allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+
+                        if (!in_array($mimeType, $allowedMimeTypes)) {
+                            header("Erreur, seulement les PNG, WEBP, JPEG & JPG sont acceptés", true, 500);
+                            header('Location: /500');
+                            exit();
+                        }
+
+                        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+                            if (file_exists($article->getImage())) {
+                                unlink($article->getImage());
+                            }
+
+                            $article->setImage($uploadFile);
+                        } else {
+                            header("Erreur lors de l'upload du fichier", true, 500);
+                            header('Location: /500');
+                            exit();
+                        }
+                    } else {
+                        $article->setImage($article->getImage());
+                    }
                     $article->save();
 
                     header('Location: /article/home');

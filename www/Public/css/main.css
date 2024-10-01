@@ -13,7 +13,6 @@ Use a better box model (opinionated).
 }
 
 html {
-  scroll-behavior: smooth;
   /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
   font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.15; /* 1. Correct the line height in all browsers. */
@@ -28,10 +27,6 @@ Sections
 */
 body {
   margin: 0; /* Remove the margin in all browsers. */
-}
-
-#main {
-  min-height: 100vh;
 }
 
 /*

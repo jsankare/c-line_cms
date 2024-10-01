@@ -60,7 +60,7 @@ class UpdateProductForm
                 ],
                 "image" => [
                     "type" => "file",
-                    "label" => "Image*",
+                    "label" => "Image",
                 ],
                 "price" => [
                     "type" => "number",

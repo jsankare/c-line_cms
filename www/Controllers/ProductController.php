@@ -25,7 +25,7 @@ class ProductController
         if ($productForm->isSubmitted() && $productForm->isValid()) {
 
             $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
-            $uploadDir = '/var/www/html/Public/products/';
+            $uploadDir = '/var/www/html/Public/uploads/';
 
             if(is_dir($uploadDir)) {
             } else {
@@ -68,8 +68,6 @@ class ProductController
             (isset($_POST['available']) && $_POST['available'] == '1') ? $product->setAvailable(1) : $product->setAvailable(0);
 
             $product->setImage($uploadFile);
-
-            var_dump($_POST['available']);
             $product->save();
 
             header('Location: /products/home');
