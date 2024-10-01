@@ -10,7 +10,9 @@ class Article extends SQL
     protected string $title;
     protected string $description;
     protected string $content;
+    protected string $tag;
     protected int $creator_id;
+    protected string $image;
     protected string $date_inserted;
 
     public function getCreationDate(): ?string
@@ -86,6 +88,39 @@ class Article extends SQL
     }
 
     /**
+     * @return string
+     */
+    public function getTag(): string
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param string $tag
+     */
+    public function setTag(string $tag): void
+    {
+        $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><b><i><u><strike><s><del><blockquote><center><code><ul><ol><li><a><img><div><span><br><strong><em>';
+        $this->tag = strip_tags($tag, $allowed_tags);
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
      * @return int
      */
     public function getCreatorId(): int
@@ -144,31 +179,6 @@ class Article extends SQL
             $sql = "DELETE FROM {$this->table} WHERE id = :id";
             $queryPrepared = $this->pdo->prepare($sql);
             $queryPrepared->execute([':id' => $this->getId()]);
-        }
-    }
-
-    public function save(): void
-    {
-        if (!empty($this->getId())) {
-            $sql = "UPDATE {$this->table} SET title = :title, content = :content, description = :description, creator_id = :creator_id WHERE id = :id";
-            $queryPrepared = $this->pdo->prepare($sql);
-            $queryPrepared->execute([
-                ':title' => $this->getTitle(),
-                ':content' => $this->getContent(),
-                ':description' => $this->getDescription(),
-                ':creator_id' => $this->getCreatorId(),
-                ':id' => $this->getId(),
-            ]);
-        } else {
-            $sql = "INSERT INTO {$this->table} (title, content, description, creator_id) VALUES (:title, :content, :description, :creator_id)";
-            $queryPrepared = $this->pdo->prepare($sql);
-            $queryPrepared->execute([
-                ':title' => $this->getTitle(),
-                ':content' => $this->getContent(),
-                ':description' => $this->getDescription(),
-                ':creator_id' => $this->getCreatorId(),
-            ]);
-            $this->id = $this->pdo->lastInsertId();
         }
     }
 

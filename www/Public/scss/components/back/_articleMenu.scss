@@ -1,6 +1,17 @@
 @use "sass:color";
 
 .article {
+  &--tags {
+    &__tag {
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid black;
+    }
+    &__list {
+      display: flex;
+      gap: 1rem;
+    }
+  }
   &--value {
     -webkit-box-orient: vertical;
     display: -webkit-box;
@@ -91,4 +102,9 @@
       }
     }
   }
+}
+
+.tag--active {
+  background-color: black;
+  color: white;
 }

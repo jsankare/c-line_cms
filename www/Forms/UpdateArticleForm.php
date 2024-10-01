@@ -1,7 +1,7 @@
 <?php
 namespace App\Forms;
 
-class ArticleForm
+class UpdateArticleForm
 {
     public static function getConfig(array $data = []): array
     {
@@ -37,14 +37,12 @@ class ArticleForm
                     "max" => 50,
                     "placeholder" => "tag de l'article",
                     "label" => "Tag",
-                    "required" => true,
                     "error" => "Le tag ne peut pas faire plus de 50 caractères",
                     "value" => $data['tag'] ?? ''
                 ],
                 "image" => [
                     "type" => "file",
-                    "label" => "Image*",
-                    "required" => true,
+                    "label" => "Image",
                 ],
                 "content" => [
                     "type" => "textarea",

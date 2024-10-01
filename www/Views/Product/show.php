@@ -44,7 +44,7 @@
                 ?>
                 <article class="product--article">
                     <div class="product--image">
-                        <img class="product--article__image" src="<?php echo $relativeProductLink; ?>" alt="Product Image">
+                        <img class="product--article__image" src="<?= $relativeProductLink; ?>" alt="Product Image">
                         <?php if ($product->getAvailable() === 0): ?>
                         <div class="product--article__headband">Non disponible</div>
                         <?php endif; ?>

@@ -627,6 +627,15 @@ input[type=color] {
   align-self: center;
 }
 
+.article--tags__tag {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+.article--tags__list {
+  display: flex;
+  gap: 1rem;
+}
 .article--value {
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -716,6 +725,11 @@ input[type=color] {
 .article--wrapper__unit img.article--icon {
   justify-self: center;
   align-self: center;
+}
+
+.tag--active {
+  background-color: black;
+  color: white;
 }
 
 .user--edit--link {
