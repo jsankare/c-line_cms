@@ -173,7 +173,7 @@ class ProductController
 
                     if (!empty($_FILES['image']['name'])) {
                         $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
-                        $uploadDir = '/var/www/html/Public/products/';
+                        $uploadDir = '/var/www/html/Public/uploads/';
                         $uploadFile = $uploadDir . uniqid() . '.' . $ext;
 
                         $finfo = new \finfo(FILEINFO_MIME_TYPE);
