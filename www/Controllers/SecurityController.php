@@ -119,6 +119,9 @@ class SecurityController
 
     public function profile(): void
     {
+        $pageModel = new Page();
+        $pages = $pageModel->findAll();
+
         $user = (new User())->findOneById($_SESSION['user_id']);
 
         if (!$user) {

@@ -543,6 +543,11 @@ input[type=color] {
   transition: all 2s;
 }
 
+.navbar--link.frontActive {
+  font-weight: bold;
+  border-bottom: 5px solid white;
+}
+
 .navbar--link:after {
   transition: all 0.5s;
   position: absolute;
