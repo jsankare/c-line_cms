@@ -139,4 +139,19 @@ class DashboardController
         $view->assign('count', $count);
         $view->render();
     }
+
+    public function resetSettings() {
+        $setting = new Settings();
+        $count= $setting->count();
+
+        if ($count > 0) {
+            $currentSetting = $setting->findOneById(1);
+            $currentSetting->setBackgroundColor("");
+            $currentSetting->setFontColor("");
+            $currentSetting->setFontStyle("");
+            $currentSetting->save();
+        }
+        header('Location: /dashboard/settings');
+        exit();
+    }
 }

@@ -23,10 +23,16 @@
     ?>
     <body>
     <?php include 'front-nav.php'; ?>
+    <div id="theme">
+        <a id="themelink" href="#">
+            <img id="themeIcon" src="" alt="Theme Icon">
+        </a>
+    </div>
     <main id="main" style="font-family: <?= $fontStyle ?>; margin-top: 10vh">
         <!-- intégration de la vue -->
         <?php include "../Views/".$this->view.".php";?>
     </main>
     <?php include 'front-footer.php'; ?>
     </body>
+    <script src="/js/theme.js" ></script>
 </html>

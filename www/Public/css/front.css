@@ -442,6 +442,31 @@ input[type=color] {
   width: 15rem;
 }
 
+.main--connections {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#theme {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #171D2A;
+  position: fixed;
+  top: 25%;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#theme:hover #themeIcon {
+  transform: scale(1.1);
+}
+
 .cart--logo {
   width: 100%;
   max-width: 2rem;
