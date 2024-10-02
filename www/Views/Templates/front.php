@@ -28,7 +28,8 @@
             <img id="themeIcon" src="" alt="Theme Icon">
         </a>
     </div>
-    <main id="main" style="font-family: <?= $fontStyle ?>; margin-top: 10vh">
+
+    <main id="main" class="light-theme" style="font-family: <?= $fontStyle ?>; margin-top: 10vh">
         <!-- intégration de la vue -->
         <?php include "../Views/".$this->view.".php";?>
     </main>
