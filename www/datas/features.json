@@ -1,41 +1,41 @@
 [
     {
-        "title": "Lames de l'Ombre",
-        "description": "Une collection d'armes utilisées par les plus grands voleurs à travers les royaumes. Chaque lame a une histoire sinistre et un pouvoir caché.",
-        "link": "https://example.com/ombre-lames",
-        "ctaContent": "toto",
+        "title": "Créations de Couture Fait Main",
+        "description": "Chaque pièce de couture est réalisée avec passion et un souci du détail incomparable. Des vêtements et accessoires cousus à la main, avec amour et patience, pour des créations uniques et authentiques.",
+        "link": "https://example.com/creations-couture",
+        "ctaContent": "Découvrir les créations",
         "features": [
-            "Tranchant magique imprégné d'ombre",
-            "Invisible dans la nuit",
-            "Peut pénétrer les sorts protecteurs"
+            "Des tissus choisis avec soin",
+            "Des pièces uniques faites à la main",
+            "Un travail minutieux et personnalisé"
         ],
-        "imageSrc": "/uploads/66f0787323ee6.png",
-        "imageAlt": "Un ensemble de lames noires enveloppées d'ombres mystérieuses"
+        "imageSrc": "/images/landing-1.jpg",
+        "imageAlt": "Un atelier de couture artisanal avec des tissus soigneusement disposés"
     },
     {
-        "title": "Bouclier de Fer Sacré",
-        "description": "Forgé par Riswynn Poigndefer elle-même, ce bouclier offre une défense inébranlable contre les forces du mal, bénie par les divinités des nains.",
-        "link": "https://example.com/bouclier-fer-sacre",
-        "ctaContent": "toto",
+        "title": "Artisanat Passionné",
+        "description": "Découvrez l'art de transformer des matières simples en objets uniques faits à la main. Chaque création artisanale est le fruit de plusieurs heures de travail passionné, où le savoir-faire traditionnel se mêle à une créativité débordante.",
+        "link": "https://example.com/artisanat-passionne",
+        "ctaContent": "Voir les créations",
         "features": [
-            "Protection renforcée contre la magie",
-            "Léger mais indestructible",
-            "Symbole gravé de bénédiction naine"
+            "Objets faits à la main avec des matériaux naturels",
+            "Un savoir-faire transmis avec amour",
+            "Des créations uniques qui racontent une histoire"
         ],
-        "imageSrc": "/uploads/66b5e9e815ffd.jpg",
-        "imageAlt": "Un bouclier de fer gravé de runes scintillantes"
+        "imageSrc": "/images/landing-2.jpg",
+        "imageAlt": "Des mains d'artisan façonnant un objet unique avec amour"
     },
     {
-        "title": "Les Chroniques de Soveliss",
-        "description": "Une série d'écrits mystiques relatant les aventures de Soveliss Siamodel, magicienne elfique de renommée, dans les mondes oubliés.",
-        "link": "https://example.com/chroniques-soveliss",
-        "ctaContent": "toto",
+        "title": "Maroquinerie Artisanale",
+        "description": "Fabriquer des accessoires en cuir avec soin et minutie, c'est l'essence même de la maroquinerie artisanale. Chaque pièce, qu'il s'agisse de petits accessoires ou de sacs, est créée à la main, avec attention et passion pour chaque détail.",
+        "link": "https://example.com/maroquinerie-artisanale",
+        "ctaContent": "Explorer la collection",
         "features": [
-            "Contes de magie ancienne",
-            "Aventures épiques dans les terres mystiques",
-            "Illustrations d'enchantements perdus"
+            "Travail du cuir fait main",
+            "Des accessoires durables et fonctionnels",
+            "Chaque pièce est unique et pleine de caractère"
         ],
-        "imageSrc": "/uploads/66f17be935002.png",
-        "imageAlt": "Un vieux livre couvert de glyphes elfes lumineux"
+        "imageSrc": "/images/landing-3.jpg",
+        "imageAlt": "Un petit sac en cuir fait main avec des outils artisanaux"
     }
 ]
