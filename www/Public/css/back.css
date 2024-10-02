@@ -253,8 +253,7 @@ ul li a {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
-  margin-left: 15rem;
+  margin: 0 0 0 15rem;
   padding: 1rem 3rem;
 }
 

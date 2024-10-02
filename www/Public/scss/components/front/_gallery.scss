@@ -1,7 +1,8 @@
 .gallery {
   width: 80%;
-  margin: 1.5rem auto;
   text-align: center;
+  min-height: 50vh;
+  margin: 0 auto;
 
   &--image {
     &__container {

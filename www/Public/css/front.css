@@ -254,8 +254,7 @@ ul li a {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
-  margin-left: 15rem;
+  margin: 0 0 0 15rem;
   padding: 1rem 3rem;
 }
 
@@ -458,6 +457,10 @@ input[type=color] {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+#themeIcon {
+  transition: all 0.5s ease-in-out;
 }
 
 #theme {
@@ -1507,8 +1510,9 @@ main {
 
 .gallery {
   width: 80%;
-  margin: 1.5rem auto;
   text-align: center;
+  min-height: 50vh;
+  margin: 0 auto;
   /* Désactiver le scroll sur la page lorsque la modale est ouverte */
 }
 .gallery--image__container {
