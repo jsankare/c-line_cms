@@ -1,6 +1,7 @@
+<?php use App\Models\Settings;?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title><?= SITE_NAME ?></title>
@@ -9,7 +10,7 @@
         <link rel="stylesheet" href="/css/front.css">
     </head>
     <?php
-    $setting = new \App\Models\Settings();
+    $setting = new Settings();
     if($setting->findOneById(1)) {
         $currentSetting = $setting->findOneById(1);
         $backgroundColor = $currentSetting->getBackgroundColor();
@@ -28,7 +29,6 @@
             <img id="themeIcon" src="" alt="Theme Icon">
         </a>
     </div>
-
     <main id="main" class="light-theme" style="font-family: <?= $fontStyle ?>; margin-top: 10vh">
         <!-- intégration de la vue -->
         <?php include "../Views/".$this->view.".php";?>

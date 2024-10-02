@@ -16,6 +16,7 @@ function changeTheme() {
 // Fonction pour appliquer le thème en fonction de la clé dans localStorage
 function applyTheme() {
     const theme = localStorage.getItem('theme');
+    const actionElement = document.getElementById('theme');
     const mainElement = document.getElementById('main');
     const themeIcon = document.getElementById('themeIcon');
 
@@ -23,12 +24,16 @@ function applyTheme() {
         // Applique la classe dark-theme
         mainElement.classList.remove('light-theme');
         mainElement.classList.add('dark-theme');
+        actionElement.classList.add('light-theme');
+        actionElement.classList.remove('dark-theme');
         // Change l'icône à l'icône du soleil
         themeIcon.src = '/assets/sun.svg';
     } else {
         // Applique la classe light-theme
         mainElement.classList.remove('dark-theme');
         mainElement.classList.add('light-theme');
+        actionElement.classList.add('dark-theme');
+        mainElement.classList.remove('light-theme');
         // Change l'icône à l'icône de la lune
         themeIcon.src = '/assets/moon.svg';
     }

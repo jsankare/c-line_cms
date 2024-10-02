@@ -14,11 +14,12 @@
 }
 
 .light-theme {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
   color: #111621;
+
 }
 
 .dark-theme {
-  background-color: #111621;
+  background-color: #111621 !important;
   color: #f9f9f9;
 }
