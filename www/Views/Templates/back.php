@@ -17,22 +17,22 @@
                 <section class="navbar--list" >
                     <div class="navbar--separator" ></div>
                     <ul class="navbar--list__links">
-                        <li class="navbar--list__link"><a href="/">Aller sur le site</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/dashboard') ? 'backActive' : '' ?>"><a href="/dashboard">Tableau de bord</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/users/home') ? 'backActive' : '' ?>"><a href="/users/home">Utilisateurs</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/gallery/list') ? 'backActive' : '' ?>"><a href="/gallery/list" >Bibliothèque</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/page/home') ? 'backActive' : '' ?>"><a href="/page/home">Pages</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/products/home') ? 'backActive' : '' ?>"><a href="/products/home">Produits</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/article/home') ? 'backActive' : '' ?>"><a href="/article/home">Articles</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/comments/home') ? 'backActive' : '' ?>"><a href="/comments/home">Commentaires</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/faqs/home') ? 'backActive' : '' ?>"><a href="/faqs/home">FAQs</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/reviews/home') ? 'backActive' : '' ?>"><a href="/reviews/home">Avis</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link" href="/">Aller sur le site</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/dashboard') ? 'backActive' : '' ?>" href="/dashboard">Tableau de bord</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/users/home') ? 'backActive' : '' ?>" href="/users/home">Utilisateurs</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/gallery/list') ? 'backActive' : '' ?>" href="/gallery/list" >Bibliothèque</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/page/home') ? 'backActive' : '' ?>" href="/page/home">Pages</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/products/home') ? 'backActive' : '' ?>" href="/products/home">Produits</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/article/home') ? 'backActive' : '' ?>" href="/article/home">Articles</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/comments/home') ? 'backActive' : '' ?>" href="/comments/home">Commentaires</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/faqs/home') ? 'backActive' : '' ?>" href="/faqs/home">FAQs</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/reviews/home') ? 'backActive' : '' ?>" href="/reviews/home">Avis</a></li>
                     </ul>
                     <div class="navbar--separator" >
                     </div>
                     <ul class="navbar--list__links">
-                        <li class="navbar--list__link <?= ($currentUrl === '/dashboard/settings') ? 'backActive' : '' ?>"><a href="/dashboard/settings">Paramètres</a></li>
-                        <li class="navbar--list__link <?= ($currentUrl === '/logout') ? 'backActive' : '' ?>"><a href="/logout">Se déconnecter</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/dashboard/settings') ? 'backActive' : '' ?>" href="/dashboard/settings">Paramètres</a></li>
+                        <li class="navbar--list__li"><a class="navbar--list__link <?= ($currentUrl === '/logout') ? 'backActive' : '' ?>" href="/logout">Se déconnecter</a></li>
                     </ul>
                     <div class="navbar--footer">
                         <?php

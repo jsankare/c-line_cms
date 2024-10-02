@@ -920,7 +920,7 @@ input[type=color] {
   height: 5px;
   background-color: #3c2a4d;
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(60, 42, 77, 0.8), 0 0 20px rgba(60, 42, 77, 0.6);
@@ -967,6 +967,9 @@ input[type=color] {
   height: 100%;
   font-size: 1.1rem;
 }
+.navbar--list__li {
+  position: relative;
+}
 .navbar--list__links {
   display: flex;
   flex-direction: column;
@@ -974,9 +977,13 @@ input[type=color] {
   list-style: none;
 }
 .navbar--list__link {
-  position: relative;
-  padding: 1.5rem;
+  text-align: center;
+  line-height: 5rem;
   color: #c4c4c4;
+  display: inline-block;
+  width: 100%;
+  height: 5rem;
+  margin: 0 auto;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 }
