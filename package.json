@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch": "sass --watch www/Public/scss/main.scss www/Public/css/main.css",
-    "watchback": "sass --watch www/Public/scss/back.scss www/Public/css/back.css",
-    "watchfront": "sass --watch www/Public/scss/front.scss www/Public/css/front.css",
-    "watch:all": "concurrently \"npm run watch\" \"npm run watchback\" \"npm run watchfront\""
+    "watch:back": "sass --watch www/Public/scss/back.scss www/Public/css/back.css",
+    "watch:front": "sass --watch www/Public/scss/front.scss www/Public/css/front.css",
+    "watch:all": "concurrently \"npm run watch\" \"npm run watch:back\" \"npm run watch:front\"",
+    "docker:up": "docker compose up -d"
   },
   "author": "",
   "license": "ISC",

@@ -21,5 +21,6 @@
             <h2>Changer vos préférences</h2>
             <?= $settingsForm ?>
         </div>
+        <a href="/dashboard/reset" >Réinitialiser vos préférences</a>
     </section>
 </main>

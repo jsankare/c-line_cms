@@ -46,6 +46,18 @@
   Security: true
   Role: "Admin"
 
+/dashboard/reset:
+  Controller: DashboardController
+  Action: "resetSettings"
+  Security: true
+  Role: "Admin"
+
+/theme:
+  Controller: DashboardController
+  Action: "changeTheme"
+  Security: true
+  Role: "Guest"
+
 /profile:
   Controller: SecurityController
   Action: "profile"

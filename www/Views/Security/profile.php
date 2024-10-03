@@ -83,18 +83,26 @@
                     $currentDate = new DateTime();
                     $interval = $currentDate->diff($creationDate);
 
-                    if ($interval->y > 0) {
-                        echo $interval->y . ' année(s)';
-                    } elseif ($interval->m > 0) {
-                        echo $interval->m . ' mois';
-                    } elseif ($interval->d >= 7) {
-                        echo floor($interval->d / 7) . ' semaine(s)';
-                    } elseif ($interval->d > 0) {
-                        echo $interval->d . ' jour(s)';
-                    } elseif ($interval->h > 0) {
-                        echo $interval->h . ' heure(s)';
-                    } else {
-                        echo 'Moins d\'une heure';
+                    switch (true) {
+                        case ($interval->y > 0):
+                            echo $interval->y . ' ' . ($interval->y > 1 ? 'ans' : 'an');
+                            break;
+                        case ($interval->m > 0):
+                            echo $interval->m . ' mois'; // Pas de différence entre singulier et pluriel
+                            break;
+                        case ($interval->d >= 7):
+                            $weeks = floor($interval->d / 7);
+                            echo $weeks . ' ' . ($weeks > 1 ? 'semaines' : 'semaine');
+                            break;
+                        case ($interval->d > 0):
+                            echo $interval->d . ' ' . ($interval->d > 1 ? 'jours' : 'jour');
+                            break;
+                        case ($interval->h > 0):
+                            echo $interval->h . ' ' . ($interval->h > 1 ? 'heures' : 'heure');
+                            break;
+                        default:
+                            echo 'Moins d\'une heure';
+                            break;
                     }
                     ?>
                 </div>

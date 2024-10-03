@@ -38,7 +38,7 @@ class PageController
         $slug = $uriSegments[2];
         $currentPage = (new Page())->findOneBySlug($slug);
         if ($currentPage) {
-            $pages = (new Page())->findAllExcept($slug);
+            $pages = (new Page())->findAll();
             $view = new View("Page/showPage", "front");
             $view->assign('currentPage', $currentPage);
             $view->assign('pages', $pages);
