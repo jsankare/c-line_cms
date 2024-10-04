@@ -54,7 +54,7 @@
             <article class="article-list--item">
                 <?php
                 $articleLink = $article->getImage();
-                $relativeArticleLink = str_replace('/var/www/html/Public', '', $articleLink);
+                $relativeArticleLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $articleLink);
                 if (!empty($articleLink)): ?>
                     <img src="<?= $relativeArticleLink ?>" alt="<?= htmlspecialchars($article->getTitle()); ?>" class="article-list--item__image">
                 <?php endif; ?>

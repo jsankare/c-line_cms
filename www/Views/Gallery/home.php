@@ -17,7 +17,7 @@
                             <h3 class="gallery--classic__item__title"><?= htmlspecialchars($image->getTitle()); ?></h3>
                             <?php
                             $link = $image->getLink();
-                            $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                            $relativeLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $link);
                             ?>
                             <div class="gallery--image__container">
                                 <img class="gallery--classic__item__picture" src="<?= htmlspecialchars($relativeLink); ?>" alt="<?= htmlspecialchars($image->getDescription()); ?>" data-title="<?= htmlspecialchars($image->getTitle()); ?>" data-index="<?= $index; ?>">

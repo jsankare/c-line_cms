@@ -19,7 +19,7 @@ class GalleryController
             $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
 
             // might be error with creating folder rights, fixed using "chmod -R 777 www/Public"
-            $uploadDir = '/var/www/html/Public/uploads/';
+            $uploadDir = $_ENV['PATH_TO_UPLOADS'];
             if(is_dir($uploadDir)) {
             } else {
                 if (!mkdir($uploadDir, 0777, true)) {
@@ -172,7 +172,7 @@ class GalleryController
                     $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
 
                     // might be error with creating folder rights, fixed using "chmod -R 777 www/Public"
-                    $uploadDir = '/var/www/html/Public/uploads/';
+                    $uploadDir = $_ENV['PATH_TO_UPLOADS'];
                     if(is_dir($uploadDir)) {
                     } else {
                         if (!mkdir($uploadDir, 0777, true)) {
