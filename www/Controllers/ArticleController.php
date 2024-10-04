@@ -74,7 +74,7 @@ class ArticleController
                 } else {
 
                     $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
-                    $uploadDir = '/var/www/html/Public/uploads/';
+                    $uploadDir = $_ENV['PATH_TO_UPLOADS'];
 
                     if(is_dir($uploadDir)) {
                     } else {
@@ -217,7 +217,7 @@ class ArticleController
                     $article->setContent(strip_tags($_POST['content'], $allowed_tags));
                     if (!empty($_FILES['image']['name'])) {
                         $ext = (new \SplFileInfo($_FILES["image"]["name"]))->getExtension();
-                        $uploadDir = '/var/www/html/Public/uploads/';
+                        $uploadDir = $_ENV['PATH_TO_UPLOADS'];
                         $uploadFile = $uploadDir . uniqid() . '.' . $ext;
 
                         $finfo = new \finfo(FILEINFO_MIME_TYPE);

@@ -14,7 +14,7 @@
                     <article class="cart--main__product">
                         <?php
                         $link = $article['image'];
-                        $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                        $relativeLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $link);
                         ?>
                         <div class="product--picture__wrapper" >
                             <img class="product--picture__image" alt="<?= $article["name"] ?>" src="<?= htmlspecialchars($relativeLink); ?>" />

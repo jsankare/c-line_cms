@@ -14,7 +14,7 @@
             <?php foreach ($products as $product): ?>
                 <?php
                 $link = $product->getImage();
-                $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                $relativeLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $link);
                 ?>
             <div class="product--wrapper__unit" >
                 <div class="product--infos" >

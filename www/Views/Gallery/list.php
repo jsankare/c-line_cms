@@ -31,7 +31,7 @@
                 <div class="gallery--content__item">
                     <?php
                     $link = $image->getLink();
-                    $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                    $relativeLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $link);
                     ?>
                     <img class="gallery--item__picture" src="<?= htmlspecialchars($relativeLink); ?>" alt="<?= htmlspecialchars($image->getDescription()); ?>">
 

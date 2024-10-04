@@ -39,7 +39,7 @@
 
             function displayProduct($product) {
                 $productLink = $product->getImage();
-                $relativeProductLink = str_replace('/var/www/html/Public', '', $productLink);
+                $relativeProductLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $productLink);
                 $productId = $product->getId();
                 ?>
                 <article class="product--article">

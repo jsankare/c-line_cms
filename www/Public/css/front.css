@@ -1652,6 +1652,15 @@ main {
   flex-direction: column;
   gap: 1.5rem;
 }
+@media screen and (max-width: 768px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
 .hero-button {
   width: 50%;
   text-decoration: none;
@@ -1674,6 +1683,11 @@ main {
 .hero-button__secondary:hover {
   color: white;
 }
+@media screen and (max-width: 768px) {
+  .hero-button {
+    width: 100%;
+  }
+}
 
 .image--section {
   filter: brightness(75%);
@@ -1682,6 +1696,11 @@ main {
   height: 100%;
   max-height: 30rem;
   top: 22.5rem;
+}
+@media screen and (max-width: 768px) {
+  .image--section {
+    top: 32rem;
+  }
 }
 .image--section__image {
   width: 100%;
@@ -1704,8 +1723,18 @@ main {
 .features--feature:nth-child(odd) {
   flex-direction: row;
 }
+@media screen and (max-width: 768px) {
+  .features--feature:nth-child(odd) {
+    flex-direction: column-reverse;
+  }
+}
 .features--feature:nth-child(even) {
   flex-direction: row-reverse;
+}
+@media screen and (max-width: 768px) {
+  .features--feature:nth-child(even) {
+    flex-direction: column-reverse;
+  }
 }
 .features--feature__container {
   position: relative;
@@ -1713,6 +1742,11 @@ main {
   height: 25rem;
   overflow: hidden;
   border-radius: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .features--feature__container {
+    width: 100%;
+  }
 }
 .features--feature__picture {
   width: 100%;
@@ -1747,6 +1781,14 @@ main {
   align-items: flex-start;
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  .features--feature__aside {
+    max-width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
 
 .reviews {
   display: flex;
@@ -1771,11 +1813,24 @@ main {
   width: 100%;
   padding: 2rem 0;
 }
+@media screen and (max-width: 768px) {
+  .reviews--container {
+    overflow: visible;
+  }
+}
 .reviews--container .reviews--slider {
   display: flex;
   gap: 2rem;
   transition: transform 0.5s ease;
   padding: 1rem;
+}
+.reviews--container .reviews--slider.single-review {
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  .reviews--container .reviews--slider.single-review {
+    flex-direction: row;
+  }
 }
 .reviews--container .review {
   min-width: 32%;
@@ -1808,6 +1863,12 @@ main {
 }
 .reviews--container .review--position {
   color: grey;
+}
+@media screen and (max-width: 768px) {
+  .reviews--container .review {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 .reviews--nav {
   cursor: pointer;
@@ -1847,6 +1908,12 @@ main {
   background-color: var(--black-hover);
   transform: scale(1.05);
 }
+@media screen and (max-width: 768px) {
+  .call-to-action--button {
+    max-width: 100%;
+    width: 80%;
+  }
+}
 
 .faq {
   width: 100%;
@@ -1856,15 +1923,31 @@ main {
   gap: 5vh;
   border-radius: 8px;
 }
+@media screen and (max-width: 768px) {
+  .faq {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .faq--heading {
   width: 45%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+@media screen and (max-width: 768px) {
+  .faq--heading {
+    width: 100%;
+  }
+}
 .faq--wrapper {
   width: 55%;
   margin-top: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .faq--wrapper {
+    width: 100%;
+  }
 }
 .faq--title {
   font-size: 24px;

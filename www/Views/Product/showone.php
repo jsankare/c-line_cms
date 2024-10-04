@@ -3,7 +3,7 @@
         <article class="item--main__wrapper">
             <?php
                 $link = $product->getImage();
-                $relativeLink = str_replace('/var/www/html/Public', '', $link);
+                $relativeLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $link);
             ?>
             <img src="<?= htmlspecialchars($relativeLink); ?>" alt="" class="item--main__image">
         </article>

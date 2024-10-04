@@ -2,7 +2,7 @@
     <header class="blog--header">
         <?php
         $articleLink = $article->getImage();
-        $relativeArticleLink = str_replace('/var/www/html/Public', '', $articleLink);
+        $relativeArticleLink = str_replace($_ENV['PATH_TO_PUBLIC'], '', $articleLink);
         if (!function_exists('dateEnFrancais')) {
             function dateEnFrancais($date) {
                 $jours_en = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
