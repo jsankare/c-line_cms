@@ -1226,6 +1226,11 @@ main {
   width: 100%;
   max-width: 700px;
 }
+@media screen and (max-width: 375px) {
+  .profile--header {
+    flex-direction: column;
+  }
+}
 .profile--header__avatar {
   width: 80px;
   height: 80px;
@@ -1274,6 +1279,14 @@ main {
 .profile--edit-btn:hover {
   background-color: #583b72;
 }
+@media screen and (max-width: 425px) {
+  .profile--edit-btn {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 
 .profile--statistics {
   margin-top: 5rem;
@@ -1287,11 +1300,21 @@ main {
   gap: 2rem;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .profile--info {
+    grid-template-columns: 1fr;
+  }
+}
 
 .profile--stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10%;
+}
+@media screen and (max-width: 768px) {
+  .profile--stats {
+    grid-template-columns: 1fr;
+  }
 }
 
 .profile--stats__row {

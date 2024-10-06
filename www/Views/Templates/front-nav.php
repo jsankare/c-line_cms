@@ -88,7 +88,7 @@ $navbarStyles = 'style="background-color: ' . ($backgroundColor ?? '') . '; font
                     <a class="navbar--link <?= ($currentUrl === '/profile') ? 'frontActive' : '' ?>" href="/profile">Profil</a>
                 </li>
                 <?php else: ?>
-                <li class="navbar--li bonus" <?= $navbarStyles ?>>
+                <li class="navbar--li bonus bonus--cart" <?= $navbarStyles ?>>
                     <a class="navbar--link <?= ($currentUrl === '/cart') ? 'frontActive' : '' ?>" href="/cart">
                         <p class="cart--count"><?= getCartItemCount() ?></p>
                         <img class="cart--logo" src="/assets/shopping-bag.svg">
@@ -107,8 +107,8 @@ $navbarStyles = 'style="background-color: ' . ($backgroundColor ?? '') . '; font
         <div class="navbar--divRight">
             <ul>
                 <?php if (isset($_SESSION['user_status']) && $_SESSION['user_status'] > 1): ?>
-                    <li class="navbar--li" <?= $navbarStyles ?>>
-                        <a class="navbar--link <?= ($currentUrl === '/cart') ? 'frontActive' : '' ?>" href="/cart">
+                    <li class="navbar--li bonus--cart" <?= $navbarStyles ?>>
+                        <a class="navbar--link  <?= ($currentUrl === '/cart') ? 'frontActive' : '' ?>" href="/cart">
                             <p class="cart--count"><?= getCartItemCount() ?></p>
                             <img class="cart--logo" src="/assets/shopping-bag.svg">
                         </a>
