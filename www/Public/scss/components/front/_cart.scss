@@ -1,6 +1,9 @@
 .cart {
   display: flex;
   justify-content: space-evenly;
+  @media screen and (max-width: 768px) {
+      flex-direction: column;
+  }
   &--separator {
     display: block;
     height: 1px;
@@ -21,6 +24,9 @@
       justify-content: center;
       width: 100%;
     }
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+    }
   }
   &--aside {
     position: fixed;
@@ -34,10 +40,17 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 5rem;
-    box-shadow:        rgba(23, 29, 42, 0.4) -4px 0px 0px 2px,   /* Teinte sombre avec opacit%C3%A9 */        rgba(23, 29, 42, 0.65) -4px 0px 6px -1px, /* Ombre l%C3%A9g%C3%A8rement renforc%C3%A9e */        rgba(34, 45, 62, 0.15) 0px 1px 0px inset; /* Inset l%C3%A9g%C3%A8rement plus clair dans la m%C3%AAme gamme de bleus profonds */
+    padding: 3rem 1.5rem;
+    box-shadow:        rgba(23, 29, 42, 0.4) -4px 0px 0px 2px, rgba(23, 29, 42, 0.65) -4px 0px 6px -1px,rgba(34, 45, 62, 0.15) 0px 1px 0px inset;
     &__title {
       text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      position: inherit !important;
+      width: 100%;
+      border-bottom: solid 1px black;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -120,6 +133,9 @@
       cursor: pointer;
       background-color: #583b72;
     }
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
   &--top {
     display: flex;

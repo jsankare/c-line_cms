@@ -793,7 +793,7 @@ input[type=color] {
   align-items: center;
   text-align: center;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .user--wrapper__unit {
     display: flex;
     flex-direction: column;
@@ -827,6 +827,11 @@ input[type=color] {
   grid-template-columns: 4fr 4fr 2fr 4fr;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 1300px) {
+  .product--infos {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .product--navigation {
   display: flex;
