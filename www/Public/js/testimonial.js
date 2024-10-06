@@ -1,70 +1,54 @@
 const slider = document.querySelector('.reviews--slider');
 const previousButton = document.querySelector('.reviews--nav.previous');
 const nextButton = document.querySelector('.reviews--nav.next');
-const reviewContainer = document.querySelector('.reviews--container');
 
 let currentIndex = 0;
 const totalReviews = document.querySelectorAll('.review').length;
-let reviewsPerPage = 3; // Par défaut, on affiche 3 avis
+const reviewsPerPage = 3;
+const totalPages = Math.ceil(totalReviews / reviewsPerPage);
 
-// Met à jour le slider pour afficher les avis en fonction de l'index
+// Update pour montrer les avis de l'index actuel
 function updateSlider() {
-    const offset = -currentIndex * (100 / reviewsPerPage);
+    const offset = -currentIndex * (100);
     slider.style.transform = `translateX(${offset}%)`;
 }
 
-// Gère la classe responsive selon la taille de l'écran
-function checkScreenSize() {
-    if (window.innerWidth < 768) {
-        reviewContainer.classList.add('single-review'); // Ajoute la classe pour un seul avis
-        reviewsPerPage = 1;
-    } else {
-        reviewContainer.classList.remove('single-review'); // Supprime la classe, revient à 3 avis
-        reviewsPerPage = 3;
-    }
-    updateSlider();
-}
-
-// Navigation des avis précédents
+// Avis precedents
 previousButton.addEventListener('click', () => {
     if (currentIndex > 0) {
         currentIndex--;
     } else {
-        currentIndex = Math.ceil(totalReviews / reviewsPerPage) - 1; // Retour à la dernière page
+        currentIndex = totalPages - 1; // Retourner à la dernière page
     }
     updateSlider();
 });
 
-// Navigation des avis suivants
+// Avis suivants
 nextButton.addEventListener('click', () => {
-    if (currentIndex < Math.ceil(totalReviews / reviewsPerPage) - 1) {
+    if (currentIndex < totalPages - 1) {
         currentIndex++;
     } else {
-        currentIndex = 0; // Retour au début si plus d'avis
+        currentIndex = 0; // Secu retour au début si plus d'avis
     }
     updateSlider();
 });
 
-// Détection du scroll horizontal pour la navigation
+// Add scroll detection for left and right scroll
 document.addEventListener('wheel', (event) => {
     if (event.deltaX > 0) {
-        // Scroll vers la droite
-        if (currentIndex < Math.ceil(totalReviews / reviewsPerPage) - 1) {
+        // Scroll to the right, go to next review
+        if (currentIndex < totalPages - 1) {
             currentIndex++;
         } else {
-            currentIndex = 0; // Reviens au début
+            currentIndex = 0; // Loop back to the first review
         }
     } else if (event.deltaX < 0) {
-        // Scroll vers la gauche
+        // Scroll to the left, go to previous review
         if (currentIndex > 0) {
             currentIndex--;
         } else {
-            currentIndex = Math.ceil(totalReviews / reviewsPerPage) - 1; // Reviens à la fin
+            currentIndex = totalPages - 1; // Loop back to the last review
         }
     }
     updateSlider();
 });
-
-// Surveille les changements de taille d'écran et adapte le nombre d'avis visibles
-window.addEventListener('resize', checkScreenSize);
-checkScreenSize(); // Appelle la fonction au chargement de la page

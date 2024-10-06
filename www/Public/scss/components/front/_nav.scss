@@ -1,3 +1,111 @@
+.bonus {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .bonus {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar--divRight {
+    display: none !important;
+  }
+  .bonus--cart {
+    position: absolute !important;
+    width: auto !important;
+    height: auto !important;
+    top: 0;
+    left: 0;
+    a {
+      display: flex !important;
+      flex-direction: row-reverse !important;
+      gap: 1vh;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar {
+    position: relative;
+
+    .navbar-toggle {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: var(--white);
+        cursor: pointer;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    &.active {
+        .navbar-toggle {
+            display: none;
+        }
+
+        .navbar-close {
+            display: block; /* Show the close button when active */
+        }
+
+        .navbar-menu {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            position: fixed; /* Cover the entire screen */
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: $navColor;
+            z-index: 99; /* Ensure the menu is above other elements */
+            padding: 2rem;
+            justify-content: center;
+            align-items: center;
+            @media screen and (max-width: 1200px) {
+              padding: 0;
+            }
+            li {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+
+                a {
+                    display: inline;
+                    width: 100%;
+                    height: 100%;
+                    padding: 1.5rem 0;
+                    font-size: 1.5rem;
+                    color: var(--white);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+  }
+}
+
+.navbar-close {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--white);
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+  z-index: 100; /* Always on top of other elements */
+}
+
+
+.navbar-toggle {
+  display: none;
+}
+
 .cart--logo {
   width: 100%;
   max-width: 2rem;
@@ -19,6 +127,9 @@
   &--li {
     position: relative;
     background-color: $navColor;
+  }
+  &-close {
+    display: none;
   }
 
   &--divLeft, &--divRight {
@@ -61,10 +172,16 @@
 
   &--divLeft {
     justify-content: flex-start;
+    @media screen and (max-width: 1200px) {
+      width: 10%;
+    }
   }
 
   &--divRight {
     justify-content: flex-end;
+    @media screen and (max-width: 1200px) {
+      width: 90%;
+    }
   }
 }
 
@@ -72,7 +189,7 @@
   position: relative;
   &:hover {
     .dropdown-content {
-      opacity: 1;
+      opacity: 100;
       top: 100%;
       background-color: $navColor;
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -82,22 +199,32 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        &a {
-
-        }
+      }
+      @media screen and (max-width: 1200px) {
+        height: 50%;
+        top: -100%;
+        z-index: 1000;
+      }
+      @media screen and (max-width: 768px) {
+        top: 0;
+        height: 75%;
       }
     }
   }
 
   .dropdown-content {
     opacity: 0;
-    bottom: 50vh;
+    top: -50vh;
     display: inline;
     background-color: $navColor;
     min-width: 10rem;
     left: 0;
     position: absolute;
     transition: all 0.5s;
+    @media screen and (max-width: 1200px) {
+      top: 200%;
+      width: 33%;
+    }
     li {
       a {
         padding: 0.75rem 1rem;
