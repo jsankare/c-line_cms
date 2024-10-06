@@ -35,16 +35,18 @@ class ArticleController
         if (isset($_GET['id'])) {
             $articleId = intval($_GET['id']);
             $article = (new Article())->findOneById($articleId);
+            $comments = (new Comment())->findCommentsByArticleId($articleId);
         } else {
             header("Impossible de récupérer l'article", true, 500);
             header('Location: /500');
             exit();
         }
-
         $view = new View('Article/show-article', 'front');
+        if ($comments) {
+            $view->assign('comments', $comments);
+        }
         $view->assign('article', $article);
         $view->render();
-
     }
 
 
