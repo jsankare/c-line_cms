@@ -841,6 +841,11 @@ input[type=color] {
   padding: 2rem 5rem;
   gap: 5rem;
 }
+@media screen and (max-width: 500px) {
+  .page--wrapper {
+    padding: 2rem;
+  }
+}
 
 .cart {
   display: flex;
@@ -1932,6 +1937,11 @@ main {
   flex-direction: column;
   gap: 1.5rem;
 }
+@media screen and (max-width: 303px) {
+  .hero {
+    margin-bottom: 0;
+  }
+}
 @media screen and (max-width: 768px) {
   .hero-buttons {
     display: flex;
@@ -1980,6 +1990,26 @@ main {
 @media screen and (max-width: 768px) {
   .image--section {
     top: 32rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .image--section {
+    top: 35rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .image--section {
+    top: 37.5rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .image--section {
+    top: 40rem;
+  }
+}
+@media screen and (max-width: 303px) {
+  .image--section {
+    display: none;
   }
 }
 .image--section__image {
@@ -2074,6 +2104,11 @@ main {
     text-align: center;
   }
 }
+@media screen and (max-width: 500px) {
+  .features--feature {
+    padding: 1rem 0;
+  }
+}
 
 @media screen and (max-width: 1070px) {
   .review {
@@ -2138,6 +2173,11 @@ main {
 @media screen and (max-width: 768px) {
   .reviews--container .review {
     width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .reviews--container .review {
+    padding: 0.5rem;
   }
 }
 .reviews--container .review--container {
@@ -2233,6 +2273,11 @@ main {
     align-items: center;
   }
 }
+@media screen and (max-width: 500px) {
+  .faq {
+    padding: 0.5rem;
+  }
+}
 .faq--heading {
   width: 45%;
   display: flex;
@@ -2264,6 +2309,11 @@ main {
   color: #666;
   text-align: left;
   max-width: 80%;
+}
+@media screen and (max-width: 500px) {
+  .faq--text {
+    max-width: 100%;
+  }
 }
 .faq--dropdown {
   border-bottom: 1px solid #ddd;

@@ -793,7 +793,7 @@ input[type=color] {
   align-items: center;
   text-align: center;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1000px) {
   .user--wrapper__unit {
     display: flex;
     flex-direction: column;
