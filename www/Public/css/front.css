@@ -1755,6 +1755,20 @@ main {
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
+@media screen and (max-width: 1200px) {
+  .item {
+    padding: 0 5vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+  }
+}
 .item--main {
   width: 100%;
   display: flex;
@@ -1780,11 +1794,45 @@ main {
 .item--aside__intel {
   width: 100%;
 }
+@media screen and (max-width: 1024px) {
+  .item--aside__intel {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
 .item--aside__interactions {
   width: 100%;
 }
-.item--aside__content {
+@media screen and (max-width: 1024px) {
+  .item--aside__interactions {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.item--aside__text {
   width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .item--aside__text {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .item--aside {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.item--aside__text__bonus {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .item--aside__text__bonus {
+    display: inline;
+  }
 }
 
 .gallery {

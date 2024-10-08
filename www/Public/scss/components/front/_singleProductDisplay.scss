@@ -6,6 +6,16 @@
     padding: 0 15vh;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    @media screen and (max-width: 1200px) {
+        padding: 0 5vh;
+    }
+    @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5vh;
+    }
     &--main {
         width: 100%;
         display: flex;
@@ -29,12 +39,36 @@
         text-align: left;
         &__intel {
             width: 100%;
+            @media screen and (max-width: 1024px) {
+                width: 75%;
+                margin: 0 auto;
+            }
         }
         &__interactions {
             width: 100%;
+            @media screen and (max-width: 1024px) {
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
-        &__content {
+        &__text {
             width: 100%;
+            @media screen and (max-width: 1024px) {
+                display: none;
+            }
         }
+        @media screen and (max-width: 1024px) {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.item--aside__text__bonus {
+    display: none;
+    @media screen and (max-width: 1024px) {
+        display: inline;
     }
 }
