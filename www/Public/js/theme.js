@@ -33,6 +33,6 @@ function applyTheme() {
 
 applyTheme();
 document.getElementById('themelink').addEventListener('click', function(e) {
-    e.preventDefault(); // Empêche le comportement par défaut du lien
-    changeTheme(); // Change le thème lors du clic
+    e.preventDefault();
+    changeTheme();
 });

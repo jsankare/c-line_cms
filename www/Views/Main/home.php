@@ -82,7 +82,7 @@
              <?php foreach ($faqs as $faq): ?>
                  <article class="faq--dropdown">
                      <h4 class="faq--dropdown__question question"><?= $faq->getQuestion(); ?></h4>
-                     <p class="faq--dropdown__answer"><?= $faq->getAnswer(); ?></p>
+                     <p class="faq--dropdown__answer <?php  ?>"><?= $faq->getAnswer(); ?></p>
                  </article>
              <?php endforeach; ?>
          </div>

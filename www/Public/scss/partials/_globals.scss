@@ -14,10 +14,24 @@
 
 .light-theme {
   background-color: #f9f9f9 !important;
-  color: #111621;
+  color: #111621 !important;
 }
 
 .dark-theme {
   background-color: #111621 !important;
-  color: #f9f9f9;
+  color: #f9f9f9 !important;
+  .faq--dropdown__answer {
+    color: #dad2d2 !important;
+  }
+  .faq--text {
+    color: #dad2d2 !important;
+  }
+  .review {
+    box-shadow: rgb(202 195 195 / 81%) 0 1px 4px !important;
+    border-radius: 0.5rem !important;
+  }
+  .article-list__active {
+    background-color: #171D2A !important;
+    border: 2px solid white !important;
+  }
 }

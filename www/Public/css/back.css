@@ -259,12 +259,26 @@ ul li a {
 
 .light-theme {
   background-color: #f9f9f9 !important;
-  color: #111621;
+  color: #111621 !important;
 }
 
 .dark-theme {
   background-color: #111621 !important;
-  color: #f9f9f9;
+  color: #f9f9f9 !important;
+}
+.dark-theme .faq--dropdown__answer {
+  color: #dad2d2 !important;
+}
+.dark-theme .faq--text {
+  color: #dad2d2 !important;
+}
+.dark-theme .review {
+  box-shadow: rgba(202, 195, 195, 0.81) 0 1px 4px !important;
+  border-radius: 0.5rem !important;
+}
+.dark-theme .article-list__active {
+  background-color: #171D2A !important;
+  border: 2px solid white !important;
 }
 
 :root {
@@ -793,7 +807,7 @@ input[type=color] {
   align-items: center;
   text-align: center;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .user--wrapper__unit {
     display: flex;
     flex-direction: column;
