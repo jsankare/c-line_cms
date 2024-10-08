@@ -24,6 +24,9 @@
             </div>
             <?php endif ?>
         </header>
+        <footer class="item--aside__text__bonus">
+            <p class="item--aside__text__content__bonus"><?= $product->getDescription(); ?></p>
+        </footer>
         <section class="item--aside__interactions">
         <?php if ($product->getAvailable() === 1): ?>
             <form action="" class="item--aside__interactions__form">
