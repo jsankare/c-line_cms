@@ -260,11 +260,11 @@ ul li a {
 
 .light-theme {
   background-color: #f9f9f9 !important;
-  color: #111621 !important;
+  color: var(--darkBackground) !important;
 }
 
 .dark-theme {
-  background-color: #111621 !important;
+  background-color: var(--darkBackground) !important;
   color: #f9f9f9 !important;
 }
 .dark-theme .faq--dropdown__answer {
@@ -281,20 +281,30 @@ ul li a {
   background-color: #171D2A !important;
   border: 2px solid white !important;
 }
+.dark-theme .reviews--nav {
+  color: #c9bdbd;
+}
+.dark-theme .reviews--nav:hover {
+  color: white;
+}
 
 :root {
   --black: #000;
   --black-hover: black;
   --blue: #0d6efd;
-  --blue-hover: #0143a3;
+  --blue-hover: #024dbc;
   --white: #fff;
-  --white-hover: #cccccc;
+  --white-hover: #d9d9d9;
   --grey: #6c757d;
-  --grey-hover: #3d4246;
+  --grey-hover: #494f54;
   --red: #dc3545;
-  --red-hover: #921925;
+  --red-hover: #a71d2a;
   --green: #489e0a;
-  --green-hover: #1c3e04;
+  --green-hover: #275605;
+  --purple: #4d386b;
+  --purple-hover: #291e39;
+  --darkBackground: #111621;
+  --darkBackground-hover: black;
   --black: #000;
   --black-transparent: rgba(0, 0, 0, 0.8);
   --blue: #0d6efd;
@@ -307,6 +317,10 @@ ul li a {
   --red-transparent: rgba(220, 53, 69, 0.8);
   --green: #489e0a;
   --green-transparent: rgba(72, 158, 10, 0.8);
+  --purple: #4d386b;
+  --purple-transparent: rgba(77, 56, 107, 0.8);
+  --darkBackground: #111621;
+  --darkBackground-transparent: rgba(17, 22, 33, 0.8);
   --black: #000;
   --black-light: #333333;
   --blue: #0d6efd;
@@ -319,12 +333,16 @@ ul li a {
   --red-light: #eb8c95;
   --green: #489e0a;
   --green-light: #76f11d;
+  --purple: #4d386b;
+  --purple-light: #7e5eab;
+  --darkBackground: #111621;
+  --darkBackground-light: #344364;
   --text-color: var(--black);
   --primary: var(--blue);
-  --secondary: var(--grey);
+  --secondary: var(--purple);
   --danger: var(--red);
   --primary-hover: var(--blue-hover);
-  --secondary-hover: var(--grey-hover);
+  --secondary-hover: var(--purple-hover);
   --danger-hover: var(--red-hover);
 }
 
@@ -988,7 +1006,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .specs--emptycart:hover {
@@ -1012,7 +1030,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .specs--button:hover {
@@ -1042,7 +1060,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .empty--link:hover {
@@ -1056,10 +1074,10 @@ main {
 }
 
 .reset--button {
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
 }
 .reset--button:hover {
-  background-color: #583b72;
+  background-color: var(--purple-hover);
 }
 
 .product--image {
@@ -1197,7 +1215,7 @@ main {
   display: block;
   margin: 0.5rem auto;
   padding: 0.5rem 1rem;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -1306,7 +1324,7 @@ main {
 }
 .profile--edit-btn {
   margin-top: 2rem;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -1451,7 +1469,7 @@ main {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .edit-profile__form form input[type=submit] {
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   border: none;
   cursor: pointer;
@@ -1738,7 +1756,7 @@ main {
   min-height: 4rem;
 }
 .comment--section__button {
-  background-color: #3C2A4D;
+  background-color: var(--secondary);
   border: none;
 }
 .comment--section__button:hover {
@@ -2206,6 +2224,7 @@ main {
   gap: 2rem;
   transition: transform 0.5s ease;
   padding: 1rem;
+  width: 85%;
 }
 @media screen and (max-width: 1070PX) {
   .reviews--container .reviews--slider {
@@ -2319,6 +2338,11 @@ main {
     max-width: 100%;
     width: 80%;
   }
+}
+
+.next {
+  position: absolute;
+  right: 0;
 }
 
 .faq {

@@ -126,7 +126,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     transition: all 0.25s;
-    background-color: #3c2a4d;
+    background-color: var(--secondary);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     &:hover {
       transform: scale(1.05);
@@ -148,7 +148,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     transition: all 0.25s;
-    background-color: #3c2a4d;
+    background-color: var(--secondary);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     &:hover {
       transform: scale(1.05);
@@ -180,7 +180,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     transition: all 0.25s;
-    background-color: #3c2a4d;
+    background-color: var(--secondary);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     &:hover {
       transform: scale(1.05);

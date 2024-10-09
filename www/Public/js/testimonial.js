@@ -4,6 +4,7 @@ const nextButton = document.querySelector('.reviews--nav.next');
 
 let currentIndex = 0;
 const totalReviews = document.querySelectorAll('.review').length;
+console.log(totalReviews)
 const reviewsPerPage = 3;
 const totalPages = Math.ceil(totalReviews / reviewsPerPage);
 

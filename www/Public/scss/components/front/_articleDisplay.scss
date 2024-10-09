@@ -260,7 +260,7 @@ $tag-border-radius: 1.5rem;
       min-height: 4rem;
     }
     &__button {
-      background-color: #3C2A4D;
+      background-color: var(--secondary);
       border: none;
       &:hover {
         background-color: #2a1a38;

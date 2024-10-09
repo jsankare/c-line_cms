@@ -5,9 +5,9 @@ main {
 }
 
 .reset--button {
-    background-color: #3c2a4d;
+    background-color: var(--secondary);
     &:hover {
-        background-color: #583b72;
+        background-color: var(--purple-hover);
     }
 }
 
@@ -151,7 +151,7 @@ main {
             display: block;
             margin: 0.5rem auto;
             padding: 0.5rem 1rem;
-            background-color: #3c2a4d;
+            background-color: var(--secondary);
             color: white;
             border: none;
             border-radius: 5px;
