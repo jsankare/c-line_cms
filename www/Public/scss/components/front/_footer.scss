@@ -1,10 +1,17 @@
 .footer {
   padding: 2rem;
   width: 100%;
+  max-height: 25rem;
   color: var(--white);
   background-color: $navColor;
   align-self: flex-end;
   z-index: -1;
+  &--footer {
+    text-align: center;
+    &__link {
+      color: white;
+    }
+  }
   &--logo {
     &__link {
       text-align: center;
@@ -44,7 +51,7 @@
     }
     &__list {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 1rem;
     }
     &__listItem {

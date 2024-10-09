@@ -1,15 +1,9 @@
 @use "sass:color";
 
 // Colors
-$textColor: #000;
-$textColor: #e0dcdc;
 $navColor: #171D2A;
 $darkThemeColor: #111621;
 $backgroundColor: #f9f9f9;
-// $blue: #0d6efd;
-// $white: #fff;
-// $grey: #6c757d;
-// $red: #dc3545;
 
 $breakpoints: (
         "sm": 768px,
@@ -26,6 +20,16 @@ $colors: (
         "red": #dc3545,
         "green": #489e0a,
         "purple": #4d386b,
+        "yellow": #ffc107,
+        "orange": #fd7e14,
+        "teal": #20c997,
+        "pink": #e83e8c,
+        "lightGrey": #f8f9fa,
+        "darkGrey": #343a40,
+        "lightBlue": #b3d7ff,
+        "navColor": #171D2A,
+        "darkThemeColor": #111621,
+        "backgroundColor": #f9f9f9,
         "darkBackground": #111621,
 );
 

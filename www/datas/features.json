@@ -2,7 +2,7 @@
     {
         "title": "Créations de Couture Fait Main",
         "description": "Chaque pièce de couture est réalisée avec passion et un souci du détail incomparable. Des vêtements et accessoires cousus à la main, avec amour et patience, pour des créations uniques et authentiques.",
-        "link": "https://example.com/creations-couture",
+        "link": "/products/show",
         "ctaContent": "Découvrir les créations",
         "features": [
             "Des tissus choisis avec soin",
@@ -15,8 +15,8 @@
     {
         "title": "Artisanat Passionné",
         "description": "Découvrez l'art de transformer des matières simples en objets uniques faits à la main. Chaque création artisanale est le fruit de plusieurs heures de travail passionné, où le savoir-faire traditionnel se mêle à une créativité débordante.",
-        "link": "https://example.com/artisanat-passionne",
-        "ctaContent": "Voir les créations",
+        "link": "/gallery",
+        "ctaContent": "Admirer la galerie",
         "features": [
             "Objets faits à la main avec des matériaux naturels",
             "Un savoir-faire transmis avec amour",
@@ -26,14 +26,13 @@
         "imageAlt": "Des mains d'artisan façonnant un objet unique avec amour"
     },
     {
-        "title": "Maroquinerie Artisanale",
-        "description": "Fabriquer des accessoires en cuir avec soin et minutie, c'est l'essence même de la maroquinerie artisanale. Chaque pièce, qu'il s'agisse de petits accessoires ou de sacs, est créée à la main, avec attention et passion pour chaque détail.",
-        "link": "https://example.com/maroquinerie-artisanale",
-        "ctaContent": "Explorer la collection",
+        "title": "Articles sur l'Artisanat et le Savoir-Faire",
+        "description": "Plongez dans l'univers de l'artisanat à travers une série d'articles inspirants qui mettent en lumière le travail minutieux des artisans et artisanes. Découvrez des histoires de passion, de créativité et de savoir-faire transmis de génération en génération.",
+        "link": "/articles",
+        "ctaContent": "Lire les articles",
         "features": [
-            "Travail du cuir fait main",
-            "Des accessoires durables et fonctionnels",
-            "Chaque pièce est unique et pleine de caractère"
+            "Des techniques artisanales expliquées",
+            "L'importance du fait main dans l'économie locale"
         ],
         "imageSrc": "/images/landing-3.jpg",
         "imageAlt": "Un petit sac en cuir fait main avec des outils artisanaux"
