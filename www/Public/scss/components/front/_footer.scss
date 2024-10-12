@@ -1,7 +1,9 @@
 .footer {
   padding: 2rem;
   width: 100%;
-  max-height: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   color: var(--white);
   background-color: $navColor;
   align-self: flex-end;
@@ -54,11 +56,6 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    &__listItem {
-      @media screen and (max-width: 1024px) {
-        
-      }
-    }
     &__listItemLink {
       &:hover {
         text-decoration: underline;
@@ -99,8 +96,6 @@
     }
   }
 }
-
-
 
 .scaled-logo {
   width: 150px;

@@ -15,6 +15,7 @@
 .light-theme {
   background-color: #f9f9f9 !important;
   color: var(--darkBackground) !important;
+
 }
 
 .dark-theme {
@@ -39,5 +40,11 @@
     &:hover {
       color: white;
     }
+  }
+  .label--acceptTos {
+    color: black;
+  }
+  .redirect--link {
+    color: whitesmoke;
   }
 }

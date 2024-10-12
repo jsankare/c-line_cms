@@ -33,11 +33,10 @@
                 <label for="quantity-item" class="item--aside__interactions__label">Quantité</label>
                 <select name="quantities" id="quantity-item" class="item--aside__interactions__input">
                 <option value="">Choisir une quantité</option>
-                <option value="dog">1</option>
-                <option value="cat">2</option>
-                <option value="hamster">3</option>
-                <option value="parrot">4</option>
-                <option value="spider">...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
                 </select>
                 <button class="item--aside__interactions__submit">Ajouter au panier</button>
             </form>

@@ -1,9 +1,22 @@
 .main {
     &--connections {
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
     }
+}
+
+.form {
+    &--login, &--register {
+        min-height: 30vh;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+.redirect--link {
+    color: black;
 }
