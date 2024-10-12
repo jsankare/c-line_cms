@@ -1,14 +1,9 @@
 @use "sass:color";
 
 // Colors
-$textColor: #000;
-$textColor: #e0dcdc;
 $navColor: #171D2A;
+$darkThemeColor: #111621;
 $backgroundColor: #f9f9f9;
-// $blue: #0d6efd;
-// $white: #fff;
-// $grey: #6c757d;
-// $red: #dc3545;
 
 $breakpoints: (
         "sm": 768px,
@@ -24,12 +19,24 @@ $colors: (
         "grey": #6c757d,
         "red": #dc3545,
         "green": #489e0a,
+        "purple": #4d386b,
+        "yellow": #ffc107,
+        "orange": #fd7e14,
+        "teal": #20c997,
+        "pink": #e83e8c,
+        "lightGrey": #f8f9fa,
+        "darkGrey": #343a40,
+        "lightBlue": #b3d7ff,
+        "navColor": #171D2A,
+        "darkThemeColor": #111621,
+        "backgroundColor": #f9f9f9,
+        "darkBackground": #111621,
 );
 
 :root {
   @each $name, $value in $colors {
     --#{$name}: #{$value};
-    --#{$name}-hover: #{color.adjust($value, $lightness: -20%)};
+    --#{$name}-hover: #{color.adjust($value, $lightness: -15%)};
   }
   @each $name, $value in $colors {
     --#{$name}: #{$value};
@@ -42,11 +49,11 @@ $colors: (
 
   --text-color: var(--black);
   --primary: var(--blue);
-  --secondary: var(--grey);
+  --secondary: var(--purple);
   --danger: var(--red);
 
   --primary-hover: var(--blue-hover);
-  --secondary-hover: var(--grey-hover);
+  --secondary-hover: var(--purple-hover);
   --danger-hover: var(--red-hover);
 
   //--main-font: #{$font1};

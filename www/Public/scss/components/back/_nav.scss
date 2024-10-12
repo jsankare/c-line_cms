@@ -1,7 +1,7 @@
 @use "sass:color";
 
 $bgColor: #1f1b2e;
-$hoverColor: #3c2a4d;
+$hoverColor: var(--secondary);
 $highlightColor: #ffffff;
 $textColor: #c4c4c4;
 
@@ -16,7 +16,7 @@ $textColor: #c4c4c4;
     display: block;
     width: 100%;
     height: 5px;
-    background-color: #3c2a4d;
+    background-color: var(--secondary);
     position: absolute;
     bottom: 0;
     left: 0;

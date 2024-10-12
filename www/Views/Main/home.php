@@ -70,7 +70,7 @@
                <h1 class="call-to-action--title">Call to action that excites the visitor to try your product</h1>
                <p class="call-to-action--text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
           </div>
-           <a href="" class="call-to-action--button">Voir les produits</a>
+           <a href="/products/show" class="call-to-action--button">Voir les produits</a>
      </section>
 
      <section class="faq">

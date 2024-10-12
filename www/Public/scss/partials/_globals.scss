@@ -14,11 +14,12 @@
 
 .light-theme {
   background-color: #f9f9f9 !important;
-  color: #111621 !important;
+  color: var(--darkBackground) !important;
+
 }
 
 .dark-theme {
-  background-color: #111621 !important;
+  background-color: var(--darkBackground) !important;
   color: #f9f9f9 !important;
   .faq--dropdown__answer {
     color: #dad2d2 !important;
@@ -33,5 +34,17 @@
   .article-list__active {
     background-color: #171D2A !important;
     border: 2px solid white !important;
+  }
+  .reviews--nav {
+    color: #c9bdbd;
+    &:hover {
+      color: white;
+    }
+  }
+  .label--acceptTos {
+    color: black;
+  }
+  .redirect--link {
+    color: whitesmoke;
   }
 }

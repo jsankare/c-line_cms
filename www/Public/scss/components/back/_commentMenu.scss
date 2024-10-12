@@ -47,7 +47,7 @@
     grid-template-columns: 2fr 2fr 1fr 8fr 2fr 2fr;
     justify-content: center;
     align-items: flex-start;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--black);
   }
   &--navigation {
     display: flex;
@@ -78,7 +78,7 @@
       display: grid;
       grid-template-columns: 2fr 2fr 8fr 2fr 2fr;
       gap: 1rem;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid var(--black);
       position: relative;
     }
   }

@@ -188,6 +188,7 @@
       gap: 2rem;
       transition: transform 0.5s ease;
       padding: 1rem;
+      width: 85%;
       @media screen and (max-width: 1070PX) {
         flex-direction: column;
         align-items: center;
@@ -258,11 +259,13 @@
     cursor: pointer;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 3rem;
     height: 100%;
     padding: 1rem;
     z-index: 1;
+    position: absolute;
+    top: 43%;
     @media screen and (max-width: 1070PX) {
       display: none;
     }
@@ -301,6 +304,14 @@
       width: 80%;
     }
   }
+}
+
+.next {
+  right: 25%;
+}
+
+.previous {
+  left: 25%;
 }
 
 .faq {

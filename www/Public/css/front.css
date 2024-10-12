@@ -260,11 +260,11 @@ ul li a {
 
 .light-theme {
   background-color: #f9f9f9 !important;
-  color: #111621 !important;
+  color: var(--darkBackground) !important;
 }
 
 .dark-theme {
-  background-color: #111621 !important;
+  background-color: var(--darkBackground) !important;
   color: #f9f9f9 !important;
 }
 .dark-theme .faq--dropdown__answer {
@@ -281,20 +281,56 @@ ul li a {
   background-color: #171D2A !important;
   border: 2px solid white !important;
 }
+.dark-theme .reviews--nav {
+  color: #c9bdbd;
+}
+.dark-theme .reviews--nav:hover {
+  color: white;
+}
+.dark-theme .label--acceptTos {
+  color: black;
+}
+.dark-theme .redirect--link {
+  color: whitesmoke;
+}
 
 :root {
   --black: #000;
   --black-hover: black;
   --blue: #0d6efd;
-  --blue-hover: #0143a3;
+  --blue-hover: #024dbc;
   --white: #fff;
-  --white-hover: #cccccc;
+  --white-hover: #d9d9d9;
   --grey: #6c757d;
-  --grey-hover: #3d4246;
+  --grey-hover: #494f54;
   --red: #dc3545;
-  --red-hover: #921925;
+  --red-hover: #a71d2a;
   --green: #489e0a;
-  --green-hover: #1c3e04;
+  --green-hover: #275605;
+  --purple: #4d386b;
+  --purple-hover: #291e39;
+  --yellow: #ffc107;
+  --yellow-hover: #ba8b00;
+  --orange: #fd7e14;
+  --orange-hover: #c35a02;
+  --teal: #20c997;
+  --teal-hover: #158765;
+  --pink: #e83e8c;
+  --pink-hover: #c21766;
+  --lightGrey: #f8f9fa;
+  --lightGrey-hover: #cbd3da;
+  --darkGrey: #343a40;
+  --darkGrey-hover: #121416;
+  --lightBlue: #b3d7ff;
+  --lightBlue-hover: #67afff;
+  --navColor: #171D2A;
+  --navColor-hover: black;
+  --darkThemeColor: #111621;
+  --darkThemeColor-hover: black;
+  --backgroundColor: #f9f9f9;
+  --backgroundColor-hover: lightgray;
+  --darkBackground: #111621;
+  --darkBackground-hover: black;
   --black: #000;
   --black-transparent: rgba(0, 0, 0, 0.8);
   --blue: #0d6efd;
@@ -307,6 +343,30 @@ ul li a {
   --red-transparent: rgba(220, 53, 69, 0.8);
   --green: #489e0a;
   --green-transparent: rgba(72, 158, 10, 0.8);
+  --purple: #4d386b;
+  --purple-transparent: rgba(77, 56, 107, 0.8);
+  --yellow: #ffc107;
+  --yellow-transparent: rgba(255, 193, 7, 0.8);
+  --orange: #fd7e14;
+  --orange-transparent: rgba(253, 126, 20, 0.8);
+  --teal: #20c997;
+  --teal-transparent: rgba(32, 201, 151, 0.8);
+  --pink: #e83e8c;
+  --pink-transparent: rgba(232, 62, 140, 0.8);
+  --lightGrey: #f8f9fa;
+  --lightGrey-transparent: rgba(248, 249, 250, 0.8);
+  --darkGrey: #343a40;
+  --darkGrey-transparent: rgba(52, 58, 64, 0.8);
+  --lightBlue: #b3d7ff;
+  --lightBlue-transparent: rgba(179, 215, 255, 0.8);
+  --navColor: #171D2A;
+  --navColor-transparent: rgba(23, 29, 42, 0.8);
+  --darkThemeColor: #111621;
+  --darkThemeColor-transparent: rgba(17, 22, 33, 0.8);
+  --backgroundColor: #f9f9f9;
+  --backgroundColor-transparent: rgba(249, 249, 249, 0.8);
+  --darkBackground: #111621;
+  --darkBackground-transparent: rgba(17, 22, 33, 0.8);
   --black: #000;
   --black-light: #333333;
   --blue: #0d6efd;
@@ -319,12 +379,36 @@ ul li a {
   --red-light: #eb8c95;
   --green: #489e0a;
   --green-light: #76f11d;
+  --purple: #4d386b;
+  --purple-light: #7e5eab;
+  --yellow: #ffc107;
+  --yellow-light: #ffdb6d;
+  --orange: #fd7e14;
+  --orange-light: #feb679;
+  --teal: #20c997;
+  --teal-light: #68e7c1;
+  --pink: #e83e8c;
+  --pink-light: #f399c2;
+  --lightGrey: #f8f9fa;
+  --lightGrey-light: white;
+  --darkGrey: #343a40;
+  --darkGrey-light: #626d78;
+  --lightBlue: #b3d7ff;
+  --lightBlue-light: white;
+  --navColor: #171D2A;
+  --navColor-light: #3b4b6c;
+  --darkThemeColor: #111621;
+  --darkThemeColor-light: #344364;
+  --backgroundColor: #f9f9f9;
+  --backgroundColor-light: white;
+  --darkBackground: #111621;
+  --darkBackground-light: #344364;
   --text-color: var(--black);
   --primary: var(--blue);
-  --secondary: var(--grey);
+  --secondary: var(--purple);
   --danger: var(--red);
   --primary-hover: var(--blue-hover);
-  --secondary-hover: var(--grey-hover);
+  --secondary-hover: var(--purple-hover);
   --danger-hover: var(--red-hover);
 }
 
@@ -343,6 +427,11 @@ form {
   padding: 1.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   background-color: white;
+}
+@media screen and (max-width: 425px) {
+  form {
+    padding: 1rem;
+  }
 }
 
 form input, form select, form textarea, form button {
@@ -466,11 +555,22 @@ input[type=color] {
 }
 
 .main--connections {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+.form--login, .form--register {
+  min-height: 30vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.redirect--link {
+  color: black;
 }
 
 #themeIcon {
@@ -754,10 +854,19 @@ input[type=color] {
 .footer {
   padding: 2rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   color: var(--white);
   background-color: #171D2A;
   align-self: flex-end;
   z-index: -1;
+}
+.footer--footer {
+  text-align: center;
+}
+.footer--footer__link {
+  color: white;
 }
 .footer--logo__link {
   text-align: center;
@@ -801,7 +910,7 @@ input[type=color] {
 }
 .footer--right__list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .footer--right__listItemLink:hover {
@@ -988,7 +1097,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .specs--emptycart:hover {
@@ -1012,7 +1121,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .specs--button:hover {
@@ -1042,7 +1151,7 @@ input[type=color] {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   transition: all 0.25s;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .empty--link:hover {
@@ -1056,10 +1165,10 @@ main {
 }
 
 .reset--button {
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
 }
 .reset--button:hover {
-  background-color: #583b72;
+  background-color: var(--purple-hover);
 }
 
 .product--image {
@@ -1197,7 +1306,7 @@ main {
   display: block;
   margin: 0.5rem auto;
   padding: 0.5rem 1rem;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -1306,7 +1415,7 @@ main {
 }
 .profile--edit-btn {
   margin-top: 2rem;
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -1451,7 +1560,7 @@ main {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .edit-profile__form form input[type=submit] {
-  background-color: #3c2a4d;
+  background-color: var(--secondary);
   color: white;
   border: none;
   cursor: pointer;
@@ -1738,7 +1847,7 @@ main {
   min-height: 4rem;
 }
 .comment--section__button {
-  background-color: #3C2A4D;
+  background-color: var(--secondary);
   border: none;
 }
 .comment--section__button:hover {
@@ -2206,6 +2315,7 @@ main {
   gap: 2rem;
   transition: transform 0.5s ease;
   padding: 1rem;
+  width: 85%;
 }
 @media screen and (max-width: 1070PX) {
   .reviews--container .reviews--slider {
@@ -2275,11 +2385,13 @@ main {
   cursor: pointer;
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 2.5rem;
   width: 3rem;
   height: 100%;
   padding: 1rem;
   z-index: 1;
+  position: absolute;
+  top: 43%;
 }
 @media screen and (max-width: 1070PX) {
   .reviews--nav {
@@ -2319,6 +2431,14 @@ main {
     max-width: 100%;
     width: 80%;
   }
+}
+
+.next {
+  right: 25%;
+}
+
+.previous {
+  left: 25%;
 }
 
 .faq {
